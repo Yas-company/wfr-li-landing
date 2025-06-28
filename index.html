@@ -3,13 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>وفرلي - وفر على مشترياتك الغذائية</title>
+    <title>وفرلي - وفر على مشترياتك الغذائية | منصة رائدة لربط المتاجر بموردي الأغذية</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="وفرلي منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين. وفر الوقت والمال على مشترياتك الغذائية مع أسعار تنافسية وتوصيل سريع." />
+    <meta name="keywords" content="وفرلي, مشتريات غذائية, موردي أغذية, مطاعم, متاجر, توصيل طعام, السعودية, مكة المكرمة" />
+    <meta name="author" content="وفرلي" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="وفرلي - وفر على مشترياتك الغذائية" />
+    <meta property="og:description" content="منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين بطريقة سهلة وفعالة" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wafrli.com" />
+    <meta property="og:image" content="https://wafrli.com/og-image.jpg" />
+    <meta property="og:locale" content="ar_SA" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="وفرلي - وفر على مشترياتك الغذائية" />
+    <meta name="twitter:description" content="منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين" />
+    <meta name="twitter:image" content="https://wafrli.com/twitter-image.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://wafrli.com" />
+    
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
-            colors: { primary: "#009688", secondary: "#FFA000" },
+            colors: { 
+              primary: "#009688", 
+              secondary: "#FFA000",
+              dark: {
+                bg: "#0f172a",
+                card: "#1e293b",
+                text: "#f1f5f9",
+                border: "#334155"
+              }
+            },
             borderRadius: {
               none: "0px",
               sm: "4px",
@@ -44,7 +84,109 @@
       :where([class^="ri-"])::before { content: "\f3c2"; }
       body {
       font-family: 'Almarai', sans-serif;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
       }
+      
+      /* Dark Mode Styles */
+      .dark body {
+        background-color: #0f172a;
+        color: #f1f5f9;
+      }
+      
+      .dark .bg-white {
+        background-color: #1e293b;
+      }
+      
+      .dark .text-gray-900 {
+        color: #f1f5f9;
+      }
+      
+      .dark .text-gray-700 {
+        color: #cbd5e1;
+      }
+      
+      .dark .text-gray-600 {
+        color: #94a3b8;
+      }
+      
+      .dark .text-gray-500 {
+        color: #64748b;
+      }
+      
+      .dark .text-gray-400 {
+        color: #475569;
+      }
+      
+      .dark .border-gray-100 {
+        border-color: #334155;
+      }
+      
+      .dark .border-gray-200 {
+        border-color: #475569;
+      }
+      
+      .dark .border-gray-800 {
+        border-color: #1e293b;
+      }
+      
+      .dark .shadow-lg {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      }
+      
+      .dark .shadow-xl {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      }
+      
+      .dark .shadow-2xl {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      }
+      
+      .dark .bg-gray-50 {
+        background-color: #1e293b;
+      }
+      
+      .dark .bg-gray-100 {
+        background-color: #334155;
+      }
+      
+      .dark .bg-gray-800 {
+        background-color: #0f172a;
+      }
+      
+      .dark .bg-gray-900 {
+        background-color: #020617;
+      }
+      
+      .dark .hover\:bg-gray-100:hover {
+        background-color: #334155;
+      }
+      
+      .dark .hover\:text-white:hover {
+        color: #f1f5f9;
+      }
+      
+      .dark .hover\:text-primary:hover {
+        color: #009688;
+      }
+      
+      .dark .focus\:ring-primary:focus {
+        --tw-ring-color: #009688;
+      }
+      
+      .dark .focus\:border-primary:focus {
+        border-color: #009688;
+      }
+      
+      /* Dark mode toggle animation */
+      .dark-mode-toggle {
+        transition: all 0.3s ease;
+      }
+      
+      .dark-mode-toggle:hover {
+        transform: rotate(180deg);
+      }
+      
       input[type="number"]::-webkit-inner-spin-button,
       input[type="number"]::-webkit-outer-spin-button {
       -webkit-appearance: none;
@@ -54,14 +196,32 @@
       background-image: linear-gradient(to left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.95)), url('https://readdy.ai/api/search-image?query=Arabic%20food%20marketplace%20with%20fresh%20vegetables%2C%20fruits%2C%20and%20food%20supplies.%20Modern%2C%20clean%2C%20bright%20scene%20with%20store%20owners%20and%20suppliers%20interacting.%20Professional%20business%20environment%20with%20food%20items%20neatly%20arranged.%20Bright%20lighting%2C%20soft%20shadows%2C%20and%20a%20welcoming%20atmosphere.%20No%20text%20or%20people%20visible&width=1600&height=800&seq=1&orientation=landscape');
       background-size: cover;
       background-position: center;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
       }
+      
+      .dark .hero-section {
+        background-image: linear-gradient(to left, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)), url('https://readdy.ai/api/search-image?query=Arabic%20food%20marketplace%20with%20fresh%20vegetables%2C%20fruits%2C%20and%20food%20supplies.%20Modern%2C%20clean%2C%20bright%20scene%20with%20store%20owners%20and%20suppliers%20interacting.%20Professional%20business%20environment%20with%20food%20items%20neatly%20arranged.%20Bright%20lighting%2C%20soft%20shadows%2C%20and%20a%20welcoming%20atmosphere.%20No%20text%20or%20people%20visible&width=1600&height=800&seq=1&orientation=landscape');
+      }
+      
       .ai-section {
       background-image: linear-gradient(to right, rgba(46, 125, 50, 0.05), rgba(21, 101, 192, 0.05));
       }
+      
+      .dark .ai-section {
+        background-image: linear-gradient(to right, rgba(46, 125, 50, 0.1), rgba(21, 101, 192, 0.1));
+      }
+      
       .feature-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       }
+      
+      .dark .feature-card:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+      
       .step-card:hover {
       transform: translateY(-5px);
       }
@@ -69,106 +229,804 @@
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       }
+      
+      .dark .ai-feature-card:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+      
+      @media (max-width: 768px) {
+      .hero-section {
+      padding: 4rem 0;
+      min-height: auto;
+      }
+      .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      }
+      }
+      @media (max-width: 640px) {
+      h1 {
+      font-size: 2rem !important;
+      line-height: 1.3 !important;
+      }
+      h2 {
+      font-size: 1.75rem !important;
+      }
+      h3 {
+      font-size: 2.25rem !important;
+      }
+      .py-20 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      }
+      }
+      
+      /* تحريكات مخصصة */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes slide-in-left {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes slide-in-right {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes scale-in {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+      }
+      
+      .animate-slide-in-left {
+        animation: slide-in-left 0.8s ease-out forwards;
+      }
+      
+      .animate-slide-in-right {
+        animation: slide-in-right 0.8s ease-out forwards;
+      }
+      
+      .animate-scale-in {
+        animation: scale-in 0.6s ease-out forwards;
+      }
+      
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+      
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+      
+      .delay-500 {
+        animation-delay: 0.5s;
+      }
+      
+      .delay-600 {
+        animation-delay: 0.6s;
+      }
+      
+      .delay-1000 {
+        animation-delay: 1s;
+      }
+      
+      /* تحسينات إضافية */
+      .feature-card {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 150, 136, 0.1), transparent);
+        transition: left 0.5s;
+      }
+      
+      .feature-card:hover::before {
+        left: 100%;
+      }
+      
+      .step-card {
+        position: relative;
+      }
+      
+      .step-card::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background: linear-gradient(to right, #009688, #FFA000);
+        transition: width 0.3s ease;
+      }
+      
+      .step-card:hover::after {
+        width: 50%;
+      }
+      
+      /* تأثيرات النص */
+      .text-gradient {
+        background: linear-gradient(135deg, #009688, #FFA000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      /* تحسين الأزرار */
+      .btn-primary {
+        background: linear-gradient(135deg, #009688, #00BCD4);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+      
+      .btn-primary:hover::before {
+        left: 100%;
+      }
+      
+      /* تأثيرات التمرير */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+      
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* تحسينات الموبايل */
+      @media (max-width: 768px) {
+        .mobile-menu {
+          transform: translateX(100%);
+          transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+          transform: translateX(0);
+        }
+        
+        .mobile-menu-overlay {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.open {
+          opacity: 1;
+          visibility: visible;
+        }
+        
+        .hero-buttons {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        
+        .hero-buttons button {
+          width: 100%;
+          justify-content: center;
+        }
+        
+        .feature-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        
+        .contact-cards {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        
+        .chat-window-mobile {
+          width: calc(100vw - 2rem);
+          height: calc(100vh - 8rem);
+          left: 1rem;
+          right: 1rem;
+        }
+      }
+      
+      /* تحسينات إضافية للموبايل */
+      @media (max-width: 480px) {
+        .container {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+        
+        .hero-section {
+          padding: 2rem 0;
+        }
+        
+        .py-20 {
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+        }
+        
+        .py-16 {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+        }
+        
+        .text-4xl {
+          font-size: 1.875rem;
+        }
+        
+        .text-3xl {
+          font-size: 1.5rem;
+        }
+        
+        .text-2xl {
+          font-size: 1.25rem;
+      }
+      }
+      
+      /* Mobile Specific Styles */
+      @media (max-width: 768px) {
+        .swiper-button-next,
+        .swiper-button-prev {
+          width: 40px;
+          height: 40px;
+        }
+        
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 16px;
+        }
+      }
+      
+      /* FAQ Styles */
+      .faq-item {
+        transition: all 0.3s ease;
+      }
+      
+      .faq-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+      
+      .faq-item.active {
+        border-color: #3b82f6;
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+      }
+      
+      .faq-toggle {
+        transition: all 0.3s ease;
+      }
+      
+      .faq-toggle:hover {
+        background-color: rgba(59, 130, 246, 0.05);
+      }
+      
+      .faq-content {
+        transition: max-height 0.3s ease;
+      }
+      
+      /* Step Card Enhancements */
+      .step-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .step-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+        transition: left 0.5s ease;
+      }
+      
+      .swiper-slide-active .step-card::before {
+        left: 100%;
+      }
+      
+      .swiper-slide-active .step-card {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+      }
+    </style>
+    <!-- SwiperJS CSS for mobile sliders -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom Swiper Styles -->
+    <style>
+      /* Custom Swiper Styles */
+      .swiper {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .swiper-slide {
+        transition: transform 0.3s ease;
+      }
+      
+      .swiper-slide-active {
+        transform: scale(1.02);
+      }
+      
+      /* Custom Navigation Arrows */
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 50px;
+        height: 50px;
+        background: rgba(59, 130, 246, 0.9);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+      
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background: rgba(59, 130, 246, 1);
+        transform: scale(1.1);
+      }
+      
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      
+      /* Custom Pagination */
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: rgba(59, 130, 246, 0.3);
+        opacity: 1;
+        transition: all 0.3s ease;
+      }
+      
+      .swiper-pagination-bullet-active {
+        background: #3b82f6;
+        transform: scale(1.2);
+      }
+      
+      /* Swipe Indicator */
+      .swipe-indicator {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 16px;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(10px);
+        pointer-events: none;
+        animation: pulse 2s infinite;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 60px;
+        justify-content: center;
+      }
+      
+      .swipe-indicator.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      
+      .swipe-indicator .close-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        transition: background 0.3s ease;
+        margin-left: 4px;
+      }
+      
+      .swipe-indicator .close-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.05);
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+      
+      /* Touch Feedback */
+      .swiper-slide {
+        cursor: grab;
+        transition: all 0.3s ease;
+      }
+      
+      .swiper-slide:active {
+        cursor: grabbing;
+        transform: scale(0.98);
+      }
+      
+      .swiper-slide-active {
+        transform: scale(1.02);
+        z-index: 2;
+      }
+      
+      /* Progress Bar */
+      .swiper-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        transition: width 0.3s ease;
+        z-index: 5;
+        border-radius: 0 2px 2px 0;
+      }
+      
+      /* Card Hover Effects */
+      .feature-card,
+      .ai-feature-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .feature-card::before,
+      .ai-feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+        transition: left 0.5s ease;
+      }
+      
+      .swiper-slide-active .feature-card::before,
+      .swiper-slide-active .ai-feature-card::before {
+        left: 100%;
+      }
+      
+      .swiper-slide-active .feature-card,
+      .swiper-slide-active .ai-feature-card {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+      }
+      
+      /* Enhanced Navigation Arrows */
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 50px;
+        height: 50px;
+        background: rgba(59, 130, 246, 0.9);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+      
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background: rgba(59, 130, 246, 1);
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+      }
+      
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      
+      /* Custom Pagination */
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: rgba(59, 130, 246, 0.3);
+        opacity: 1;
+        transition: all 0.3s ease;
+        margin: 0 4px;
+      }
+      
+      .swiper-pagination-bullet-active {
+        background: #3b82f6;
+        transform: scale(1.2);
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+      }
+      
+      /* Mobile Specific Styles */
+      @media (max-width: 768px) {
+        .swiper-button-next,
+        .swiper-button-prev {
+          width: 40px;
+          height: 40px;
+        }
+        
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 16px;
+        }
+      }
     </style>
   </head>
-  <body class="bg-white">
+  <body class="bg-white dark:bg-dark-bg">
+    <!-- شريط الإشعارات -->
+    <div id="notification-bar" class="bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 text-center text-sm relative">
+      <div class="container mx-auto flex items-center justify-center gap-2">
+        <i class="ri-notification-3-line"></i>
+        <span>🎉 سجل اهتمامك الآن واحصل على عروض حصرية للمستخدمين الأوائل!</span>
+        <button onclick="closeNotification()" class="absolute left-4 hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-colors">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+    </div>
+    
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-      <div
-        class="container mx-auto px-4 py-4 flex justify-between items-center"
-      >
-        <div class="font-['Pacifico'] text-2xl text-primary">وفرلي</div>
+    <header class="bg-white/95 dark:bg-dark-card/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100 dark:border-dark-border">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="font-['Pacifico'] text-2xl text-primary hover:scale-105 transition-transform duration-200 cursor-pointer">
+          وفرلي
+        </div>
         <nav class="hidden md:flex space-x-reverse space-x-8">
           <a
             href="#home"
-            class="text-gray-800 hover:text-primary transition-colors"
-            >الرئيسية</a
+            class="text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 relative group"
           >
+            الرئيسية
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+          </a>
           <a
             href="#about"
-            class="text-gray-800 hover:text-primary transition-colors"
-            >من نحن</a
+            class="text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 relative group"
           >
+            من نحن
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+          </a>
           <a
             href="#features"
-            class="text-gray-800 hover:text-primary transition-colors"
-            >المميزات</a
+            class="text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 relative group"
           >
+            المميزات
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+          </a>
           <a
             href="#ai-features"
-            class="text-gray-800 hover:text-primary transition-colors"
-            >الذكاء الاصطناعي</a
+            class="text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 relative group"
           >
+            الذكاء الاصطناعي
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+          </a>
           <a
             href="#how-it-works"
-            class="text-gray-800 hover:text-primary transition-colors"
-            >كيف يعمل</a
+            class="text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 relative group"
           >
+            كيف يعمل
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+          </a>
           <a
             href="#contact"
-            class="text-gray-800 hover:text-primary transition-colors"
-            >اتصل بنا</a
+            class="text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 relative group"
           >
+            اتصل بنا
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+          </a>
         </nav>
-        <button class="md:hidden w-10 h-10 flex items-center justify-center">
+        <div class="flex items-center gap-4">
+          <!-- زر الوضع المظلم -->
+          <button 
+            id="dark-mode-toggle"
+            class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200 dark-mode-toggle"
+            aria-label="تبديل الوضع المظلم"
+          >
+            <i class="ri-sun-line text-xl dark:hidden"></i>
+            <i class="ri-moon-line text-xl hidden dark:block"></i>
+          </button>
+          <button class="md:hidden w-10 h-10 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200" id="mobile-menu-btn">
           <i class="ri-menu-line text-xl"></i>
         </button>
       </div>
+      </div>
+      <!-- شريط التقدم -->
+      <div class="h-1 bg-gradient-to-r from-primary to-secondary" id="progress-bar"></div>
     </header>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white dark:bg-dark-card shadow-2xl z-50 md:hidden">
+      <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-dark-border">
+        <div class="font-['Pacifico'] text-2xl text-primary">وفرلي</div>
+        <button id="close-mobile-menu" class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
+          <i class="ri-close-line text-xl"></i>
+        </button>
+      </div>
+      <nav class="p-4">
+        <ul class="space-y-4">
+          <li><a href="#home" class="block py-3 px-4 text-gray-800 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors">الرئيسية</a></li>
+          <li><a href="#about" class="block py-3 px-4 text-gray-800 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors">من نحن</a></li>
+          <li><a href="#features" class="block py-3 px-4 text-gray-800 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors">المميزات</a></li>
+          <li><a href="#ai-features" class="block py-3 px-4 text-gray-800 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors">الذكاء الاصطناعي</a></li>
+          <li><a href="#how-it-works" class="block py-3 px-4 text-gray-800 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors">كيف يعمل</a></li>
+          <li><a href="#contact" class="block py-3 px-4 text-gray-800 dark:text-gray-200 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors">اتصل بنا</a></li>
+        </ul>
+        
+        <!-- زر الوضع المظلم في القائمة -->
+        <div class="mt-8 pt-6 border-t border-gray-200 dark:border-dark-border">
+          <button 
+            id="mobile-dark-mode-toggle"
+            class="w-full flex items-center justify-center gap-3 py-3 px-4 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors"
+          >
+            <i class="ri-sun-line text-xl dark:hidden"></i>
+            <i class="ri-moon-line text-xl hidden dark:block"></i>
+            <span class="text-gray-800 dark:text-gray-200">تبديل الوضع المظلم</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+
     <!-- Hero Section -->
-    <section id="home" class="hero-section py-20 md:py-32">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center">
+    <section id="home" class="hero-section py-20 md:py-32 relative overflow-hidden">
+      <!-- تأثيرات خلفية -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10"></div>
+      <div class="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col md:flex-row items-center gap-8">
           <div class="md:w-1/2 text-right mb-10 md:mb-0">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              وفر على مشترياتك الغذائية… سريع، سهل، موثوق!
+            <!-- شارات الإنجازات -->
+            <div class="flex items-center gap-4 mb-6 animate-fade-in-up">
+              <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+                <i class="ri-check-line"></i>
+                متاجر نشطة
+              </span>
+              <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+                <i class="ri-star-line"></i>
+                تقييم عالي
+              </span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight animate-fade-in-up delay-200">
+              وفر على مشترياتك الغذائية
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                سريع، سهل، موثوق!
+              </span>
             </h1>
-            <p class="text-lg text-gray-700 mb-8">
+            
+            <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed animate-fade-in-up delay-300">
               منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين
               بطريقة سهلة وفعالة
             </p>
-            <div class="flex space-x-reverse space-x-4">
+            
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-reverse sm:space-x-4 animate-fade-in-up delay-400 hero-buttons">
               <button
-                class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+                onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
+                class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group"
               >
-                سجل اهتمامك الآن
+                <span>سجل اهتمامك الآن</span>
+                <i class="ri-arrow-left-line group-hover:-translate-x-1 transition-transform"></i>
               </button>
               <button
-                class="border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-5 transition-colors whitespace-nowrap"
+                onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+                class="border-2 border-primary text-primary dark:text-primary px-8 py-4 rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group"
               >
-                تعرف علينا
+                <span>تعرف علينا</span>
+                <i class="ri-play-line group-hover:scale-110 transition-transform"></i>
               </button>
             </div>
           </div>
-          <div class="md:w-1/2 flex justify-center">
+          
+          <div class="md:w-1/2 flex justify-center relative animate-fade-in-up delay-600">
+            <!-- تأثيرات حول الصورة -->
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-2xl transform rotate-6"></div>
             <img
               src="https://readdy.ai/api/search-image?query=Arabic%20business%20owners%20discussing%20food%20supplies%20with%20local%20vendors.%20Modern%20marketplace%20setting%20with%20fruits%2C%20vegetables%2C%20and%20packaged%20goods%20visible.%20Professional%2C%20clean%20environment.%20Bright%20lighting%20with%20soft%20shadows.%20No%20text%20visible%20in%20the%20image.&width=600&height=500&seq=2&orientation=portrait"
-              alt="وفرلي"
-              class="rounded-lg shadow-xl max-w-full h-auto object-cover"
+              alt="وفرلي - منصة ربط المتاجر بموردي الأغذية"
+              class="rounded-2xl shadow-2xl max-w-full h-auto object-cover relative z-10 hover:scale-105 transition-transform duration-500"
               style="max-height: 500px;"
             />
+            
+            <!-- شارة عائمة -->
+            <div class="absolute -top-4 -right-4 bg-white dark:bg-dark-card rounded-full p-3 shadow-lg animate-bounce">
+              <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
+                <i class="ri-truck-line text-white text-xl"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">من نحن</h2>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">من نحن</h2>
           <div class="w-20 h-1 bg-primary mx-auto"></div>
         </div>
         <div class="flex flex-col md:flex-row items-center">
           <div class="md:w-1/2 text-right mb-10 md:mb-0 md:pl-10">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               نحن نربط بين أصحاب المتاجر والموردين
             </h3>
-            <p class="text-gray-700 mb-6">
+            <p class="text-gray-700 dark:text-gray-300 mb-6">
               تأسست وفرلي بهدف تبسيط عملية توريد المواد الغذائية للمطاعم
               والمتاجر. نحن نؤمن بأن العلاقة بين الموردين وأصحاب الأعمال يجب أن
               تكون سهلة وشفافة وفعالة.
             </p>
-            <p class="text-gray-700 mb-6">
+            <p class="text-gray-700 dark:text-gray-300 mb-6">
               من خلال منصتنا، يمكن لأصحاب المتاجر والمطاعم الوصول إلى مجموعة
               واسعة من الموردين المحليين، ومقارنة الأسعار، وطلب المنتجات بسهولة
               وسرعة.
@@ -185,74 +1043,164 @@
       </div>
     </section>
     <!-- Features Section -->
-    <section id="features" class="py-20">
-      <div class="container mx-auto px-4">
+    <section id="features" class="py-20 relative">
+      <!-- تأثيرات خلفية -->
+      <div class="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white dark:from-gray-800/50 dark:to-gray-900"></div>
+      
+      <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
-            المميزات الرئيسية
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 scroll-reveal">
+            المميزات 
+            <span class="text-gradient">الرئيسية</span>
           </h2>
-          <div class="w-20 h-1 bg-primary mx-auto"></div>
-          <p class="text-gray-700 mt-6 max-w-2xl mx-auto">
+          <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 scroll-reveal"></div>
+          <p class="text-gray-700 dark:text-gray-300 mt-6 max-w-2xl mx-auto text-lg scroll-reveal">
             نقدم مجموعة من المميزات المصممة خصيصًا لتلبية احتياجات أصحاب المتاجر
             والمطاعم وموردي الأغذية
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
-          >
-            <div
-              class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-            >
-              <i class="ri-shopping-cart-line text-primary text-2xl"></i>
+        <!-- Swiper for mobile -->
+        <div class="block md:hidden relative">
+          <div class="swiper features-swiper">
+            <div class="swiper-wrapper">
+              <!-- Each feature-card as swiper-slide -->
+              <div class="swiper-slide">
+                <div class="feature-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
+                    <i class="ri-shopping-cart-line text-white text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">عملية طلب سهلة</h3>
+                  <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    واجهة سهلة الاستخدام تمكنك من طلب المنتجات بضغطة زر واحدة، مع
+                    إمكانية تتبع طلباتك في الوقت الفعلي.
+                  </p>
+                  <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+                    <span>اعرف المزيد</span>
+                    <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="feature-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <div class="w-16 h-16 bg-gradient-to-br from-secondary to-orange-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
+                    <i class="ri-price-tag-3-line text-white text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">أسعار تنافسية</h3>
+                  <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    قارن بين أسعار مختلف الموردين واحصل على أفضل العروض والخصومات
+                    المتاحة لتوفير المال.
+                  </p>
+                  <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+                    <span>اعرف المزيد</span>
+                    <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="feature-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
+                    <i class="ri-store-2-line text-white text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">تنوع الموردين</h3>
+                  <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    اختر من بين مجموعة واسعة من الموردين المحليين الموثوقين، مع
+                    تقييمات وتعليقات من العملاء السابقين.
+                  </p>
+                  <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+                    <span>اعرف المزيد</span>
+                    <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="feature-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
+                    <i class="ri-customer-service-2-line text-white text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">دعم عملاء سريع</h3>
+                  <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    فريق دعم متخصص جاهز للمساعدة في أي وقت، مع خيارات تواصل متعددة
+                    لضمان تجربة سلسة.
+                  </p>
+                  <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+                    <span>اعرف المزيد</span>
+                    <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">عملية طلب سهلة</h3>
-            <p class="text-gray-700">
+            
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Progress Bar -->
+            <div class="swiper-progress"></div>
+          </div>
+        </div>
+        <!-- Original grid for desktop -->
+        <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div class="feature-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-shopping-cart-line text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">عملية طلب سهلة</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
               واجهة سهلة الاستخدام تمكنك من طلب المنتجات بضغطة زر واحدة، مع
               إمكانية تتبع طلباتك في الوقت الفعلي.
             </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
-          >
-            <div
-              class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-            >
-              <i class="ri-price-tag-3-line text-primary text-2xl"></i>
+            <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span>اعرف المزيد</span>
+              <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">أسعار تنافسية</h3>
-            <p class="text-gray-700">
+          </div>
+          
+          <div class="feature-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-16 h-16 bg-gradient-to-br from-secondary to-orange-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-price-tag-3-line text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">أسعار تنافسية</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
               قارن بين أسعار مختلف الموردين واحصل على أفضل العروض والخصومات
               المتاحة لتوفير المال.
             </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
-          >
-            <div
-              class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-            >
-              <i class="ri-store-2-line text-primary text-2xl"></i>
+            <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span>اعرف المزيد</span>
+              <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">تنوع الموردين</h3>
-            <p class="text-gray-700">
+          </div>
+          
+          <div class="feature-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-store-2-line text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">تنوع الموردين</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
               اختر من بين مجموعة واسعة من الموردين المحليين الموثوقين، مع
               تقييمات وتعليقات من العملاء السابقين.
             </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
-          >
-            <div
-              class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-            >
-              <i class="ri-customer-service-2-line text-primary text-2xl"></i>
+            <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span>اعرف المزيد</span>
+              <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">دعم عملاء سريع</h3>
-            <p class="text-gray-700">
+          </div>
+          
+          <div class="feature-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-customer-service-2-line text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">دعم عملاء سريع</h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
               فريق دعم متخصص جاهز للمساعدة في أي وقت، مع خيارات تواصل متعددة
               لضمان تجربة سلسة.
             </p>
+            <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span>اعرف المزيد</span>
+              <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -261,7 +1209,7 @@
     <section id="ai-features" class="py-20 ai-section">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             الذكاء الاصطناعي في خدمة مشترياتك الغذائية
           </h2>
           <div
@@ -270,7 +1218,7 @@
         </div>
         <div class="flex flex-col-reverse md:flex-row items-center mb-16">
           <div class="md:w-3/5 text-right md:pl-10">
-            <p class="text-lg text-gray-700 mb-6">
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
               في وفرلي، نستخدم تقنيات الذكاء الاصطناعي لمساعدتك في اتخاذ قرارات
               شراء أفضل وأسرع. من خلال خوارزميات ذكية، نوفر لك حلولاً مبتكرة
               تجعل عملية التوريد أكثر كفاءة وفعالية.
@@ -284,17 +1232,121 @@
             />
           </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Swiper for mobile -->
+        <div class="block md:hidden relative">
+          <div class="swiper ai-swiper">
+            <div class="swiper-wrapper">
+              <!-- Each ai-feature-card as swiper-slide -->
+              <div class="swiper-slide">
+                <div class="ai-feature-card bg-white dark:bg-dark-card p-6 rounded-lg shadow-md transition-all duration-300">
+                  <div
+                    class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+                  >
+                    <i class="ri-ai-generate text-primary text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">توصيات مخصصة</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    نظام ذكي يقترح أفضل الموردين والمنتجات بناءً على سجل مشترياتك
+                    السابقة وتفضيلاتك، مما يوفر لك الوقت ويضمن الحصول على أفضل
+                    الخيارات.
+                  </p>
+                  <button
+                    class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
+                  >
+                    <span>اعرف المزيد</span>
+                    <i class="ri-arrow-left-line mr-1"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="ai-feature-card bg-white dark:bg-dark-card p-6 rounded-lg shadow-md transition-all duration-300">
+                  <div
+                    class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+                  >
+                    <i class="ri-line-chart-line text-primary text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                    مقارنة تلقائية للعروض
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    خوارزميات متطورة تحلل الأسعار والعروض من مختلف الموردين في الوقت
+                    الفعلي، لمساعدتك في اختيار العرض الأنسب لاحتياجاتك وميزانيتك.
+                  </p>
+                  <button
+                    class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
+                  >
+                    <span>اعرف المزيد</span>
+                    <i class="ri-arrow-left-line mr-1"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="ai-feature-card bg-white dark:bg-dark-card p-6 rounded-lg shadow-md transition-all duration-300">
+                  <div
+                    class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+                  >
+                    <i class="ri-notification-3-line text-primary text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">إشعارات ذكية</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    تنبيهات فورية مخصصة عند توفر منتجاتك المفضلة، أو انخفاض الأسعار،
+                    أو ظهور عروض خاصة تناسب احتياجاتك، مما يضمن عدم تفويت أي فرصة.
+                  </p>
+                  <button
+                    class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
+                  >
+                    <span>اعرف المزيد</span>
+                    <i class="ri-arrow-left-line mr-1"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="ai-feature-card bg-white dark:bg-dark-card p-6 rounded-lg shadow-md transition-all duration-300">
+                  <div
+                    class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+                  >
+                    <i class="ri-bar-chart-grouped-line text-primary text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                    تحليل الاتجاهات
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    تقارير تحليلية متطورة توضح حركة السوق وتوجهات الطلب في منطقتك، مما
+                    يساعدك على اتخاذ قرارات استراتيجية أفضل لعملك.
+                  </p>
+                  <button
+                    class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
+                  >
+                    <span>اعرف المزيد</span>
+                    <i class="ri-arrow-left-line mr-1"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Progress Bar -->
+            <div class="swiper-progress"></div>
+          </div>
+        </div>
+        <!-- Original grid for desktop -->
+        <div class="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8">
           <div
-            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+            class="ai-feature-card bg-white dark:bg-dark-card p-6 rounded-lg shadow-md transition-all duration-300"
           >
             <div
               class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
             >
               <i class="ri-ai-generate text-primary text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">توصيات مخصصة</h3>
-            <p class="text-gray-700 mb-4">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">توصيات مخصصة</h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
               نظام ذكي يقترح أفضل الموردين والمنتجات بناءً على سجل مشترياتك
               السابقة وتفضيلاتك، مما يوفر لك الوقت ويضمن الحصول على أفضل
               الخيارات.
@@ -307,17 +1359,17 @@
             </button>
           </div>
           <div
-            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+            class="ai-feature-card bg-white dark:bg-dark-card p-6 rounded-lg shadow-md transition-all duration-300"
           >
             <div
               class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
             >
               <i class="ri-line-chart-line text-primary text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
               مقارنة تلقائية للعروض
             </h3>
-            <p class="text-gray-700 mb-4">
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
               خوارزميات متطورة تحلل الأسعار والعروض من مختلف الموردين في الوقت
               الفعلي، لمساعدتك في اختيار العرض الأنسب لاحتياجاتك وميزانيتك.
             </p>
@@ -329,15 +1381,15 @@
             </button>
           </div>
           <div
-            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+            class="ai-feature-card bg-white dark:bg-dark-card p-6 rounded-lg shadow-md transition-all duration-300"
           >
             <div
               class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
             >
               <i class="ri-notification-3-line text-primary text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">إشعارات ذكية</h3>
-            <p class="text-gray-700 mb-4">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">إشعارات ذكية</h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
               تنبيهات فورية مخصصة عند توفر منتجاتك المفضلة، أو انخفاض الأسعار،
               أو ظهور عروض خاصة تناسب احتياجاتك، مما يضمن عدم تفويت أي فرصة.
             </p>
@@ -349,17 +1401,17 @@
             </button>
           </div>
           <div
-            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+            class="ai-feature-card bg-white dark:bg-dark-card p-6 rounded-lg shadow-md transition-all duration-300"
           >
             <div
               class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
             >
               <i class="ri-bar-chart-grouped-line text-primary text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
               تحليل الاتجاهات
             </h3>
-            <p class="text-gray-700 mb-4">
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
               تقارير تحليلية متطورة توضح حركة السوق وتوجهات الطلب في منطقتك، مما
               يساعدك على اتخاذ قرارات استراتيجية أفضل لعملك.
             </p>
@@ -374,30 +1426,97 @@
       </div>
     </section>
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 bg-gray-50">
+    <section id="how-it-works" class="py-20 bg-white dark:bg-gray-900">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">كيف يعمل</h2>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            كيف يعمل وفرلي؟
+          </h2>
           <div class="w-20 h-1 bg-primary mx-auto"></div>
-          <p class="text-gray-700 mt-6 max-w-2xl mx-auto">
-            عملية بسيطة من ثلاث خطوات تمكنك من الحصول على احتياجاتك من المواد
-            الغذائية بسهولة وسرعة
+          <p class="text-gray-700 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
+            عملية بسيطة من ثلاث خطوات لتحصل على أفضل الأسعار وأجود المنتجات
           </p>
         </div>
-        <div class="flex flex-col md:flex-row justify-between items-start">
-          <div
-            class="step-card w-full md:w-1/3 text-center px-6 mb-10 md:mb-0 transition-all duration-300"
-          >
-            <div
-              class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6"
-            >
+        
+        <!-- Swiper for mobile -->
+        <div class="block md:hidden relative">
+          <div class="swiper how-it-works-swiper">
+            <div class="swiper-wrapper">
+              <!-- Step 1 -->
+              <div class="swiper-slide">
+                <div class="step-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg text-center">
+                  <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                    ١
+                  </div>
+                  <div class="w-16 h-16 mx-auto mb-6">
+                    <i class="ri-file-list-3-line text-primary text-5xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">قدم طلبك</h3>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    أدخل تفاصيل المنتجات التي تحتاجها، والكميات المطلوبة، وموعد
+                    التسليم المفضل لديك.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 2 -->
+              <div class="swiper-slide">
+                <div class="step-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg text-center">
+                  <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                    ٢
+                  </div>
+                  <div class="w-16 h-16 mx-auto mb-6">
+                    <i class="ri-scales-3-line text-primary text-5xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">قارن العروض</h3>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    استلم عروض أسعار من موردين مختلفين، وقارن بينها من حيث السعر
+                    والجودة وموعد التسليم.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 3 -->
+              <div class="swiper-slide">
+                <div class="step-card bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg text-center">
+                  <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                    ٣
+                  </div>
+                  <div class="w-16 h-16 mx-auto mb-6">
+                    <i class="ri-truck-line text-primary text-5xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">استلم طلبك</h3>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    اختر العرض المناسب، وأكد الطلب، واستلم منتجاتك في الموعد والمكان
+                    المحددين.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Progress Bar -->
+            <div class="swiper-progress"></div>
+          </div>
+        </div>
+        
+        <!-- Original flex for desktop -->
+        <div class="hidden md:flex flex-col md:flex-row justify-between items-start gap-8">
+          <div class="step-card w-full md:w-1/3 text-center px-6 mb-10 md:mb-0 transition-all duration-300">
+            <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
               ١
             </div>
             <div class="w-16 h-16 mx-auto mb-6">
               <i class="ri-file-list-3-line text-primary text-5xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">قدم طلبك</h3>
-            <p class="text-gray-700">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">قدم طلبك</h3>
+            <p class="text-gray-700 dark:text-gray-300">
               أدخل تفاصيل المنتجات التي تحتاجها، والكميات المطلوبة، وموعد
               التسليم المفضل لديك.
             </p>
@@ -405,19 +1524,15 @@
           <div class="hidden md:block w-1/6 pt-10">
             <div class="h-1 bg-primary"></div>
           </div>
-          <div
-            class="step-card w-full md:w-1/3 text-center px-6 mb-10 md:mb-0 transition-all duration-300"
-          >
-            <div
-              class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6"
-            >
+          <div class="step-card w-full md:w-1/3 text-center px-6 mb-10 md:mb-0 transition-all duration-300">
+            <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
               ٢
             </div>
             <div class="w-16 h-16 mx-auto mb-6">
               <i class="ri-scales-3-line text-primary text-5xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">قارن العروض</h3>
-            <p class="text-gray-700">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">قارن العروض</h3>
+            <p class="text-gray-700 dark:text-gray-300">
               استلم عروض أسعار من موردين مختلفين، وقارن بينها من حيث السعر
               والجودة وموعد التسليم.
             </p>
@@ -425,19 +1540,15 @@
           <div class="hidden md:block w-1/6 pt-10">
             <div class="h-1 bg-primary"></div>
           </div>
-          <div
-            class="step-card w-full md:w-1/3 text-center px-6 transition-all duration-300"
-          >
-            <div
-              class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6"
-            >
+          <div class="step-card w-full md:w-1/3 text-center px-6 transition-all duration-300">
+            <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
               ٣
             </div>
             <div class="w-16 h-16 mx-auto mb-6">
               <i class="ri-truck-line text-primary text-5xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">استلم طلبك</h3>
-            <p class="text-gray-700">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">استلم طلبك</h3>
+            <p class="text-gray-700 dark:text-gray-300">
               اختر العرض المناسب، وأكد الطلب، واستلم منتجاتك في الموعد والمكان
               المحددين.
             </p>
@@ -446,69 +1557,129 @@
       </div>
     </section>
     <!-- Supplier Benefits Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             مزايا الانضمام إلى وفرلي كمورد
           </h2>
           <div class="w-20 h-1 bg-primary mx-auto"></div>
-          <p class="text-gray-700 mt-6 max-w-2xl mx-auto">
+          <p class="text-gray-700 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
             انضم إلى شبكة موردين وفرلي واستفد من مجموعة من المزايا الحصرية التي
             ستساعدك في تنمية أعمالك
           </p>
+          
+          <!-- زر التسجيل في الأعلى -->
+          <div class="mt-8">
+            <button
+              onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
+              class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 transform flex items-center gap-2 mx-auto group"
+            >
+              <i class="ri-user-add-line text-xl"></i>
+              <span>سجل كمورد معنا</span>
+              <i class="ri-arrow-left-line group-hover:-translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Swiper for mobile -->
+        <div class="block md:hidden relative">
+          <div class="swiper supplier-benefits-swiper">
+            <div class="swiper-wrapper">
+              <!-- Benefit 1 -->
+              <div class="swiper-slide">
+                <div class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg text-center h-full">
+                  <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="ri-group-line text-primary text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                    الوصول لعدد أكبر من العملاء
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    اعرض منتجاتك لآلاف المتاجر والمطاعم في منطقتك، وانمِ قاعدة عملائك
+                    بشكل مستمر.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Benefit 2 -->
+              <div class="swiper-slide">
+                <div class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg text-center h-full">
+                  <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="ri-dashboard-line text-primary text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                    سهولة إدارة الطلبات
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    لوحة تحكم متطورة تمكنك من إدارة المخزون، الطلبات، والتوصيل بكفاءة
+                    عالية.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Benefit 3 -->
+              <div class="swiper-slide">
+                <div class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg text-center h-full">
+                  <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="ri-line-chart-line text-primary text-2xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">تحسين المبيعات</h3>
+                  <p class="text-gray-700 dark:text-gray-300">
+                    أدوات تحليلية متقدمة تساعدك في فهم السوق وتحسين أدائك وزيادة
+                    مبيعاتك.
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="bg-white dark:bg-dark-card p-8 rounded-lg shadow-md text-center">
             <div
               class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <i class="ri-group-line text-primary text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
               الوصول لعدد أكبر من العملاء
             </h3>
-            <p class="text-gray-700">
+            <p class="text-gray-700 dark:text-gray-300">
               اعرض منتجاتك لآلاف المتاجر والمطاعم في منطقتك، وانمِ قاعدة عملائك
               بشكل مستمر.
             </p>
           </div>
-          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="bg-white dark:bg-dark-card p-8 rounded-lg shadow-md text-center">
             <div
               class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <i class="ri-dashboard-line text-primary text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
               سهولة إدارة الطلبات
             </h3>
-            <p class="text-gray-700">
+            <p class="text-gray-700 dark:text-gray-300">
               لوحة تحكم متطورة تمكنك من إدارة المخزون، الطلبات، والتوصيل بكفاءة
               عالية.
             </p>
           </div>
-          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="bg-white dark:bg-dark-card p-8 rounded-lg shadow-md text-center">
             <div
               class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <i class="ri-line-chart-line text-primary text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">تحسين المبيعات</h3>
-            <p class="text-gray-700">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">تحسين المبيعات</h3>
+            <p class="text-gray-700 dark:text-gray-300">
               أدوات تحليلية متقدمة تساعدك في فهم السوق وتحسين أدائك وزيادة
               مبيعاتك.
             </p>
           </div>
-          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="bg-white dark:bg-dark-card p-8 rounded-lg shadow-md text-center">
             <div
               class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6"
             >
               <i class="ri-customer-service-2-line text-primary text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
               دعم تقني وتسويقي
             </h3>
-            <p class="text-gray-700">
+            <p class="text-gray-700 dark:text-gray-300">
               فريق متخصص لمساعدتك في كل خطوة، من الإعداد الأولي إلى التسويق
               والمبيعات.
             </p>
@@ -516,93 +1687,124 @@
         </div>
         <div class="text-center">
           <button
-            class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+            onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
+            class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center gap-2 mx-auto"
           >
+            <i class="ri-user-add-line"></i>
             سجل كمورد معنا
           </button>
         </div>
       </div>
     </section>
     <!-- FAQ Section -->
-    <section class="py-20">
+    <section class="py-20 bg-white dark:bg-gray-900">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">الأسئلة الشائعة</h2>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">الأسئلة الشائعة</h2>
           <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="text-gray-700 dark:text-gray-300 mt-6 max-w-2xl mx-auto">
+            إجابات على أكثر الأسئلة شيوعاً حول منصة وفرلي
+          </p>
         </div>
-        <div class="max-w-3xl mx-auto">
-          <div class="space-y-6">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <button
-                class="w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none"
-              >
-                <span class="text-lg font-medium text-gray-900"
-                  >كيف أبدأ استخدام وفرلي؟</span
-                >
-                <i
-                  class="ri-arrow-down-s-line text-xl text-primary transition-transform"
-                ></i>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+              <button class="faq-toggle w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                <span class="text-lg font-medium text-gray-900 dark:text-white">
+                  كيف أبدأ استخدام وفرلي؟
+                </span>
+                <i class="ri-arrow-down-s-line text-xl text-primary transition-transform duration-300"></i>
               </button>
-              <div class="px-6 pb-4">
-                <p class="text-gray-700">
+              <div class="faq-content px-6 pb-4 max-h-0 overflow-hidden transition-all duration-300">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
                   التسجيل في وفرلي سهل وسريع. ما عليك سوى إنشاء حساب، وإكمال ملف
                   متجرك، وبعدها يمكنك مباشرة البدء في طلب المنتجات من موردينا
                   المعتمدين.
                 </p>
               </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <button
-                class="w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none"
-              >
-                <span class="text-lg font-medium text-gray-900"
-                  >هل الخدمة متاحة في كل المدن؟</span
-                >
-                <i
-                  class="ri-arrow-down-s-line text-xl text-primary transition-transform"
-                ></i>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+              <button class="faq-toggle w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                <span class="text-lg font-medium text-gray-900 dark:text-white">
+                  هل الخدمة متاحة في كل المدن؟
+                </span>
+                <i class="ri-arrow-down-s-line text-xl text-primary transition-transform duration-300"></i>
               </button>
-              <div class="px-6 pb-4">
-                <p class="text-gray-700">
+              <div class="faq-content px-6 pb-4 max-h-0 overflow-hidden transition-all duration-300">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
                   حالياً، نقدم خدماتنا في المدن الرئيسية في المملكة العربية
                   السعودية، ونعمل على التوسع لتغطية المزيد من المناطق قريباً.
                 </p>
               </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <button
-                class="w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none"
-              >
-                <span class="text-lg font-medium text-gray-900"
-                  >هل يوجد رسوم على التسجيل؟</span
-                >
-                <i
-                  class="ri-arrow-down-s-line text-xl text-primary transition-transform"
-                ></i>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+              <button class="faq-toggle w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                <span class="text-lg font-medium text-gray-900 dark:text-white">
+                  هل يوجد رسوم على التسجيل؟
+                </span>
+                <i class="ri-arrow-down-s-line text-xl text-primary transition-transform duration-300"></i>
               </button>
-              <div class="px-6 pb-4">
-                <p class="text-gray-700">
+              <div class="faq-content px-6 pb-4 max-h-0 overflow-hidden transition-all duration-300">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
                   التسجيل في وفرلي مجاني تماماً. نحن نحصل على عمولة بسيطة فقط
                   على الطلبات المكتملة.
                 </p>
               </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <button
-                class="w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none"
-              >
-                <span class="text-lg font-medium text-gray-900"
-                  >كيف أتواصل مع الدعم الفني؟</span
-                >
-                <i
-                  class="ri-arrow-down-s-line text-xl text-primary transition-transform"
-                ></i>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+              <button class="faq-toggle w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                <span class="text-lg font-medium text-gray-900 dark:text-white">
+                  كيف أتواصل مع الدعم الفني؟
+                </span>
+                <i class="ri-arrow-down-s-line text-xl text-primary transition-transform duration-300"></i>
               </button>
-              <div class="px-6 pb-4">
-                <p class="text-gray-700">
+              <div class="faq-content px-6 pb-4 max-h-0 overflow-hidden transition-all duration-300">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
                   يمكنك التواصل مع فريق الدعم الفني على مدار الساعة عبر
                   الواتساب، البريد الإلكتروني، أو من خلال نموذج الاتصال في
                   موقعنا.
+                </p>
+              </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+              <button class="faq-toggle w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                <span class="text-lg font-medium text-gray-900 dark:text-white">
+                  ما هي أنواع المنتجات المتوفرة؟
+                </span>
+                <i class="ri-arrow-down-s-line text-xl text-primary transition-transform duration-300"></i>
+              </button>
+              <div class="faq-content px-6 pb-4 max-h-0 overflow-hidden transition-all duration-300">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  نوفر مجموعة واسعة من المنتجات الغذائية تشمل الخضروات والفواكه،
+                  اللحوم والأسماك، الألبان ومنتجاتها، البقوليات والحبوب،
+                  والمنتجات المعلبة والمجمدة.
+                </p>
+              </div>
+            </div>
+            
+            <!-- FAQ Item 6 -->
+            <div class="faq-item bg-white dark:bg-dark-card rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+              <button class="faq-toggle w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                <span class="text-lg font-medium text-gray-900 dark:text-white">
+                  كيف يتم ضمان جودة المنتجات؟
+                </span>
+                <i class="ri-arrow-down-s-line text-xl text-primary transition-transform duration-300"></i>
+              </button>
+              <div class="faq-content px-6 pb-4 max-h-0 overflow-hidden transition-all duration-300">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  نتعامل فقط مع موردين معتمدين ومحليين موثوقين، ونقوم بفحص
+                  جودة المنتجات بشكل دوري. كما نضمن استرداد المال في حالة عدم
+                  الرضا عن الجودة.
                 </p>
               </div>
             </div>
@@ -620,16 +1822,127 @@
           سجل اهتمامك الآن واحصل على إشعار فور إطلاق التطبيق، بالإضافة إلى عروض
           حصرية للمستخدمين الأوائل.
         </p>
-        <div
-          class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-reverse md:space-x-6"
-        >
+        
+        <!-- نموذج سجل اهتمامك -->
+        <div class="max-w-md mx-auto bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 border border-white border-opacity-20">
+          <form id="interest-form" class="space-y-6">
+            <div class="relative">
+              <label for="interest-name" class="block text-white mb-2 font-medium text-right">
+                <i class="ri-user-line ml-2"></i>الاسم الكامل
+              </label>
+              <input
+                type="text"
+                id="interest-name"
+                name="name"
+                class="w-full px-4 py-3 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-200 bg-white bg-opacity-10 text-white placeholder-white placeholder-opacity-70"
+                placeholder="أدخل اسمك الكامل"
+                required
+              />
+              <div class="hidden text-red-200 text-sm mt-1 text-right" id="interest-name-error">
+                يرجى إدخال اسمك الكامل
+              </div>
+            </div>
+            
+            <div class="relative">
+              <label for="interest-email" class="block text-white mb-2 font-medium text-right">
+                <i class="ri-mail-line ml-2"></i>البريد الإلكتروني
+              </label>
+              <input
+                type="email"
+                id="interest-email"
+                name="email"
+                class="w-full px-4 py-3 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-200 bg-white bg-opacity-10 text-white placeholder-white placeholder-opacity-70"
+                placeholder="أدخل بريدك الإلكتروني"
+                required
+              />
+              <div class="hidden text-red-200 text-sm mt-1 text-right" id="interest-email-error">
+                يرجى إدخال بريد إلكتروني صحيح
+              </div>
+            </div>
+            
+            <div class="relative">
+              <label for="interest-phone" class="block text-white mb-2 font-medium text-right">
+                <i class="ri-phone-line ml-2"></i>رقم الهاتف
+              </label>
+              <input
+                type="tel"
+                id="interest-phone"
+                name="phone"
+                class="w-full px-4 py-3 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-200 bg-white bg-opacity-10 text-white placeholder-white placeholder-opacity-70"
+                placeholder="أدخل رقم هاتفك"
+                required
+              />
+              <div class="hidden text-red-200 text-sm mt-1 text-right" id="interest-phone-error">
+                يرجى إدخال رقم هاتف صحيح
+              </div>
+            </div>
+            
+            <div class="relative">
+              <label for="interest-type" class="block text-white mb-2 font-medium text-right">
+                <i class="ri-store-line ml-2"></i>نوع العمل
+              </label>
+              <select
+                id="interest-type"
+                name="business_type"
+                class="w-full px-4 py-3 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-200 bg-white bg-opacity-10 text-white"
+                required
+              >
+                <option value="" class="text-gray-800">اختر نوع عملك</option>
+                <option value="restaurant" class="text-gray-800">مطعم</option>
+                <option value="cafe" class="text-gray-800">كافيه</option>
+                <option value="grocery" class="text-gray-800">بقالة</option>
+                <option value="supermarket" class="text-gray-800">سوبر ماركت</option>
+                <option value="catering" class="text-gray-800">خدمات الطعام</option>
+                <option value="other" class="text-gray-800">أخرى</option>
+              </select>
+            </div>
+            
+            <div class="relative">
+              <label for="interest-city" class="block text-white mb-2 font-medium text-right">
+                <i class="ri-map-pin-line ml-2"></i>المدينة
+              </label>
+              <select
+                id="interest-city"
+                name="city"
+                class="w-full px-4 py-3 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-200 bg-white bg-opacity-10 text-white"
+                required
+              >
+                <option value="" class="text-gray-800">اختر مدينتك</option>
+                <option value="makkah" class="text-gray-800">مكة المكرمة</option>
+                <option value="jeddah" class="text-gray-800">جدة</option>
+                <option value="riyadh" class="text-gray-800">الرياض</option>
+                <option value="dammam" class="text-gray-800">الدمام</option>
+                <option value="medina" class="text-gray-800">المدينة المنورة</option>
+                <option value="other" class="text-gray-800">مدينة أخرى</option>
+              </select>
+            </div>
+            
           <button
-            class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+              type="submit"
+              id="interest-submit-btn"
+              class="w-full bg-white text-primary py-3 rounded-lg font-medium hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 flex items-center justify-center gap-2"
           >
-            سجل اهتمامك الآن
+              <i class="ri-notification-3-line"></i>
+              <span id="interest-submit-text">سجل اهتمامك الآن</span>
+              <div id="interest-loading-spinner" class="hidden">
+                <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-primary"></div>
+              </div>
           </button>
+          </form>
+          
+          <!-- رسالة النجاح -->
+          <div id="interest-success-message" class="hidden mt-4 p-4 bg-green-500 bg-opacity-20 border border-green-300 rounded-lg">
+            <div class="flex items-center">
+              <i class="ri-check-line text-green-200 text-xl ml-2"></i>
+              <p class="text-green-100">تم تسجيل اهتمامك بنجاح! سنتواصل معك قريباً.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8">
           <button
-            class="border border-white text-white px-8 py-3 rounded-button font-medium hover:bg-white hover:bg-opacity-10 transition-colors whitespace-nowrap"
+            onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+            class="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:bg-opacity-10 transition-colors whitespace-nowrap"
           >
             تواصل معنا
           </button>
@@ -637,149 +1950,88 @@
       </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
+    <section id="contact" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">اتصل بنا</h2>
-          <div class="w-20 h-1 bg-primary mx-auto"></div>
-          <p class="text-gray-700 mt-6 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 scroll-reveal">
+            تواصل 
+            <span class="text-gradient">معنا</span>
+          </h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 scroll-reveal"></div>
+          <p class="text-gray-700 mt-6 max-w-2xl mx-auto text-lg scroll-reveal">
             لديك أسئلة أو استفسارات؟ نحن هنا للمساعدة. تواصل معنا من خلال أي من
             قنوات الاتصال التالية.
           </p>
         </div>
-        <div class="flex flex-col md:flex-row">
-          <div class="md:w-1/2 mb-10 md:mb-0 md:pl-10">
-            <div class="bg-white p-8 rounded-lg shadow-md">
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">
-                معلومات الاتصال
-              </h3>
-              <div class="space-y-6">
-                <div class="flex items-start">
-                  <div
-                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center ml-4"
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- واتساب -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal group">
+              <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-500 transition-colors duration-300">
+                <i class="ri-whatsapp-line text-green-600 text-2xl group-hover:text-white transition-colors"></i>
+                  </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">واتساب</h3>
+              <p class="text-gray-600 mb-4">تواصل معنا مباشرة عبر الواتساب للحصول على رد سريع</p>
+              <a 
+                href="https://wa.me/966506564275" 
+                target="_blank"
+                class="inline-flex items-center gap-2 text-green-600 font-medium hover:text-green-700 transition-colors"
                   >
-                    <i class="ri-whatsapp-line text-primary"></i>
+                <span>+966 50 656 4275</span>
+                <i class="ri-external-link-line"></i>
+              </a>
                   </div>
-                  <div>
-                    <h4 class="text-lg font-medium text-gray-900 mb-1">
-                      واتساب
-                    </h4>
-                    <p class="text-gray-700 dir-ltr">+966 50 656 4275</p>
+            
+            <!-- البريد الإلكتروني -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal group">
+              <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors duration-300">
+                <i class="ri-mail-line text-blue-600 text-2xl group-hover:text-white transition-colors"></i>
                   </div>
-                </div>
-                <div class="flex items-start">
-                  <div
-                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center ml-4"
+              <h3 class="text-xl font-bold text-gray-900 mb-4">البريد الإلكتروني</h3>
+              <p class="text-gray-600 mb-4">أرسل لنا رسالة عبر البريد الإلكتروني</p>
+              <a 
+                href="mailto:info@wafrli.com" 
+                class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors"
                   >
-                    <i class="ri-mail-line text-primary"></i>
+                <span>info@wafrli.com</span>
+                <i class="ri-external-link-line"></i>
+              </a>
                   </div>
-                  <div>
-                    <h4 class="text-lg font-medium text-gray-900 mb-1">
-                      البريد الإلكتروني
-                    </h4>
-                    <p class="text-gray-700">info@wafrli.com</p>
+            
+            <!-- العنوان -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 scroll-reveal group">
+              <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors duration-300">
+                <i class="ri-map-pin-line text-orange-600 text-2xl group-hover:text-white transition-colors"></i>
                   </div>
-                </div>
-                <div class="flex items-start">
-                  <div
-                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center ml-4"
-                  >
-                    <i class="ri-map-pin-line text-primary"></i>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-medium text-gray-900 mb-1">
-                      العنوان
-                    </h4>
-                    <p class="text-gray-700">
-                      المملكة العربية السعودية - مكه المكرمه
-                    </p>
-                  </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">العنوان</h3>
+              <p class="text-gray-600 mb-4">موقعنا في المملكة العربية السعودية</p>
+              <p class="text-orange-600 font-medium">مكة المكرمة</p>
                 </div>
               </div>
-              <div class="mt-10">
-                <h4 class="text-lg font-medium text-gray-900 mb-4">
-                  تابعنا على
-                </h4>
-                <div class="flex space-x-reverse space-x-4">
+          
+          <!-- وسائل التواصل الاجتماعي -->
+          <div class="mt-12 text-center">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">تابعنا على</h3>
+            <div class="flex justify-center space-x-reverse space-x-6">
                   <a
                     href="#"
-                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                class="w-14 h-14 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 shadow-lg hover:shadow-xl"
                   >
-                    <i class="ri-instagram-line"></i>
+                <i class="ri-instagram-line text-xl"></i>
                   </a>
                   <a
                     href="#"
-                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                class="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 shadow-lg hover:shadow-xl"
                   >
-                    <i class="ri-twitter-x-line"></i>
+                <i class="ri-twitter-x-line text-xl"></i>
                   </a>
                   <a
                     href="#"
-                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-                  >
-                    <i class="ri-linkedin-line"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="md:w-1/2">
-            <div class="bg-white p-8 rounded-lg shadow-md">
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">
-                أرسل لنا رسالة
-              </h3>
-              <form>
-                <div class="mb-6">
-                  <label for="name" class="block text-gray-700 mb-2"
-                    >الاسم الكامل</label
-                  >
-                  <input
-                    type="text"
-                    id="name"
-                    class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="أدخل اسمك الكامل"
-                  />
-                </div>
-                <div class="mb-6">
-                  <label for="email" class="block text-gray-700 mb-2"
-                    >البريد الإلكتروني</label
-                  >
-                  <input
-                    type="email"
-                    id="email"
-                    class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="أدخل بريدك الإلكتروني"
-                  />
-                </div>
-                <div class="mb-6">
-                  <label for="phone" class="block text-gray-700 mb-2"
-                    >رقم الهاتف</label
-                  >
-                  <input
-                    type="tel"
-                    id="phone"
-                    class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="أدخل رقم هاتفك"
-                  />
-                </div>
-                <div class="mb-6">
-                  <label for="message" class="block text-gray-700 mb-2"
-                    >الرسالة</label
-                  >
-                  <textarea
-                    id="message"
-                    rows="5"
-                    class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="اكتب رسالتك هنا"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
-                >
-                  إرسال الرسالة
-                </button>
-              </form>
+                class="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 shadow-lg hover:shadow-xl"
+              >
+                <i class="ri-linkedin-line text-xl"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -984,38 +2236,710 @@
     </script>
     <script id="formValidationScript">
       document.addEventListener("DOMContentLoaded", function () {
-        const form = document.querySelector("form");
-        if (form) {
-          form.addEventListener("submit", function (e) {
+        // نموذج سجل اهتمامك
+        const interestForm = document.getElementById("interest-form");
+        if (interestForm) {
+          interestForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            const nameInput = document.getElementById("name");
-            const emailInput = document.getElementById("email");
-            const messageInput = document.getElementById("message");
-            let isValid = true;
-            if (!nameInput.value.trim()) {
-              nameInput.classList.add("border-red-500");
-              isValid = false;
-            } else {
-              nameInput.classList.remove("border-red-500");
-            }
-            if (!emailInput.value.trim() || !emailInput.value.includes("@")) {
-              emailInput.classList.add("border-red-500");
-              isValid = false;
-            } else {
-              emailInput.classList.remove("border-red-500");
-            }
-            if (!messageInput.value.trim()) {
-              messageInput.classList.add("border-red-500");
-              isValid = false;
-            } else {
-              messageInput.classList.remove("border-red-500");
-            }
-            if (isValid) {
-              alert("تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.");
-              form.reset();
+            if (validateInterestForm()) {
+              showLoading('interest-submit-btn', 'interest-submit-text', 'interest-loading-spinner');
+              setTimeout(() => {
+                hideLoading('interest-submit-btn', 'interest-submit-text', 'interest-loading-spinner');
+                showSuccessMessage('interest-success-message');
+                interestForm.reset();
+              }, 2000);
             }
           });
         }
+
+        // دالة التحقق من نموذج سجل اهتمامك
+        function validateInterestForm() {
+            let isValid = true;
+          const fields = ['interest-name', 'interest-email', 'interest-phone'];
+          
+          fields.forEach(field => {
+            const input = document.getElementById(field);
+            const error = document.getElementById(field + '-error');
+            
+            if (!input.value.trim()) {
+              showError(input, error);
+              isValid = false;
+            } else if (field === 'interest-email' && !isValidEmail(input.value)) {
+              showError(input, error);
+              isValid = false;
+            } else if (field === 'interest-phone' && !isValidPhone(input.value)) {
+              showError(input, error);
+              isValid = false;
+            } else {
+              hideError(input, error);
+            }
+          });
+          
+          return isValid;
+        }
+
+        // دوال مساعدة
+        function isValidEmail(email) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+        }
+
+        function isValidPhone(phone) {
+          const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,}$/;
+          return phoneRegex.test(phone);
+        }
+
+        function showError(input, errorElement) {
+          input.classList.add('border-red-500');
+          errorElement.classList.remove('hidden');
+        }
+
+        function hideError(input, errorElement) {
+          input.classList.remove('border-red-500');
+          errorElement.classList.add('hidden');
+            }
+
+        function showLoading(btnId, textId, spinnerId) {
+          const btn = document.getElementById(btnId);
+          const text = document.getElementById(textId);
+          const spinner = document.getElementById(spinnerId);
+          
+          btn.disabled = true;
+          text.style.display = 'none';
+          spinner.classList.remove('hidden');
+        }
+
+        function hideLoading(btnId, textId, spinnerId) {
+          const btn = document.getElementById(btnId);
+          const text = document.getElementById(textId);
+          const spinner = document.getElementById(spinnerId);
+          
+          btn.disabled = false;
+          text.style.display = 'inline';
+          spinner.classList.add('hidden');
+        }
+
+        function showSuccessMessage(messageId) {
+          const message = document.getElementById(messageId);
+          message.classList.remove('hidden');
+          
+          setTimeout(() => {
+            message.classList.add('hidden');
+          }, 5000);
+        }
+
+        // إضافة تأثيرات بصرية للحقول
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+          input.addEventListener('focus', function() {
+            this.parentElement.classList.add('ring-2', 'ring-primary', 'ring-opacity-20');
+          });
+          
+          input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('ring-2', 'ring-primary', 'ring-opacity-20');
+          });
+          });
+      });
+    </script>
+    <div id="ai-chatbot" class="fixed bottom-6 left-6 z-50">
+      <button
+        id="chat-toggle"
+        class="bg-primary text-white w-14 h-14 rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center relative animate-bounce"
+      >
+        <i class="ri-customer-service-2-line text-2xl"></i>
+        <span
+          class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"
+        ></span>
+      </button>
+      <div
+        class="absolute bottom-full left-0 mb-4 bg-white rounded-lg shadow-lg py-2 px-3 text-sm font-medium text-gray-900 whitespace-nowrap"
+      >
+        مساعد وفرلي
+        <div
+          class="absolute bottom-0 left-4 transform translate-y-1/2 rotate-45 w-3 h-3 bg-white"
+        ></div>
+      </div>
+      <div
+        id="chat-window"
+        class="hidden bg-white rounded-2xl shadow-2xl w-[320px] h-[480px] absolute bottom-20 left-0 overflow-hidden flex flex-col border border-gray-100"
+      >
+        <div
+          class="bg-gradient-to-l from-primary to-teal-600 p-4 text-white flex justify-between items-center"
+        >
+          <div class="flex items-center gap-2">
+            <div
+              class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center"
+            >
+              <i class="ri-customer-service-2-line text-xl"></i>
+            </div>
+            <h3 class="font-bold">مساعد وفرلي</h3>
+          </div>
+          <button
+            id="close-chat"
+            class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white hover:bg-opacity-20 transition-colors"
+          >
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+        <div
+          id="chat-messages"
+          class="flex-1 overflow-y-auto p-4 space-y-4"
+        ></div>
+        <div class="border-t p-4">
+          <div class="flex gap-2">
+            <input
+              type="text"
+              id="user-input"
+              class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="اكتب رسالتك هنا..."
+            />
+            <button
+              id="send-message"
+              class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-colors"
+            >
+              <i class="ri-send-plane-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script id="chatbotScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const chatToggle = document.getElementById("chat-toggle");
+        const chatWindow = document.getElementById("chat-window");
+        const closeChat = document.getElementById("close-chat");
+        const messagesContainer = document.getElementById("chat-messages");
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("send-message");
+        
+        const botResponses = {
+          "ما هو وفرلي؟": {
+            text: "وفرلي هي منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين بطريقة سهلة وفعالة. نحن نساعدك في توفير الوقت والمال على مشترياتك الغذائية.",
+            suggestions: ["كيف استخدم وفرلي؟", "ما هي المميزات؟", "طرق التواصل"]
+          },
+          "كيف استخدم وفرلي؟": {
+            text: "استخدام وفرلي سهل جداً! فقط اتبع هذه الخطوات:\n1. سجل حساباً جديداً\n2. أكمل ملف متجرك\n3. ابدأ في طلب المنتجات من موردينا المعتمدين",
+            suggestions: ["ما هي المميزات؟", "هل الخدمة مجانية؟", "طرق التواصل"]
+          },
+          "طرق التواصل": {
+            text: "يمكنك التواصل معنا عبر:\n📱 <a href='https://wa.me/966506564275' target='_blank' class='text-primary hover:underline font-medium'>الواتساب: +966 50 656 4275</a>\n📧 البريد: info@wafrli.com\n📍 العنوان: المملكة العربية السعودية - مكة المكرمة",
+            suggestions: ["ما هو وفرلي؟", "كيف استخدم وفرلي؟", "الأسئلة الشائعة"]
+          },
+          "ما هي المميزات؟": {
+            text: "مميزات وفرلي تشمل:\n✅ عملية طلب سهلة\n✅ أسعار تنافسية\n✅ تنوع الموردين\n✅ دعم عملاء سريع\n✅ تقنيات الذكاء الاصطناعي",
+            suggestions: ["كيف استخدم وفرلي؟", "هل الخدمة مجانية؟", "طرق التواصل"]
+          },
+          "هل الخدمة مجانية؟": {
+            text: "التسجيل في وفرلي مجاني تماماً! نحن نحصل على عمولة بسيطة فقط على الطلبات المكتملة. لا توجد رسوم شهرية أو سنوية.",
+            suggestions: ["كيف استخدم وفرلي؟", "ما هي المميزات؟", "طرق التواصل"]
+          },
+          "الأسئلة الشائعة": {
+            text: "الأسئلة الشائعة:\n❓ كيف أبدأ استخدام وفرلي؟\n❓ هل الخدمة متاحة في كل المدن؟\n❓ هل يوجد رسوم على التسجيل؟\n❓ كيف أتواصل مع الدعم الفني؟",
+            suggestions: ["كيف أبدأ استخدام وفرلي؟", "هل الخدمة متاحة في كل المدن؟", "طرق التواصل"]
+          },
+          "كيف أبدأ استخدام وفرلي؟": {
+            text: "للبدء مع وفرلي:\n1. اضغط على 'سجل اهتمامك الآن'\n2. املأ النموذج بمعلوماتك\n3. سنتواصل معك قريباً لإكمال التسجيل",
+            suggestions: ["ما هي المميزات؟", "هل الخدمة مجانية؟", "طرق التواصل"]
+          },
+          "هل الخدمة متاحة في كل المدن؟": {
+            text: "حالياً، نقدم خدماتنا في المدن الرئيسية في المملكة العربية السعودية، ونعمل على التوسع لتغطية المزيد من المناطق قريباً.",
+            suggestions: ["كيف أبدأ استخدام وفرلي؟", "طرق التواصل", "ما هي المميزات؟"]
+          },
+          "default": {
+            text: "شكراً لتواصلك معنا! كيف يمكنني مساعدتك أكثر؟",
+            suggestions: ["ما هو وفرلي؟", "كيف استخدم وفرلي؟", "طرق التواصل"]
+          }
+        };
+        
+        const welcomeMessage = {
+          text: "مرحباً بك في وفرلي! 👋 كيف يمكنني مساعدتك اليوم؟",
+          suggestions: ["ما هو وفرلي؟", "كيف استخدم وفرلي؟", "طرق التواصل"]
+        };
+        
+        function addMessage(content, isUser = false) {
+          const messageDiv = document.createElement("div");
+          messageDiv.className = `flex ${isUser ? "justify-end" : "justify-start"}`;
+          
+          const messageBubble = document.createElement("div");
+          messageBubble.className = `max-w-[80%] p-3 rounded-lg ${isUser ? "bg-primary text-white" : "bg-gray-100 text-gray-800"}`;
+          
+          if (typeof content === "string") {
+            messageBubble.textContent = content;
+          } else if (content.text) {
+            messageBubble.innerHTML = content.text.replace(/\n/g, '<br>');
+            
+            if (content.suggestions) {
+              const suggestionsDiv = document.createElement("div");
+              suggestionsDiv.className = "mt-3 space-y-2";
+              
+              content.suggestions.forEach((suggestion) => {
+                const button = document.createElement("button");
+                button.className = "block w-full text-right text-sm bg-white px-3 py-2 rounded hover:bg-gray-50 transition-colors border border-gray-200";
+                button.textContent = suggestion;
+                button.onclick = () => handleUserInput(suggestion);
+                suggestionsDiv.appendChild(button);
+              });
+              
+              messageBubble.appendChild(suggestionsDiv);
+            }
+          }
+          
+          messageDiv.appendChild(messageBubble);
+          messagesContainer.appendChild(messageDiv);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function handleUserInput(text) {
+          if (!text.trim()) return;
+          
+          addMessage(text, true);
+          
+          userInput.value = "";
+          
+          setTimeout(() => {
+            const response = botResponses[text] || botResponses["default"];
+            addMessage(response);
+          }, 800);
+        }
+        
+        chatToggle.addEventListener("click", () => {
+          chatWindow.classList.remove("hidden");
+          if (messagesContainer.children.length === 0) {
+            addMessage(welcomeMessage);
+          }
+        });
+        
+        closeChat.addEventListener("click", () => {
+          chatWindow.classList.add("hidden");
+        });
+        
+        sendButton.addEventListener("click", () => {
+          handleUserInput(userInput.value);
+        });
+        
+        userInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            handleUserInput(userInput.value);
+          }
+        });
+      });
+    </script>
+    <script id="scrollAnimationsScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        // شريط التقدم
+        const progressBar = document.getElementById("progress-bar");
+        
+        window.addEventListener("scroll", function() {
+          const scrollTop = window.pageYOffset;
+          const docHeight = document.body.offsetHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          
+          if (progressBar) {
+            progressBar.style.width = scrollPercent + "%";
+          }
+        });
+        
+        // تحريكات عند التمرير
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+            }
+          });
+        }, observerOptions);
+        
+        // مراقبة العناصر
+        const scrollElements = document.querySelectorAll(".scroll-reveal");
+        scrollElements.forEach(el => {
+          observer.observe(el);
+        });
+        
+        // تأثيرات إضافية للعناصر
+        const featureCards = document.querySelectorAll(".feature-card");
+        featureCards.forEach((card, index) => {
+          card.style.animationDelay = `${index * 0.1}s`;
+        });
+        
+        // تأثيرات للأزرار
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach(button => {
+          button.addEventListener("mouseenter", function() {
+            this.style.transform = "translateY(-2px)";
+          });
+          
+          button.addEventListener("mouseleave", function() {
+            this.style.transform = "translateY(0)";
+          });
+        });
+        
+        // تأثيرات للروابط
+        const links = document.querySelectorAll("a");
+        links.forEach(link => {
+          link.addEventListener("mouseenter", function() {
+            this.style.transform = "scale(1.05)";
+          });
+          
+          link.addEventListener("mouseleave", function() {
+            this.style.transform = "scale(1)";
+          });
+        });
+      });
+    </script>
+    <script>
+      function closeNotification() {
+        document.getElementById('notification-bar').style.display = 'none';
+      }
+      // زر العودة للأعلى
+      document.addEventListener('DOMContentLoaded', function () {
+        const scrollBtn = document.createElement('button');
+        scrollBtn.id = 'scrollToTopBtn';
+        scrollBtn.innerHTML = '<i class="ri-arrow-up-line"></i>';
+        scrollBtn.className = 'fixed bottom-6 right-6 z-50 bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-secondary transition-all duration-300 opacity-0 pointer-events-none';
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 300) {
+            scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+            scrollBtn.classList.add('opacity-100');
+          } else {
+            scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+            scrollBtn.classList.remove('opacity-100');
+          }
+        });
+        scrollBtn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    </script>
+    <script>
+      // Dark Mode Toggle Script
+      document.addEventListener('DOMContentLoaded', function () {
+        const html = document.documentElement;
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const mobileDarkModeToggle = document.getElementById('mobile-dark-mode-toggle');
+        
+        // Load preference
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          html.classList.add('dark');
+        } else {
+          html.classList.remove('dark');
+        }
+
+        function setDarkMode(isDark) {
+          if (isDark) {
+            html.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            html.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+          }
+        }
+
+        function toggleDarkMode() {
+          setDarkMode(!html.classList.contains('dark'));
+        }
+
+        if (darkModeToggle) {
+          darkModeToggle.addEventListener('click', toggleDarkMode);
+        }
+        if (mobileDarkModeToggle) {
+          mobileDarkModeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleDarkMode();
+          });
+        }
+      });
+    </script>
+    <!-- SwiperJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Enhanced Swiper Initialization
+      document.addEventListener('DOMContentLoaded', function() {
+        
+        // Features Swiper
+        const featuresSwiper = new Swiper('.features-swiper', {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+          centeredSlides: true,
+          loop: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.features-swiper .swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+          },
+          navigation: {
+            nextEl: '.features-swiper .swiper-button-next',
+            prevEl: '.features-swiper .swiper-button-prev',
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 2.2,
+              spaceBetween: 40,
+            }
+          },
+          on: {
+            init: function() {
+              updateProgressBar(this, '.features-swiper .swiper-progress');
+            },
+            slideChange: function() {
+              updateProgressBar(this, '.features-swiper .swiper-progress');
+            }
+          }
+        });
+
+        // AI Features Swiper
+        const aiSwiper = new Swiper('.ai-swiper', {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+          centeredSlides: true,
+          loop: true,
+          autoplay: {
+            delay: 6000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.ai-swiper .swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+          },
+          navigation: {
+            nextEl: '.ai-swiper .swiper-button-next',
+            prevEl: '.ai-swiper .swiper-button-prev',
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 2.2,
+              spaceBetween: 40,
+            }
+          },
+          on: {
+            init: function() {
+              updateProgressBar(this, '.ai-swiper .swiper-progress');
+            },
+            slideChange: function() {
+              updateProgressBar(this, '.ai-swiper .swiper-progress');
+            }
+          }
+        });
+
+        // How It Works Swiper
+        const howItWorksSwiper = new Swiper('.how-it-works-swiper', {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+          centeredSlides: true,
+          loop: true,
+          autoplay: {
+            delay: 7000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.how-it-works-swiper .swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+          },
+          navigation: {
+            nextEl: '.how-it-works-swiper .swiper-button-next',
+            prevEl: '.how-it-works-swiper .swiper-button-prev',
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 2.2,
+              spaceBetween: 40,
+            }
+          },
+          on: {
+            init: function() {
+              updateProgressBar(this, '.how-it-works-swiper .swiper-progress');
+            },
+            slideChange: function() {
+              updateProgressBar(this, '.how-it-works-swiper .swiper-progress');
+            }
+          }
+        });
+
+        // Supplier Benefits Swiper
+        const supplierBenefitsSwiper = new Swiper('.supplier-benefits-swiper', {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+          centeredSlides: true,
+          loop: true,
+          autoplay: {
+            delay: 8000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.supplier-benefits-swiper .swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+          },
+          navigation: {
+            nextEl: '.supplier-benefits-swiper .swiper-button-next',
+            prevEl: '.supplier-benefits-swiper .swiper-button-prev',
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 2.2,
+              spaceBetween: 40,
+            }
+          },
+          on: {
+            init: function() {
+              updateProgressBar(this, '.supplier-benefits-swiper .swiper-progress');
+            },
+            slideChange: function() {
+              updateProgressBar(this, '.supplier-benefits-swiper .swiper-progress');
+            }
+          }
+        });
+
+        // Progress Bar Update Function
+        function updateProgressBar(swiper, progressSelector) {
+          const progressBar = document.querySelector(progressSelector);
+          if (progressBar) {
+            const progress = ((swiper.activeIndex + 1) / swiper.slides.length) * 100;
+            progressBar.style.width = progress + '%';
+          }
+        }
+
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.faq-toggle').forEach(toggle => {
+          toggle.addEventListener('click', function() {
+            const faqItem = this.closest('.faq-item');
+            const content = faqItem.querySelector('.faq-content');
+            const icon = this.querySelector('i');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+              if (item !== faqItem) {
+                const otherContent = item.querySelector('.faq-content');
+                const otherIcon = item.querySelector('.faq-toggle i');
+                otherContent.style.maxHeight = '0';
+                otherIcon.style.transform = 'rotate(0deg)';
+                item.classList.remove('active');
+              }
+            });
+            
+            // Toggle current FAQ item
+            if (faqItem.classList.contains('active')) {
+              content.style.maxHeight = '0';
+              icon.style.transform = 'rotate(0deg)';
+              faqItem.classList.remove('active');
+            } else {
+              content.style.maxHeight = content.scrollHeight + 'px';
+              icon.style.transform = 'rotate(180deg)';
+              faqItem.classList.add('active');
+            }
+          });
+        });
+
+        // Touch Gesture Enhancements
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        function handleGesture() {
+          const deltaX = touchEndX - touchStartX;
+          const deltaY = touchEndY - touchStartY;
+          
+          // Only handle horizontal swipes (ignore vertical scrolling)
+          if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+            if (deltaX < 0) {
+              // Swiped left - next slide
+              featuresSwiper.slideNext();
+              aiSwiper.slideNext();
+              howItWorksSwiper.slideNext();
+              supplierBenefitsSwiper.slideNext();
+            } else {
+              // Swiped right - previous slide
+              featuresSwiper.slidePrev();
+              aiSwiper.slidePrev();
+              howItWorksSwiper.slidePrev();
+              supplierBenefitsSwiper.slidePrev();
+            }
+          }
+        }
+
+        // Add touch event listeners to swiper containers
+        document.querySelectorAll('.swiper').forEach(swiper => {
+          swiper.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+          });
+
+          swiper.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleGesture();
+          });
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowLeft') {
+            featuresSwiper.slidePrev();
+            aiSwiper.slidePrev();
+            howItWorksSwiper.slidePrev();
+            supplierBenefitsSwiper.slidePrev();
+          } else if (e.key === 'ArrowRight') {
+            featuresSwiper.slideNext();
+            aiSwiper.slideNext();
+            howItWorksSwiper.slideNext();
+            supplierBenefitsSwiper.slideNext();
+          }
+        });
+
+        // Add hover effects for desktop
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.swiper-slide').forEach(slide => {
+            slide.addEventListener('mouseenter', function() {
+              this.style.transform = 'scale(1.05)';
+            });
+            
+            slide.addEventListener('mouseleave', function() {
+              this.style.transform = 'scale(1)';
+            });
+          });
+        }
+
+        // Add visual feedback for active slides
+        function addActiveSlideEffects() {
+          document.querySelectorAll('.swiper-slide-active').forEach(slide => {
+            slide.style.zIndex = '2';
+            slide.style.transform = 'scale(1.02)';
+          });
+        }
+
+        // Call on swiper initialization
+        featuresSwiper.on('init', addActiveSlideEffects);
+        aiSwiper.on('init', addActiveSlideEffects);
+        howItWorksSwiper.on('init', addActiveSlideEffects);
+        supplierBenefitsSwiper.on('init', addActiveSlideEffects);
       });
     </script>
   </body>
