@@ -560,6 +560,15 @@
         transition: max-height 0.3s ease;
       }
       
+      /* FAQ Arrow Animation */
+      .faq-arrow {
+        transition: transform 0.3s ease;
+      }
+      
+      .faq-item.active .faq-arrow {
+        transform: rotate(180deg);
+      }
+      
       /* Step Card Enhancements */
       .step-card {
         transition: all 0.3s ease;
@@ -2980,15 +2989,17 @@
           toggle.addEventListener('click', function() {
             const faqItem = this.closest('.faq-item');
             const content = faqItem.querySelector('.faq-content');
-            const icon = this.querySelector('i');
+            const arrow = this.querySelector('.ri-arrow-down-s-line');
             
             // Close all other FAQ items
             document.querySelectorAll('.faq-item').forEach(item => {
               if (item !== faqItem) {
                 const otherContent = item.querySelector('.faq-content');
-                const otherIcon = item.querySelector('.faq-toggle i');
+                const otherArrow = item.querySelector('.faq-toggle .ri-arrow-down-s-line');
                 otherContent.style.maxHeight = '0';
-                otherIcon.style.transform = 'rotate(0deg)';
+                if (otherArrow) {
+                  otherArrow.style.transform = 'rotate(0deg)';
+                }
                 item.classList.remove('active');
               }
             });
@@ -2996,11 +3007,15 @@
             // Toggle current FAQ item
             if (faqItem.classList.contains('active')) {
               content.style.maxHeight = '0';
-              icon.style.transform = 'rotate(0deg)';
+              if (arrow) {
+                arrow.style.transform = 'rotate(0deg)';
+              }
               faqItem.classList.remove('active');
             } else {
               content.style.maxHeight = content.scrollHeight + 'px';
-              icon.style.transform = 'rotate(180deg)';
+              if (arrow) {
+                arrow.style.transform = 'rotate(180deg)';
+              }
               faqItem.classList.add('active');
             }
           });
