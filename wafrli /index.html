@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>وفرلي - وفر على مشترياتك الغذائية</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#009688", secondary: "#FFA000" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Almarai', sans-serif;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .hero-section {
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.95)), url('https://readdy.ai/api/search-image?query=Arabic%20food%20marketplace%20with%20fresh%20vegetables%2C%20fruits%2C%20and%20food%20supplies.%20Modern%2C%20clean%2C%20bright%20scene%20with%20store%20owners%20and%20suppliers%20interacting.%20Professional%20business%20environment%20with%20food%20items%20neatly%20arranged.%20Bright%20lighting%2C%20soft%20shadows%2C%20and%20a%20welcoming%20atmosphere.%20No%20text%20or%20people%20visible&width=1600&height=800&seq=1&orientation=landscape');
+      background-size: cover;
+      background-position: center;
+      }
+      .ai-section {
+      background-image: linear-gradient(to right, rgba(46, 125, 50, 0.05), rgba(21, 101, 192, 0.05));
+      }
+      .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .step-card:hover {
+      transform: translateY(-5px);
+      }
+      .ai-feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="font-['Pacifico'] text-2xl text-primary">وفرلي</div>
+        <nav class="hidden md:flex space-x-reverse space-x-8">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary transition-colors"
+            >الرئيسية</a
+          >
+          <a
+            href="#about"
+            class="text-gray-800 hover:text-primary transition-colors"
+            >من نحن</a
+          >
+          <a
+            href="#features"
+            class="text-gray-800 hover:text-primary transition-colors"
+            >المميزات</a
+          >
+          <a
+            href="#ai-features"
+            class="text-gray-800 hover:text-primary transition-colors"
+            >الذكاء الاصطناعي</a
+          >
+          <a
+            href="#how-it-works"
+            class="text-gray-800 hover:text-primary transition-colors"
+            >كيف يعمل</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary transition-colors"
+            >اتصل بنا</a
+          >
+        </nav>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center">
+          <i class="ri-menu-line text-xl"></i>
+        </button>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section py-20 md:py-32">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 text-right mb-10 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              وفر على مشترياتك الغذائية… سريع، سهل، موثوق!
+            </h1>
+            <p class="text-lg text-gray-700 mb-8">
+              منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين
+              بطريقة سهلة وفعالة
+            </p>
+            <div class="flex space-x-reverse space-x-4">
+              <button
+                class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+              >
+                سجل اهتمامك الآن
+              </button>
+              <button
+                class="border border-primary text-primary px-6 py-3 rounded-button font-medium hover:bg-primary hover:bg-opacity-5 transition-colors whitespace-nowrap"
+              >
+                تعرف علينا
+              </button>
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <img
+              src="https://readdy.ai/api/search-image?query=Arabic%20business%20owners%20discussing%20food%20supplies%20with%20local%20vendors.%20Modern%20marketplace%20setting%20with%20fruits%2C%20vegetables%2C%20and%20packaged%20goods%20visible.%20Professional%2C%20clean%20environment.%20Bright%20lighting%20with%20soft%20shadows.%20No%20text%20visible%20in%20the%20image.&width=600&height=500&seq=2&orientation=portrait"
+              alt="وفرلي"
+              class="rounded-lg shadow-xl max-w-full h-auto object-cover"
+              style="max-height: 500px;"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">من نحن</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 text-right mb-10 md:mb-0 md:pl-10">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              نحن نربط بين أصحاب المتاجر والموردين
+            </h3>
+            <p class="text-gray-700 mb-6">
+              تأسست وفرلي بهدف تبسيط عملية توريد المواد الغذائية للمطاعم
+              والمتاجر. نحن نؤمن بأن العلاقة بين الموردين وأصحاب الأعمال يجب أن
+              تكون سهلة وشفافة وفعالة.
+            </p>
+            <p class="text-gray-700 mb-6">
+              من خلال منصتنا، يمكن لأصحاب المتاجر والمطاعم الوصول إلى مجموعة
+              واسعة من الموردين المحليين، ومقارنة الأسعار، وطلب المنتجات بسهولة
+              وسرعة.
+            </p>
+          </div>
+          <div class="md:w-1/2">
+            <img
+              src="https://readdy.ai/api/search-image?query=Modern%20Arabic%20food%20market%20with%20diverse%20food%20suppliers%20and%20store%20owners%20discussing%20business.%20Professional%20environment%20with%20various%20food%20products%20displayed.%20Clean%2C%20bright%20setting%20with%20soft%20natural%20lighting.%20No%20text%20visible.&width=600&height=500&seq=3&orientation=portrait"
+              alt="عن وفرلي"
+              class="rounded-lg shadow-lg max-w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            المميزات الرئيسية
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="text-gray-700 mt-6 max-w-2xl mx-auto">
+            نقدم مجموعة من المميزات المصممة خصيصًا لتلبية احتياجات أصحاب المتاجر
+            والمطاعم وموردي الأغذية
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-shopping-cart-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">عملية طلب سهلة</h3>
+            <p class="text-gray-700">
+              واجهة سهلة الاستخدام تمكنك من طلب المنتجات بضغطة زر واحدة، مع
+              إمكانية تتبع طلباتك في الوقت الفعلي.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-price-tag-3-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">أسعار تنافسية</h3>
+            <p class="text-gray-700">
+              قارن بين أسعار مختلف الموردين واحصل على أفضل العروض والخصومات
+              المتاحة لتوفير المال.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-store-2-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">تنوع الموردين</h3>
+            <p class="text-gray-700">
+              اختر من بين مجموعة واسعة من الموردين المحليين الموثوقين، مع
+              تقييمات وتعليقات من العملاء السابقين.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-customer-service-2-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">دعم عملاء سريع</h3>
+            <p class="text-gray-700">
+              فريق دعم متخصص جاهز للمساعدة في أي وقت، مع خيارات تواصل متعددة
+              لضمان تجربة سلسة.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- AI Features Section -->
+    <section id="ai-features" class="py-20 ai-section">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            الذكاء الاصطناعي في خدمة مشترياتك الغذائية
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-l from-primary to-secondary mx-auto"
+          ></div>
+        </div>
+        <div class="flex flex-col-reverse md:flex-row items-center mb-16">
+          <div class="md:w-3/5 text-right md:pl-10">
+            <p class="text-lg text-gray-700 mb-6">
+              في وفرلي، نستخدم تقنيات الذكاء الاصطناعي لمساعدتك في اتخاذ قرارات
+              شراء أفضل وأسرع. من خلال خوارزميات ذكية، نوفر لك حلولاً مبتكرة
+              تجعل عملية التوريد أكثر كفاءة وفعالية.
+            </p>
+          </div>
+          <div class="md:w-2/5 mb-10 md:mb-0">
+            <img
+              src="https://readdy.ai/api/search-image?query=Modern%20AI%20technology%20visualization%20with%20food%20supply%20chain%20elements.%20Futuristic%20digital%20interface%20showing%20data%20analytics%20for%20food%20marketplace.%20Clean%2C%20professional%20design%20with%20blue%20and%20green%20tech%20elements.%20Arabic%20business%20setting.%20No%20text%20visible.&width=500&height=400&seq=4&orientation=landscape"
+              alt="الذكاء الاصطناعي في وفرلي"
+              class="rounded-lg shadow-xl max-w-full h-auto"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-ai-generate text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">توصيات مخصصة</h3>
+            <p class="text-gray-700 mb-4">
+              نظام ذكي يقترح أفضل الموردين والمنتجات بناءً على سجل مشترياتك
+              السابقة وتفضيلاتك، مما يوفر لك الوقت ويضمن الحصول على أفضل
+              الخيارات.
+            </p>
+            <button
+              class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
+            >
+              <span>اعرف المزيد</span>
+              <i class="ri-arrow-left-line mr-1"></i>
+            </button>
+          </div>
+          <div
+            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-line-chart-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
+              مقارنة تلقائية للعروض
+            </h3>
+            <p class="text-gray-700 mb-4">
+              خوارزميات متطورة تحلل الأسعار والعروض من مختلف الموردين في الوقت
+              الفعلي، لمساعدتك في اختيار العرض الأنسب لاحتياجاتك وميزانيتك.
+            </p>
+            <button
+              class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
+            >
+              <span>اعرف المزيد</span>
+              <i class="ri-arrow-left-line mr-1"></i>
+            </button>
+          </div>
+          <div
+            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-notification-3-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">إشعارات ذكية</h3>
+            <p class="text-gray-700 mb-4">
+              تنبيهات فورية مخصصة عند توفر منتجاتك المفضلة، أو انخفاض الأسعار،
+              أو ظهور عروض خاصة تناسب احتياجاتك، مما يضمن عدم تفويت أي فرصة.
+            </p>
+            <button
+              class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
+            >
+              <span>اعرف المزيد</span>
+              <i class="ri-arrow-left-line mr-1"></i>
+            </button>
+          </div>
+          <div
+            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
+          >
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+            >
+              <i class="ri-bar-chart-grouped-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
+              تحليل الاتجاهات
+            </h3>
+            <p class="text-gray-700 mb-4">
+              تقارير تحليلية متطورة توضح حركة السوق وتوجهات الطلب في منطقتك، مما
+              يساعدك على اتخاذ قرارات استراتيجية أفضل لعملك.
+            </p>
+            <button
+              class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
+            >
+              <span>اعرف المزيد</span>
+              <i class="ri-arrow-left-line mr-1"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">كيف يعمل</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="text-gray-700 mt-6 max-w-2xl mx-auto">
+            عملية بسيطة من ثلاث خطوات تمكنك من الحصول على احتياجاتك من المواد
+            الغذائية بسهولة وسرعة
+          </p>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-start">
+          <div
+            class="step-card w-full md:w-1/3 text-center px-6 mb-10 md:mb-0 transition-all duration-300"
+          >
+            <div
+              class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6"
+            >
+              ١
+            </div>
+            <div class="w-16 h-16 mx-auto mb-6">
+              <i class="ri-file-list-3-line text-primary text-5xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">قدم طلبك</h3>
+            <p class="text-gray-700">
+              أدخل تفاصيل المنتجات التي تحتاجها، والكميات المطلوبة، وموعد
+              التسليم المفضل لديك.
+            </p>
+          </div>
+          <div class="hidden md:block w-1/6 pt-10">
+            <div class="h-1 bg-primary"></div>
+          </div>
+          <div
+            class="step-card w-full md:w-1/3 text-center px-6 mb-10 md:mb-0 transition-all duration-300"
+          >
+            <div
+              class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6"
+            >
+              ٢
+            </div>
+            <div class="w-16 h-16 mx-auto mb-6">
+              <i class="ri-scales-3-line text-primary text-5xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">قارن العروض</h3>
+            <p class="text-gray-700">
+              استلم عروض أسعار من موردين مختلفين، وقارن بينها من حيث السعر
+              والجودة وموعد التسليم.
+            </p>
+          </div>
+          <div class="hidden md:block w-1/6 pt-10">
+            <div class="h-1 bg-primary"></div>
+          </div>
+          <div
+            class="step-card w-full md:w-1/3 text-center px-6 transition-all duration-300"
+          >
+            <div
+              class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6"
+            >
+              ٣
+            </div>
+            <div class="w-16 h-16 mx-auto mb-6">
+              <i class="ri-truck-line text-primary text-5xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">استلم طلبك</h3>
+            <p class="text-gray-700">
+              اختر العرض المناسب، وأكد الطلب، واستلم منتجاتك في الموعد والمكان
+              المحددين.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Supplier Benefits Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            مزايا الانضمام إلى وفرلي كمورد
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="text-gray-700 mt-6 max-w-2xl mx-auto">
+            انضم إلى شبكة موردين وفرلي واستفد من مجموعة من المزايا الحصرية التي
+            ستساعدك في تنمية أعمالك
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+            <div
+              class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-group-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              الوصول لعدد أكبر من العملاء
+            </h3>
+            <p class="text-gray-700">
+              اعرض منتجاتك لآلاف المتاجر والمطاعم في منطقتك، وانمِ قاعدة عملائك
+              بشكل مستمر.
+            </p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+            <div
+              class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-dashboard-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              سهولة إدارة الطلبات
+            </h3>
+            <p class="text-gray-700">
+              لوحة تحكم متطورة تمكنك من إدارة المخزون، الطلبات، والتوصيل بكفاءة
+              عالية.
+            </p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+            <div
+              class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-line-chart-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">تحسين المبيعات</h3>
+            <p class="text-gray-700">
+              أدوات تحليلية متقدمة تساعدك في فهم السوق وتحسين أدائك وزيادة
+              مبيعاتك.
+            </p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-md text-center">
+            <div
+              class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-customer-service-2-line text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              دعم تقني وتسويقي
+            </h3>
+            <p class="text-gray-700">
+              فريق متخصص لمساعدتك في كل خطوة، من الإعداد الأولي إلى التسويق
+              والمبيعات.
+            </p>
+          </div>
+        </div>
+        <div class="text-center">
+          <button
+            class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+          >
+            سجل كمورد معنا
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">الأسئلة الشائعة</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        <div class="max-w-3xl mx-auto">
+          <div class="space-y-6">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <button
+                class="w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none"
+              >
+                <span class="text-lg font-medium text-gray-900"
+                  >كيف أبدأ استخدام وفرلي؟</span
+                >
+                <i
+                  class="ri-arrow-down-s-line text-xl text-primary transition-transform"
+                ></i>
+              </button>
+              <div class="px-6 pb-4">
+                <p class="text-gray-700">
+                  التسجيل في وفرلي سهل وسريع. ما عليك سوى إنشاء حساب، وإكمال ملف
+                  متجرك، وبعدها يمكنك مباشرة البدء في طلب المنتجات من موردينا
+                  المعتمدين.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <button
+                class="w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none"
+              >
+                <span class="text-lg font-medium text-gray-900"
+                  >هل الخدمة متاحة في كل المدن؟</span
+                >
+                <i
+                  class="ri-arrow-down-s-line text-xl text-primary transition-transform"
+                ></i>
+              </button>
+              <div class="px-6 pb-4">
+                <p class="text-gray-700">
+                  حالياً، نقدم خدماتنا في المدن الرئيسية في المملكة العربية
+                  السعودية، ونعمل على التوسع لتغطية المزيد من المناطق قريباً.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <button
+                class="w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none"
+              >
+                <span class="text-lg font-medium text-gray-900"
+                  >هل يوجد رسوم على التسجيل؟</span
+                >
+                <i
+                  class="ri-arrow-down-s-line text-xl text-primary transition-transform"
+                ></i>
+              </button>
+              <div class="px-6 pb-4">
+                <p class="text-gray-700">
+                  التسجيل في وفرلي مجاني تماماً. نحن نحصل على عمولة بسيطة فقط
+                  على الطلبات المكتملة.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <button
+                class="w-full px-6 py-4 text-right flex items-center justify-between focus:outline-none"
+              >
+                <span class="text-lg font-medium text-gray-900"
+                  >كيف أتواصل مع الدعم الفني؟</span
+                >
+                <i
+                  class="ri-arrow-down-s-line text-xl text-primary transition-transform"
+                ></i>
+              </button>
+              <div class="px-6 pb-4">
+                <p class="text-gray-700">
+                  يمكنك التواصل مع فريق الدعم الفني على مدار الساعة عبر
+                  الواتساب، البريد الإلكتروني، أو من خلال نموذج الاتصال في
+                  موقعنا.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">
+          جاهز للبدء في توفير الوقت والمال؟
+        </h2>
+        <p class="text-xl mb-10 max-w-2xl mx-auto">
+          سجل اهتمامك الآن واحصل على إشعار فور إطلاق التطبيق، بالإضافة إلى عروض
+          حصرية للمستخدمين الأوائل.
+        </p>
+        <div
+          class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-reverse md:space-x-6"
+        >
+          <button
+            class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+          >
+            سجل اهتمامك الآن
+          </button>
+          <button
+            class="border border-white text-white px-8 py-3 rounded-button font-medium hover:bg-white hover:bg-opacity-10 transition-colors whitespace-nowrap"
+          >
+            تواصل معنا
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">اتصل بنا</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="text-gray-700 mt-6 max-w-2xl mx-auto">
+            لديك أسئلة أو استفسارات؟ نحن هنا للمساعدة. تواصل معنا من خلال أي من
+            قنوات الاتصال التالية.
+          </p>
+        </div>
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 mb-10 md:mb-0 md:pl-10">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                معلومات الاتصال
+              </h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center ml-4"
+                  >
+                    <i class="ri-whatsapp-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-900 mb-1">
+                      واتساب
+                    </h4>
+                    <p class="text-gray-700 dir-ltr">+966 50 656 4275</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center ml-4"
+                  >
+                    <i class="ri-mail-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-900 mb-1">
+                      البريد الإلكتروني
+                    </h4>
+                    <p class="text-gray-700">info@wafrli.com</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center ml-4"
+                  >
+                    <i class="ri-map-pin-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-900 mb-1">
+                      العنوان
+                    </h4>
+                    <p class="text-gray-700">
+                      المملكة العربية السعودية - مكه المكرمه
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-10">
+                <h4 class="text-lg font-medium text-gray-900 mb-4">
+                  تابعنا على
+                </h4>
+                <div class="flex space-x-reverse space-x-4">
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <i class="ri-instagram-line"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <i class="ri-twitter-x-line"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <i class="ri-linkedin-line"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                أرسل لنا رسالة
+              </h3>
+              <form>
+                <div class="mb-6">
+                  <label for="name" class="block text-gray-700 mb-2"
+                    >الاسم الكامل</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    placeholder="أدخل اسمك الكامل"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="email" class="block text-gray-700 mb-2"
+                    >البريد الإلكتروني</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    placeholder="أدخل بريدك الإلكتروني"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="phone" class="block text-gray-700 mb-2"
+                    >رقم الهاتف</label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    placeholder="أدخل رقم هاتفك"
+                  />
+                </div>
+                <div class="mb-6">
+                  <label for="message" class="block text-gray-700 mb-2"
+                    >الرسالة</label
+                  >
+                  <textarea
+                    id="message"
+                    rows="5"
+                    class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    placeholder="اكتب رسالتك هنا"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap"
+                >
+                  إرسال الرسالة
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between mb-12">
+          <div class="mb-10 md:mb-0">
+            <div class="font-['Pacifico'] text-3xl text-white mb-6">وفرلي</div>
+            <p class="text-gray-400 max-w-xs">
+              منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين
+              بطريقة سهلة وفعالة.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-10">
+            <div>
+              <h4 class="text-lg font-bold mb-6">روابط سريعة</h4>
+              <ul class="space-y-4">
+                <li>
+                  <a
+                    href="#home"
+                    class="text-gray-400 hover:text-white transition-colors"
+                    >الرئيسية</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    class="text-gray-400 hover:text-white transition-colors"
+                    >من نحن</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#features"
+                    class="text-gray-400 hover:text-white transition-colors"
+                    >المميزات</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#how-it-works"
+                    class="text-gray-400 hover:text-white transition-colors"
+                    >كيف يعمل</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    class="text-gray-400 hover:text-white transition-colors"
+                    >اتصل بنا</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6">تواصل معنا</h4>
+              <ul class="space-y-4">
+                <li class="flex items-center">
+                  <i class="ri-whatsapp-line ml-2"></i>
+                  <span class="text-gray-400">+966 50 656 4275</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-mail-line ml-2"></i>
+                  <span class="text-gray-400">info@wafrli.com</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-map-pin-line ml-2"></i>
+                  <span class="text-gray-400"
+                    >المملكة العربية السعودية - مكه المكرمه</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold mb-6">تابعنا</h4>
+              <div class="flex space-x-reverse space-x-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                >
+                  <i class="ri-instagram-line"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                >
+                  <i class="ri-twitter-x-line"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                >
+                  <i class="ri-linkedin-line"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-gray-800 text-center md:flex md:justify-between md:items-center"
+        >
+          <p class="text-gray-500">© 2025 وفرلي. جميع الحقوق محفوظة.</p>
+          <div
+            class="mt-4 md:mt-0 flex justify-center md:justify-end space-x-reverse space-x-6"
+          >
+            <a href="#" class="text-gray-500 hover:text-white transition-colors"
+              >سياسة الخصوصية</a
+            >
+            <a href="#" class="text-gray-500 hover:text-white transition-colors"
+              >الشروط والأحكام</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script id="mobileMenuScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.querySelector(".md\\:hidden");
+        const mobileMenu = document.createElement("div");
+        mobileMenu.className =
+          "fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out";
+        mobileMenu.innerHTML = `
+      <div class="flex justify-between items-center p-4 border-b">
+      <div class="font-['Pacifico'] text-2xl text-primary">وفرلي</div>
+      <button class="close-menu w-10 h-10 flex items-center justify-center">
+      <i class="ri-close-line text-xl"></i>
+      </button>
+      </div>
+      <nav class="p-4">
+      <ul class="space-y-4">
+      <li><a href="#home" class="block py-2 text-gray-800 hover:text-primary transition-colors">الرئيسية</a></li>
+      <li><a href="#about" class="block py-2 text-gray-800 hover:text-primary transition-colors">من نحن</a></li>
+      <li><a href="#features" class="block py-2 text-gray-800 hover:text-primary transition-colors">المميزات</a></li>
+      <li><a href="#ai-features" class="block py-2 text-gray-800 hover:text-primary transition-colors">الذكاء الاصطناعي</a></li>
+      <li><a href="#how-it-works" class="block py-2 text-gray-800 hover:text-primary transition-colors">كيف يعمل</a></li>
+      <li><a href="#contact" class="block py-2 text-gray-800 hover:text-primary transition-colors">اتصل بنا</a></li>
+      </ul>
+      </nav>
+      `;
+        document.body.appendChild(mobileMenu);
+        menuButton.addEventListener("click", function () {
+          mobileMenu.classList.remove("translate-x-full");
+        });
+        mobileMenu
+          .querySelector(".close-menu")
+          .addEventListener("click", function () {
+            mobileMenu.classList.add("translate-x-full");
+          });
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("translate-x-full");
+          });
+        });
+      });
+    </script>
+    <script id="smoothScrollScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+    <script id="faqScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqButtons = document.querySelectorAll(".bg-white.rounded-lg button");
+        faqButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector(".ri-arrow-down-s-line");
+            const isOpen = answer.style.maxHeight;
+            faqButtons.forEach((otherButton) => {
+              const otherAnswer = otherButton.nextElementSibling;
+              const otherIcon = otherButton.querySelector(".ri-arrow-down-s-line");
+              otherAnswer.style.maxHeight = null;
+              otherIcon.style.transform = "rotate(0deg)";
+            });
+            if (!isOpen) {
+              answer.style.maxHeight = answer.scrollHeight + "px";
+              icon.style.transform = "rotate(180deg)";
+            } else {
+              answer.style.maxHeight = null;
+              icon.style.transform = "rotate(0deg)";
+            }
+          });
+        });
+      });
+    </script>
+    <script id="formValidationScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const messageInput = document.getElementById("message");
+            let isValid = true;
+            if (!nameInput.value.trim()) {
+              nameInput.classList.add("border-red-500");
+              isValid = false;
+            } else {
+              nameInput.classList.remove("border-red-500");
+            }
+            if (!emailInput.value.trim() || !emailInput.value.includes("@")) {
+              emailInput.classList.add("border-red-500");
+              isValid = false;
+            } else {
+              emailInput.classList.remove("border-red-500");
+            }
+            if (!messageInput.value.trim()) {
+              messageInput.classList.add("border-red-500");
+              isValid = false;
+            } else {
+              messageInput.classList.remove("border-red-500");
+            }
+            if (isValid) {
+              alert("تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.");
+              form.reset();
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
