@@ -88,11 +88,19 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
     />
     <style>
+      /* NO NEED TO READ THIS CODE */
       :where([class^="ri-"])::before { content: "\f3c2"; }
-            body {
+
+       /* NO NEED TO READ THIS CODE SCOPE */
+      body {
         font-family: 'Tajawal', sans-serif;
-      scroll-behavior: smooth;
-      transition: background-color 0.3s ease, color 0.3s ease;
+        scroll-behavior: smooth;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        overflow-x: hidden;
+      }
+      
+      html {
+        overflow-x: hidden;
       }
       
 
@@ -296,6 +304,53 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
+      /* Arabic-optimized gradient text styles */
+      .gradient-text-simple {
+        -webkit-text-fill-color: transparent;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(90deg, #fff, #be95b7) 0 0 / 100% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        padding: .75rem 0;
+        line-height: 1.6;
+      }
+
+      .gradient-text-arabic {
+        -webkit-text-fill-color: transparent;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(135deg, #009196, #F9A51A) 0 0 / 100% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        padding: .75rem 0;
+        line-height: 1.6;
+      }
+
+      .gradient-text-safe {
+        -webkit-text-fill-color: transparent;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(90deg, #009196, #F9A51A) 0 0 / 100% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        padding: .75rem 0;
+        line-height: 1.6;
+      }
+
+      .gradient-text-simple, .gradient-text-safe, .gradient-text-arabic {
+        font-feature-settings: "kern" 1, "liga" 1;
+        text-rendering: optimizeLegibility;
+        word-spacing: normal !important;
+      }
+
+      h1, h2, h3, h4, h5, h6, p, span, div, a {
+        letter-spacing: inherit;
+        word-spacing: inherit;
+        white-space: normal;
+        text-transform: none;
+      }
       
       /* تحسين الأزرار */
       .btn-primary {
@@ -498,257 +553,347 @@
         transform: translateY(-5px);
       }
     </style>
-    <!-- SwiperJS CSS for mobile sliders -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
-    <!-- Custom Swiper Styles -->
-    <style>
-      /* Custom Swiper Styles */
-      .swiper {
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .swiper-slide {
-        transition: transform 0.3s ease;
-      }
-      
-      .swiper-slide-active {
-        transform: scale(1.02);
-      }
-      
-      /* Custom Navigation Arrows */
-      .swiper-button-next,
-      .swiper-button-prev {
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 145, 150, 0.9);
-        border-radius: 50%;
-        color: white;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-      }
-      
-      .swiper-button-next:hover,
-      .swiper-button-prev:hover {
-        background: rgba(0, 145, 150, 1);
-        transform: scale(1.1);
-      }
-      
-      .swiper-button-next::after,
-      .swiper-button-prev::after {
-        font-size: 16px;
-        font-weight: bold;
-      }
-      
-      /* Custom Pagination */
-      .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background: rgba(0, 145, 150, 0.3);
-        opacity: 1;
-        transition: all 0.3s ease;
-      }
-      
-      .swiper-pagination-bullet-active {
-        background: #009196;
-        transform: scale(1.2);
-      }
-      
-      /* Swipe Indicator */
-      .swipe-indicator {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 20px;
-        font-size: 16px;
-        z-index: 10;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        backdrop-filter: blur(10px);
-        pointer-events: none;
-        animation: pulse 2s infinite;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        min-width: 60px;
-        justify-content: center;
-      }
-      
-      .swipe-indicator.show {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      
-      .swipe-indicator .close-btn {
-        background: rgba(255, 255, 255, 0.2);
-        border: none;
-        color: white;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 10px;
-        transition: background 0.3s ease;
-        margin-left: 4px;
-      }
-      
-      .swipe-indicator .close-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-      }
-      
-      @keyframes pulse {
-        0% {
-          transform: translate(-50%, -50%) scale(1);
-        }
-        50% {
-          transform: translate(-50%, -50%) scale(1.05);
-        }
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-        }
-      }
-      
-      /* Touch Feedback */
-      .swiper-slide {
-        cursor: grab;
-        transition: all 0.3s ease;
-      }
-      
-      .swiper-slide:active {
-        cursor: grabbing;
-        transform: scale(0.98);
-      }
-      
-      .swiper-slide-active {
-        transform: scale(1.02);
-        z-index: 2;
-      }
-      
-              /* Progress Bar */
-        .swiper-progress {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          height: 3px;
-          background: linear-gradient(90deg, #009196, #F9A51A);
-          transition: width 0.3s ease;
-          z-index: 5;
-          border-radius: 0 2px 2px 0;
-        }
-      
-      /* Card Hover Effects */
-      .feature-card,
-      .ai-feature-card {
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .feature-card::before,
-      .ai-feature-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(0, 145, 150, 0.1), transparent);
-        transition: left 0.5s ease;
-      }
-      
-      .swiper-slide-active .feature-card::before,
-      .swiper-slide-active .ai-feature-card::before {
-        left: 100%;
-      }
-      
-      .swiper-slide-active .feature-card,
-      .swiper-slide-active .ai-feature-card {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        transform: translateY(-5px);
-      }
-      
-      /* Enhanced Navigation Arrows */
-      .swiper-button-next,
-      .swiper-button-prev {
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 145, 150, 0.9);
-        border-radius: 50%;
-        color: white;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 15px rgba(0, 145, 150, 0.3);
-      }
-      
-      .swiper-button-next:hover,
-      .swiper-button-prev:hover {
-        background: rgba(0, 145, 150, 1);
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(0, 145, 150, 0.4);
-      }
-      
-      .swiper-button-next::after,
-      .swiper-button-prev::after {
-        font-size: 16px;
-        font-weight: bold;
-      }
-      
-      /* Custom Pagination */
-      .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background: rgba(0, 145, 150, 0.3);
-        opacity: 1;
-        transition: all 0.3s ease;
-        margin: 0 4px;
-      }
-      
-      .swiper-pagination-bullet-active {
-        background: #009196;
-        transform: scale(1.2);
-        box-shadow: 0 2px 8px rgba(0, 145, 150, 0.4);
-      }
-      
-      /* Mobile Specific Styles */
-      @media (max-width: 768px) {
-        .swiper-button-next,
-        .swiper-button-prev {
-          width: 40px;
-          height: 40px;
+    <!-- Custom Slider Styles -->
+          <style>
+        /* Custom Slick Slider Styles */
+        .slick-slider {
+          position: relative;
+          display: block;
+          box-sizing: border-box;
+          user-select: none;
+          touch-action: pan-y;
+          -webkit-tap-highlight-color: transparent;
+          overflow: visible !important;
         }
         
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-          font-size: 16px;
+        /* Slider Container Fixes */
+        .slider-container {
+          overflow: visible !important;
+          position: relative;
+          width: 100%;
         }
-      }
+        
+        .slider-wrapper {
+          overflow: visible !important;
+          position: relative;
+          padding: 0 60px;
+        }
+        
+        .slick-track {
+          position: relative;
+          top: 0;
+          left: 0;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          overflow: visible !important;
+          width: auto !important;
+        }
+        
+        .slick-slide {
+          position: relative;
+          display: block;
+          height: inherit;
+          min-height: 1px;
+          transition: all 0.3s ease;
+        }
+        
+        .slick-slide.slick-center {
+          transform: scale(1.05);
+          z-index: 2;
+        }
+        
+        /* Custom Navigation Arrows */
+        .slick-prev,
+        .slick-next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+          width: 50px;
+          height: 50px;
+          background: rgba(0, 145, 150, 0.9) !important;
+          border-radius: 50%;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 15px rgba(0, 145, 150, 0.3);
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .slick-prev {
+          right: 60px;
+        }
+        
+        .slick-next {
+          left: 60px;
+        }
+        
+        .slick-prev:before,
+        .slick-next:before {
+          font-family: 'remixicon';
+          font-size: 20px;
+          color: white;
+          opacity: 1;
+        }
+        
+        .slick-prev:before {
+          content: '\f1f9';
+        }
+        
+        .slick-next:before {
+          content: '\f1f8';
+        }
+        
+        .slick-prev:hover,
+        .slick-next:hover {
+          background: rgba(0, 145, 150, 1) !important;
+          transform: translateY(-50%) scale(1.1);
+          box-shadow: 0 6px 20px rgba(0, 145, 150, 0.4);
+        }
+        
+        /* Custom Dots */
+        .slick-dots {
+          position: absolute;
+          bottom: -50px;
+          display: flex !important;
+          justify-content: center;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          text-align: center;
+          width: 100%;
+        }
+        
+        .slick-dots li {
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin: 0 5px;
+          padding: 0;
+          cursor: pointer;
+        }
+        
+        .slick-dots li button {
+          font-size: 0;
+          line-height: 0;
+          display: block;
+          width: 12px;
+          height: 12px;
+          padding: 0;
+          cursor: pointer;
+          color: transparent;
+          border: 0;
+          outline: none;
+          background: rgba(0, 145, 150, 0.3);
+          border-radius: 50%;
+          transition: all 0.3s ease;
+        }
+        
+        .slick-dots li.slick-active button {
+          background: #009196;
+          transform: scale(1.2);
+          box-shadow: 0 2px 8px rgba(0, 145, 150, 0.4);
+        }
+        
+        /* How It Works Slider Specific */
+        .how-it-works-slider {
+          margin-bottom: 50px;
+        }
+        
+        .how-it-works-slider .slick-slide {
+          padding: 0 10px;
+          outline: none;
+        }
+        
+        .how-it-works-slider .slick-center .bg-white {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Features Slider */
+        .features-slider .slick-slide {
+          padding: 0 10px;
+          outline: none;
+        }
+        
+        .features-slider .slick-center .feature-card {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* AI Features Slider */
+        .ai-features-slider .slick-slide {
+          padding: 0 10px;
+          outline: none;
+        }
+        
+        .ai-features-slider .slick-center .ai-feature-card {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Supplier Benefits Slider */
+        .supplier-benefits-slider .slick-slide {
+          padding: 0 10px;
+          outline: none;
+        }
+        
+        .supplier-benefits-slider .slick-center .bg-white {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Touch Feedback */
+        .slick-slide {
+          cursor: grab;
+          transition: all 0.3s ease;
+        }
+        
+        .slick-slide:active {
+          cursor: grabbing;
+          transform: scale(0.98);
+        }
+        
+        /* Mobile Specific Styles */
+        @media (max-width: 768px) {
+          .slick-prev,
+          .slick-next {
+            width: 40px;
+            height: 40px;
+          }
+          
+          body, html {
+            overflow-x: hidden !important;
+          }
+          
+          .slick-slider {
+            overflow: visible !important;
+          }
+          
+          .slider-container {
+            overflow: visible !important;
+            width: 100% !important;
+          }
+          
+          .slider-wrapper {
+            padding: 0 50px !important;
+            overflow: visible !important;
+          }
+          
+          .slick-track {
+            overflow: visible !important;
+          }
+          
+          .slick-prev:before,
+          .slick-next:before {
+            font-size: 16px;
+          }
+          
+          .slick-prev {
+            right: 10px;
+          }
+          
+          .slick-next {
+            left: 10px;
+          }
+          
+          .slick-dots {
+            bottom: -40px;
+          }
+        }
+        
+        /* Card Hover Effects */
+        .feature-card,
+        .ai-feature-card {
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .feature-card::before,
+        .ai-feature-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(0, 145, 150, 0.1), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        .slick-center .feature-card::before,
+        .slick-center .ai-feature-card::before {
+          left: 100%;
+        }
+        
+        /* Step Card Enhancements */
+        .step-card {
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .step-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(0, 145, 150, 0.1), transparent);
+          transition: left 0.5s ease;
+        }
+        
+        .slick-center .step-card::before {
+          left: 100%;
+        }
+        
+        .slick-center .step-card {
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          transform: translateY(-5px);
+        }
 
-      /* Details/Summary Animation */
-      details > summary {
-        list-style: none;
-      }
-      
-      details > summary::-webkit-details-marker {
-        display: none;
-      }
-      
-      .details-arrow {
-        transition: transform 0.3s ease;
-      }
-      
-      details[open] > summary .details-arrow {
-        transform: rotate(180deg);
-      }
+        /* Details/Summary Animation */
+        details > summary {
+          list-style: none;
+        }
+        
+        details > summary::-webkit-details-marker {
+          display: none;
+        }
+        
+        .details-arrow {
+          transition: transform 0.3s ease;
+        }
+        
+        details[open] > summary .details-arrow {
+          transform: rotate(180deg);
+        }
+        
+        /* Responsive Slider Heights */
+        @media (max-width: 768px) {
+          .how-it-works-slider .slick-slide > div {
+            height: auto;
+            min-height: 500px;
+            display: flex;
+            align-items: stretch;
+          }
+          
+          .how-it-works-slider .bg-white {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          }
+        }
 
-    </style>
+      </style>
   </head>
   <body class="bg-white ">
     <!-- شريط الإشعارات -->
@@ -859,71 +1004,73 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section py-20 md:py-32 relative overflow-hidden">
-      <!-- تأثيرات خلفية -->
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 "></div>
-      <div class="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
-      <div class="absolute bottom-20 right-10 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+    <section id="home" class="hero-section py-12 sm:py-16 md:py-20 lg:py-32 relative overflow-hidden">
+      <!-- Background effects -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+      <div class="absolute top-10 left-5 sm:top-20 sm:left-10 w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-5 sm:bottom-20 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
       
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="md:w-1/2 text-right mb-10 md:mb-0">
-            <!-- شارات الإنجازات -->
-            <div class="flex items-center gap-4 mb-6 animate-fade-in-up">
-              <span class="bg-white text-black px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 border border-primary">
-                <i class="ri-check-line text-primary"></i>
-                <span >متاجر نشطة</span>
+      <div class="container mx-auto px-3 sm:px-4 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-8">
+          <div class="w-full lg:w-1/2 text-center lg:text-right mb-6 lg:mb-0">
+            <!-- Achievement badges - responsive -->
+            <div class="flex flex-wrap justify-center lg:justify-start items-center gap-2 sm:gap-4 mb-4 sm:mb-6 animate-fade-in-up">
+              <span class="bg-white text-black px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium flex items-center gap-1 border border-primary">
+                <i class="ri-check-line text-primary text-sm"></i>
+                <span>متاجر نشطة</span>
               </span>
-              <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
-                <i class="ri-star-line"></i>
-                <span >تقييم عالي</span>
+              <span class="bg-primary text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium flex items-center gap-1">
+                <i class="ri-star-line text-sm"></i>
+                <span>تقييم عالي</span>
               </span>
             </div>
             
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in-up delay-200">
-              <span >وفر على مشترياتك الغذائية</span>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                <span >سريع، سهل، موثوق!</span>
+            <!-- Main heading - responsive text -->
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-fade-in-up delay-200">
+              <span class="block mb-2">وفر على مشترياتك الغذائية</span>
+              <span class="gradient-text-arabic block">
+                <span>سريع، سهل، موثوق!</span>
               </span>
             </h1>
             
-            <p class="text-lg md:text-xl text-gray-800 mb-8 leading-relaxed animate-fade-in-up delay-300" >
+            <!-- Description - responsive text -->
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed animate-fade-in-up delay-300">
               منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين
               بطريقة سهلة وفعالة
             </p>
             
-            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-reverse sm:space-x-4 animate-fade-in-up delay-400 hero-buttons">
+            <!-- Buttons - responsive layout -->
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-up delay-400 hero-buttons">
               <button
                 onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
-                class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group"
+                class="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group text-sm sm:text-base"
               >
-                <span >سجل اهتمامك الآن</span>
+                <span>سجل اهتمامك الآن</span>
                 <i class="ri-arrow-left-line group-hover:-translate-x-1 transition-transform"></i>
               </button>
               <button
                 onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
-                class="border-2 border-primary text-primary bg-white px-8 py-4 rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group"
+                class="border-2 border-primary text-primary bg-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group text-sm sm:text-base"
               >
-                <span >تعرف علينا</span>
+                <span>تعرف علينا</span>
                 <i class="ri-play-line group-hover:scale-110 transition-transform"></i>
               </button>
             </div>
           </div>
           
-          <div class="md:w-1/2 flex justify-center relative animate-fade-in-up delay-600">
-            <!-- تأثيرات حول الصورة -->
+          <!-- Hero image - responsive -->
+          <div class="w-full lg:w-1/2 flex justify-center relative animate-fade-in-up delay-600">
             <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-2xl transform rotate-6"></div>
             <img
               src="https://readdy.ai/api/search-image?query=Arabic%20business%20owners%20discussing%20food%20supplies%20with%20local%20vendors.%20Modern%20marketplace%20setting%20with%20fruits%2C%20vegetables%2C%20and%20packaged%20goods%20visible.%20Professional%2C%20clean%20environment.%20Bright%20lighting%20with%20soft%20shadows.%20No%20text%20visible%20in%20the%20image.&width=600&height=500&seq=2&orientation=portrait"
               alt="وفر لي - منصة ربط المتاجر بموردي الأغذية"
-              class="rounded-2xl shadow-2xl max-w-full h-auto object-cover relative z-10 hover:scale-105 transition-transform duration-500"
-              style="max-height: 500px;"
+              class="rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md lg:max-w-lg h-auto object-cover relative z-10 hover:scale-105 transition-transform duration-500"
             />
             
-            <!-- شارة عائمة -->
-            <div class="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg z-20">
-              <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
-                <i class="ri-truck-line text-white text-xl"></i>
+            <!-- Floating badge - responsive positioning -->
+            <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-white rounded-full p-2 sm:p-3 shadow-lg z-20">
+              <div class="w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
+                <i class="ri-truck-line text-white text-sm sm:text-xl"></i>
               </div>
             </div>
           </div>
@@ -965,162 +1112,79 @@
       </div>
     </section>
     <!-- Features Section -->
-    <section id="features" class="py-20 relative">
-      <!-- تأثيرات خلفية -->
+    <section id="features" class="py-12 sm:py-16 md:py-20 relative">
       <div class="absolute inset-0 bg-gradient-to-b from-white to-white"></div>
       
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-black mb-4 scroll-reveal">
-            <span >المميزات</span>
-            <span class="text-gradient" >الرئيسية</span>
+      <div class="container mx-auto px-3 sm:px-4 relative z-10">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 scroll-reveal">
+            <span>المميزات</span>
+            <span class="gradient-text-arabic">الرئيسية</span>
           </h2>
-          <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 scroll-reveal"></div>
-          <p class="text-black mt-6 max-w-2xl mx-auto text-lg scroll-reveal" >
+          <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 scroll-reveal"></div>
+          <p class="text-black mt-4 sm:mt-6 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg scroll-reveal">
             نقدم مجموعة من المميزات المصممة خصيصًا لتلبية احتياجات أصحاب المتاجر
             والمطاعم وموردي الأغذية
           </p>
         </div>
-        <!-- Swiper for mobile -->
-        <div class="block md:hidden relative">
-          <div class="swiper features-swiper">
-            <div class="swiper-wrapper">
-              <!-- Each feature-card as swiper-slide -->
-              <div class="swiper-slide">
-                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
-                    <i class="ri-shopping-cart-line text-white text-2xl"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-4" >عملية طلب سهلة</h3>
-                  <p class="text-black leading-relaxed" >
-                    واجهة سهلة الاستخدام تمكنك من طلب المنتجات بضغطة زر واحدة، مع
-                    إمكانية تتبع طلباتك في الوقت الفعلي.
-                  </p>
-                  <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-                    <span >اعرف المزيد</span>
-                    <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div class="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
-                    <i class="ri-price-tag-3-line text-white text-2xl"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-4" >أسعار تنافسية</h3>
-                  <p class="text-black leading-relaxed" >
-                    قارن بين أسعار مختلف الموردين واحصل على أفضل العروض والخصومات
-                    المتاحة لتوفير المال.
-                  </p>
-                  <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-                    <span >اعرف المزيد</span>
-                    <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
-                    <i class="ri-store-2-line text-white text-2xl"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-4" >تنوع الموردين</h3>
-                  <p class="text-black leading-relaxed" >
-                    اختر من بين مجموعة واسعة من الموردين المحليين الموثوقين، مع
-                    تقييمات وتعليقات من العملاء السابقين.
-                  </p>
-                  <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-                    <span >اعرف المزيد</span>
-                    <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div class="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
-                    <i class="ri-customer-service-2-line text-white text-2xl"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-4" >دعم عملاء سريع</h3>
-                  <p class="text-black leading-relaxed" >
-                    فريق دعم متخصص جاهز للمساعدة في أي وقت، مع خيارات تواصل متعددة
-                    لضمان تجربة سلسة.
-                  </p>
-                  <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-                    <span >اعرف المزيد</span>
-                    <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
-                  </div>
-                </div>
-              </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-shopping-cart-line text-white text-lg sm:text-xl lg:text-2xl"></i>
             </div>
-            
-            <!-- Navigation Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            
-            <!-- Pagination -->
-            <div class="swiper-pagination"></div>
-            
-            <!-- Progress Bar -->
-            <div class="swiper-progress"></div>
-          </div>
-        </div>
-        <!-- Original grid for desktop -->
-        <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
-              <i class="ri-shopping-cart-line text-white text-2xl"></i>
-            </div>
-            <h3 class="text-xl font-bold text-black mb-4" >عملية طلب سهلة</h3>
-            <p class="text-black leading-relaxed" >
+            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">عملية طلب سهلة</h3>
+            <p class="text-black leading-relaxed text-sm sm:text-base">
               واجهة سهلة الاستخدام تمكنك من طلب المنتجات بضغطة زر واحدة، مع
               إمكانية تتبع طلباتك في الوقت الفعلي.
             </p>
-            <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-              <span >اعرف المزيد</span>
+            <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span class="text-sm sm:text-base">اعرف المزيد</span>
               <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
             </div>
           </div>
           
-          <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-            <div class="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
-              <i class="ri-price-tag-3-line text-white text-2xl"></i>
+          <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-price-tag-3-line text-white text-lg sm:text-xl lg:text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-black mb-4" >أسعار تنافسية</h3>
-            <p class="text-black leading-relaxed" >
+            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">أسعار تنافسية</h3>
+            <p class="text-black leading-relaxed text-sm sm:text-base">
               قارن بين أسعار مختلف الموردين واحصل على أفضل العروض والخصومات
               المتاحة لتوفير المال.
             </p>
-            <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-              <span >اعرف المزيد</span>
+            <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span class="text-sm sm:text-base">اعرف المزيد</span>
               <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
             </div>
           </div>
           
-          <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
-              <i class="ri-store-2-line text-white text-2xl"></i>
+          <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-store-2-line text-white text-lg sm:text-xl lg:text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-black mb-4" >تنوع الموردين</h3>
-            <p class="text-black leading-relaxed" >
+            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">تنوع الموردين</h3>
+            <p class="text-black leading-relaxed text-sm sm:text-base">
               اختر من بين مجموعة واسعة من الموردين المحليين الموثوقين، مع
               تقييمات وتعليقات من العملاء السابقين.
             </p>
-            <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-              <span >اعرف المزيد</span>
+            <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span class="text-sm sm:text-base">اعرف المزيد</span>
               <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
             </div>
           </div>
           
-          <div class="feature-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-            <div class="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300">
-              <i class="ri-customer-service-2-line text-white text-2xl"></i>
+          <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-customer-service-2-line text-white text-lg sm:text-xl lg:text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-black mb-4" >دعم عملاء سريع</h3>
-            <p class="text-black leading-relaxed" >
+            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">دعم عملاء سريع</h3>
+            <p class="text-black leading-relaxed text-sm sm:text-base">
               فريق دعم متخصص جاهز للمساعدة في أي وقت، مع خيارات تواصل متعددة
               لضمان تجربة سلسة.
             </p>
-            <div class="mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-              <span >اعرف المزيد</span>
+            <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span class="text-sm sm:text-base">اعرف المزيد</span>
               <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
             </div>
           </div>
@@ -1154,193 +1218,66 @@
             />
           </div>
         </div>
-        <!-- Swiper for mobile -->
-        <div class="block md:hidden relative">
-          <div class="swiper ai-swiper">
-            <div class="swiper-wrapper">
-              <!-- Each ai-feature-card as swiper-slide -->
-              <div class="swiper-slide">
-                <div class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
-                  <div
-                    class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6"
-                  >
-                    <i class="ri-ai-generate text-white text-2xl" aria-hidden="true"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-3" >توصيات مخصصة</h3>
-                  <p class="text-black mb-4" >
-                    نظام ذكي يقترح أفضل الموردين والمنتجات بناءً على سجل مشترياتك
-                    السابقة وتفضيلاتك، مما يوفر لك الوقت ويضمن الحصول على أفضل
-                    الخيارات.
-                  </p>
-                  <button
-                    class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
-                  >
-                    <span >اعرف المزيد</span>
-                    <i class="ri-arrow-left-line mr-1"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
-                  <div
-                    class="w-14 h-14 bg-secondary rounded-full flex items-center justify-center mb-6"
-                  >
-                    <i class="ri-line-chart-line text-white text-2xl" aria-hidden="true"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-3" >
-                    مقارنة تلقائية للعروض
-                  </h3>
-                  <p class="text-black mb-4" >
-                    خوارزميات متطورة تحلل الأسعار والعروض من مختلف الموردين في الوقت
-                    الفعلي، لمساعدتك في اختيار العرض الأنسب لاحتياجاتك وميزانيتك.
-                  </p>
-                  <button
-                    class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
-                  >
-                    <span >اعرف المزيد</span>
-                    <i class="ri-arrow-left-line mr-1"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
-                  <div
-                    class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6"
-                  >
-                    <i class="ri-notification-3-line text-white text-2xl" aria-hidden="true"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-3" >إشعارات ذكية</h3>
-                  <p class="text-black mb-4" >
-                    تنبيهات فورية مخصصة عند توفر منتجاتك المفضلة، أو انخفاض الأسعار،
-                    أو ظهور عروض خاصة تناسب احتياجاتك، مما يضمن عدم تفويت أي فرصة.
-                  </p>
-                  <button
-                    class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
-                  >
-                    <span >اعرف المزيد</span>
-                    <i class="ri-arrow-left-line mr-1"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
-                  <div
-                    class="w-14 h-14 bg-gradient-to-br from-primary to-secondary bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-                  >
-                    <i class="ri-bar-chart-grouped-line text-primary text-2xl"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-3" >
-                    تحليل الاتجاهات
-                  </h3>
-                  <p class="text-black mb-4" >
-                    تقارير تحليلية متطورة توضح حركة السوق وتوجهات الطلب في منطقتك، مما
-                    يساعدك على اتخاذ قرارات استراتيجية أفضل لعملك.
-                  </p>
-                  <button
-                    class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
-                  >
-                    <span >اعرف المزيد</span>
-                    <i class="ri-arrow-left-line mr-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Navigation Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            
-            <!-- Pagination -->
-            <div class="swiper-pagination"></div>
-            
-            <!-- Progress Bar -->
-            <div class="swiper-progress"></div>
-          </div>
-        </div>
         <!-- Original grid for desktop -->
-        <div class="hidden md:grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div
-            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
-          >
-            <div
-              class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6"
-            >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+            <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6">
               <i class="ri-ai-generate text-white text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-xl font-bold text-black mb-3" >توصيات مخصصة</h3>
-            <p class="text-black mb-4" >
+            <h3 class="text-xl font-bold text-black mb-3">توصيات مخصصة</h3>
+            <p class="text-black mb-4">
               نظام ذكي يقترح أفضل الموردين والمنتجات بناءً على سجل مشترياتك
               السابقة وتفضيلاتك، مما يوفر لك الوقت ويضمن الحصول على أفضل
               الخيارات.
             </p>
-            <button
-              class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
-            >
-              <span >اعرف المزيد</span>
+            <button class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap">
+              <span>اعرف المزيد</span>
               <i class="ri-arrow-left-line mr-1"></i>
             </button>
           </div>
-          <div
-            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
-          >
-            <div
-              class="w-14 h-14 bg-secondary rounded-full flex items-center justify-center mb-6"
-            >
+          <div class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+            <div class="w-14 h-14 bg-secondary rounded-full flex items-center justify-center mb-6">
               <i class="ri-line-chart-line text-white text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-xl font-bold text-black mb-3" >
+            <h3 class="text-xl font-bold text-black mb-3">
               مقارنة تلقائية للعروض
             </h3>
-            <p class="text-black mb-4" >
+            <p class="text-black mb-4">
               خوارزميات متطورة تحلل الأسعار والعروض من مختلف الموردين في الوقت
               الفعلي، لمساعدتك في اختيار العرض الأنسب لاحتياجاتك وميزانيتك.
             </p>
-            <button
-              class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
-            >
-              <span >اعرف المزيد</span>
+            <button class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap">
+              <span>اعرف المزيد</span>
               <i class="ri-arrow-left-line mr-1"></i>
             </button>
           </div>
-          <div
-            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
-          >
-            <div
-              class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6"
-            >
+          <div class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+            <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-6">
               <i class="ri-notification-3-line text-white text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-xl font-bold text-black mb-3" >إشعارات ذكية</h3>
-            <p class="text-black mb-4" >
+            <h3 class="text-xl font-bold text-black mb-3">إشعارات ذكية</h3>
+            <p class="text-black mb-4">
               تنبيهات فورية مخصصة عند توفر منتجاتك المفضلة، أو انخفاض الأسعار،
               أو ظهور عروض خاصة تناسب احتياجاتك، مما يضمن عدم تفويت أي فرصة.
             </p>
-            <button
-              class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
-            >
-              <span >اعرف المزيد</span>
+            <button class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap">
+              <span>اعرف المزيد</span>
               <i class="ri-arrow-left-line mr-1"></i>
             </button>
           </div>
-          <div
-            class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300"
-          >
-            <div
-              class="w-14 h-14 bg-secondary rounded-full flex items-center justify-center mb-6"
-            >
+          <div class="ai-feature-card bg-white p-6 rounded-lg shadow-md transition-all duration-300">
+            <div class="w-14 h-14 bg-secondary rounded-full flex items-center justify-center mb-6">
               <i class="ri-bar-chart-grouped-line text-white text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-xl font-bold text-black mb-3" >
+            <h3 class="text-xl font-bold text-black mb-3">
               تحليل الاتجاهات
             </h3>
-            <p class="text-black mb-4" >
+            <p class="text-black mb-4">
               تقارير تحليلية متطورة توضح حركة السوق وتوجهات الطلب في منطقتك، مما
               يساعدك على اتخاذ قرارات استراتيجية أفضل لعملك.
             </p>
-            <button
-              class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap"
-            >
-              <span >اعرف المزيد</span>
+            <button class="text-primary hover:text-primary-dark flex items-center text-sm font-medium whitespace-nowrap">
+              <span>اعرف المزيد</span>
               <i class="ri-arrow-left-line mr-1"></i>
             </button>
           </div>
@@ -1348,132 +1285,164 @@
       </div>
     </section>
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-black mb-4" >
-            كيف يعمل وفر لي؟
-          </h2>
-          <div class="w-20 h-1 bg-primary mx-auto"></div>
-          <p class="text-black mt-6 max-w-2xl mx-auto" >
-            عملية بسيطة من ثلاث خطوات لتحصل على أفضل الأسعار وأجود المنتجات
-          </p>
-        </div>
-        
-        <!-- Swiper for mobile -->
-        <div class="block md:hidden relative">
-          <div class="swiper how-it-works-swiper">
-            <div class="swiper-wrapper">
-              <!-- Step 1 -->
-              <div class="swiper-slide">
-                <div class="step-card bg-white p-8 rounded-2xl shadow-lg text-center">
-                  <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                    ١
-                  </div>
-                  <div class="w-16 h-16 mx-auto mb-6">
-                    <i class="ri-file-list-3-line text-primary text-5xl"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-3" >قدم طلبك</h3>
-                  <p class="text-black >
-                    أدخل تفاصيل المنتجات التي تحتاجها، والكميات المطلوبة، وسيتولى المورد
-                    التوصيل مباشرة إليك.
-                  </p>
-                </div>
-              </div>
-              
-              <!-- Step 2 -->
-              <div class="swiper-slide">
-                <div class="step-card bg-white p-8 rounded-2xl shadow-lg text-center">
-                  <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                    ٢
-                  </div>
-                  <div class="w-16 h-16 mx-auto mb-6">
-                    <i class="ri-scales-3-line text-primary text-5xl"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-3" >قارن العروض</h3>
-                  <p class="text-black >
-                    استلم عروض أسعار من موردين مختلفين، وقارن بينها من حيث السعر
-                    والجودة وطريقة التوصيل.
-                  </p>
-                </div>
-              </div>
-              
-              <!-- Step 3 -->
-              <div class="swiper-slide">
-                <div class="step-card bg-white p-8 rounded-2xl shadow-lg text-center">
-                  <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                    ٣
-                  </div>
-                  <div class="w-16 h-16 mx-auto mb-6">
-                    <i class="ri-truck-line text-primary text-5xl"></i>
-                  </div>
-                  <h3 class="text-xl font-bold text-black mb-3" >استلم طلبك</h3>
-                  <p class="text-black >
-                    اختر العرض المناسب، وأكد الطلب، وسيقوم المورد بتوصيل منتجاتك
-                    مباشرة إليك.
-                  </p>
-                </div>
-              </div>
+    <section id="how-it-works" class="py-20 bg-gradient-to-br from-gray-50 to-white relative">
+      <!-- Background Elements -->
+      <div class="absolute top-10 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+        <!-- Enhanced Header -->
+        <div class="text-center mb-16 scroll-reveal">
+          <div class="flex flex-col items-center mb-8">
+            <!-- Icon Container -->
+            <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full p-6 mb-6 relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-20"></div>
+              <i class="ri-route-line text-5xl text-primary relative z-10"></i>
             </div>
             
-            <!-- Navigation Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <!-- Title with Animation -->
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              <span class="block">كيف يعمل</span>
+              <span class="gradient-text-arabic">وفر لي؟</span>
+            </h2>
             
-            <!-- Pagination -->
-            <div class="swiper-pagination"></div>
+            <!-- Enhanced Underline -->
+            <div class="flex items-center gap-2 mb-6">
+              <div class="w-16 h-1 bg-gradient-to-r from-transparent via-primary to-secondary rounded-full"></div>
+              <div class="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+              <div class="w-16 h-1 bg-gradient-to-r from-secondary via-primary to-transparent rounded-full"></div>
+            </div>
             
-            <!-- Progress Bar -->
-            <div class="swiper-progress"></div>
+            <!-- Description -->
+            <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              رحلة بسيطة من ثلاث خطوات تأخذك من الطلب إلى التوصيل
+            </p>
+            
+            <!-- Stats -->
+            <div class="flex flex-wrap justify-center gap-6 mt-8">
+              <div class="bg-white rounded-full px-6 py-3 shadow-lg border border-primary/20">
+                <span class="text-sm font-bold text-primary">3 خطوات فقط</span>
+              </div>
+              <div class="bg-white rounded-full px-6 py-3 shadow-lg border border-secondary/20">
+                <span class="text-sm font-bold text-secondary">توصيل سريع</span>
+              </div>
+              <div class="bg-white rounded-full px-6 py-3 shadow-lg border border-primary/20">
+                <span class="text-sm font-bold text-primary">أسعار مضمونة</span>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <!-- Original flex for desktop -->
-        <div class="hidden md:flex flex-col md:flex-row justify-between items-start gap-8">
-          <div class="step-card w-full md:w-1/3 text-center px-6 mb-10 md:mb-0 transition-all duration-300">
-            <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-              ١
+
+        <!-- Responsive Grid for How It Works -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <!-- Step 1 -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="relative mb-8">
+              <div class="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+                ١
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
             </div>
-            <div class="w-16 h-16 mx-auto mb-6">
-              <i class="ri-file-list-3-line text-primary text-5xl"></i>
+            <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <i class="ri-file-list-3-line text-primary text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">قدم طلبك</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">
+                أدخل تفاصيل المنتجات التي تحتاجها والكميات المطلوبة بطريقة سهلة ومرنة
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <i class="ri-check-line text-primary"></i>
+                  <span>واجهة سهلة الاستخدام</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <i class="ri-check-line text-primary"></i>
+                  <span>تفاصيل دقيقة للمنتجات</span>
+                </div>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-black mb-3" >قدم طلبك</h3>
-            <p class="text-black >
-              أدخل تفاصيل المنتجات التي تحتاجها، والكميات المطلوبة، وسيتولى المورد
-              التوصيل مباشرة إليك.
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="relative mb-8">
+              <div class="w-24 h-24 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+                ٢
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-br from-secondary to-primary rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
+              <div class="w-16 h-16 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <i class="ri-scales-3-line text-secondary text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">قارن العروض</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">
+                احصل على عروض من موردين متعددين وقارن الأسعار والجودة والشروط
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <i class="ri-check-line text-secondary"></i>
+                  <span>مقارنة ذكية للأسعار</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <i class="ri-check-line text-secondary"></i>
+                  <span>تقييمات الموردين</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="relative mb-8">
+              <div class="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+                ٣
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <i class="ri-truck-line text-primary text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">استلم طلبك</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">
+                اختر أفضل عرض وأكد الطلب، سيقوم المورد بالتوصيل في الموعد المحدد
+              </p>
+              <div class="space-y-2">
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <i class="ri-check-line text-primary"></i>
+                  <span>تتبع الطلب مباشرة</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <i class="ri-check-line text-primary"></i>
+                  <span>ضمان الجودة والسرعة</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-16 text-center">
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 max-w-2xl mx-auto">
+            <div class="flex items-center justify-center gap-4 mb-6">
+              <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                <i class="ri-rocket-line text-white text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900">جاهز للبدء؟</h3>
+            </div>
+            <p class="text-gray-600 mb-8 text-lg">
+              انضم إلى آلاف المستخدمين الذين وفروا الوقت والمال مع وفر لي
             </p>
-          </div>
-          <div class="hidden md:block w-1/6 pt-10">
-            <div class="h-1 bg-primary"></div>
-          </div>
-          <div class="step-card w-full md:w-1/3 text-center px-6 mb-10 md:mb-0 transition-all duration-300">
-            <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-              ٢
-            </div>
-            <div class="w-16 h-16 mx-auto mb-6">
-              <i class="ri-scales-3-line text-primary text-5xl"></i>
-            </div>
-            <h3 class="text-xl font-bold text-black mb-3" >قارن العروض</h3>
-            <p class="text-black >
-              استلم عروض أسعار من موردين مختلفين، وقارن بينها من حيث السعر
-              والجودة وطريقة التوصيل.
-            </p>
-          </div>
-          <div class="hidden md:block w-1/6 pt-10">
-            <div class="h-1 bg-primary"></div>
-          </div>
-          <div class="step-card w-full md:w-1/3 text-center px-6 transition-all duration-300">
-            <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-              ٣
-            </div>
-            <div class="w-16 h-16 mx-auto mb-6">
-              <i class="ri-truck-line text-primary text-5xl"></i>
-            </div>
-            <h3 class="text-xl font-bold text-black mb-3" >استلم طلبك</h3>
-            <p class="text-black >
-              اختر العرض المناسب، وأكد الطلب، وسيقوم المورد بتوصيل منتجاتك
-              مباشرة إليك.
-            </p>
+            <button
+              onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
+              class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3 group"
+            >
+              <i class="ri-user-add-line text-xl"></i>
+              <span>سجل اهتمامك الآن</span>
+              <i class="ri-arrow-left-line group-hover:-translate-x-1 transition-transform"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -1494,7 +1463,7 @@
             </div>
             <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-2 tracking-tight leading-relaxed" >
               مزايا الانضمام إلى وفر لي 
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary" >كمورد</span>
+              <span class="gradient-text-arabic" >كمورد</span>
             </h2>
             <!-- Enhanced underline with gradient -->
             <div class="relative">
@@ -1546,251 +1515,57 @@
           </div>
         </div>
         
-                 <!-- Mobile Swiper -->
-         <div class="block md:hidden relative mb-8">
-           <div class="swiper supplier-benefits-swiper">
-             <div class="swiper-wrapper">
-               <!-- Benefit 1 -->
-               <div class="swiper-slide !h-auto">
-                 <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-primary mx-4 h-full">
-                  <!-- Card Header -->
-                  <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <i class="ri-group-line text-white text-3xl"></i>
-                    </div>
-                                         <h3 class="text-xl font-bold text-black leading-relaxed" >
-                       الوصول لعدد أكبر من العملاء
-                     </h3>
-                  </div>
-                  
-                                     <!-- Card Content -->
-                   <div class="p-6 flex-1 flex flex-col">
-                     <p class="text-black leading-relaxed mb-6 text-center flex-shrink-0" >
-                       اعرض منتجاتك لآلاف المتاجر والمطاعم في منطقتك، وانمِ قاعدة عملائك
-                       بشكل مستمر.
-                     </p>
-                     
-                     <!-- Features -->
-                     <div class="space-y-3 mt-auto">
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >وصول لآلاف العملاء</span>
-                       </div>
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >تنمية مستمرة للأعمال</span>
-                       </div>
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >شبكة واسعة من الشركاء</span>
-                       </div>
-                     </div>
-                   </div>
-                </div>
-              </div>
-              
-                             <!-- Benefit 2 -->
-               <div class="swiper-slide !h-auto">
-                 <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-primary mx-4 h-full">
-                  <!-- Card Header -->
-                  <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <i class="ri-dashboard-line text-white text-3xl"></i>
-                    </div>
-                                         <h3 class="text-xl font-bold text-black leading-relaxed" >
-                       سهولة إدارة الطلبات
-                     </h3>
-                  </div>
-                  
-                                     <!-- Card Content -->
-                   <div class="p-6 flex-1 flex flex-col">
-                     <p class="text-black leading-relaxed mb-6 text-center flex-shrink-0" >
-                       لوحة تحكم متطورة تمكنك من إدارة المخزون، الطلبات، وتنسيق التوصيل مع عملائك
-                       بكفاءة عالية.
-                     </p>
-                     
-                     <!-- Features -->
-                     <div class="space-y-3 mt-auto">
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >لوحة تحكم ذكية</span>
-                       </div>
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >إدارة المخزون</span>
-                       </div>
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >تتبع الطلبات</span>
-                       </div>
-                     </div>
-                   </div>
-                </div>
-              </div>
-              
-                             <!-- Benefit 3 -->
-               <div class="swiper-slide !h-auto">
-                 <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-primary mx-4 h-full">
-                  <!-- Card Header -->
-                  <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <i class="ri-line-chart-line text-white text-3xl"></i>
-                    </div>
-                                         <h3 class="text-xl font-bold text-black leading-relaxed" >
-                       تحسين المبيعات
-                     </h3>
-                  </div>
-                  
-                                     <!-- Card Content -->
-                   <div class="p-6 flex-1 flex flex-col">
-                     <p class="text-black leading-relaxed mb-6 text-center flex-shrink-0" >
-                       أدوات تحليلية متقدمة تساعدك في فهم السوق وتحسين أدائك وزيادة
-                       مبيعاتك.
-                     </p>
-                     
-                     <!-- Features -->
-                     <div class="space-y-3 mt-auto">
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >تحليلات متقدمة</span>
-                       </div>
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >تقارير المبيعات</span>
-                       </div>
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >توصيات ذكية</span>
-                       </div>
-                     </div>
-                   </div>
-                </div>
-              </div>
-              
-                             <!-- Benefit 4 -->
-               <div class="swiper-slide !h-auto">
-                 <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group border border-primary mx-4 h-full">
-                  <!-- Card Header -->
-                  <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <i class="ri-customer-service-2-line text-white text-3xl"></i>
-                    </div>
-                                         <h3 class="text-xl font-bold text-black leading-relaxed" >
-                       دعم تقني وتسويقي
-                     </h3>
-                  </div>
-                  
-                                     <!-- Card Content -->
-                   <div class="p-6 flex-1 flex flex-col">
-                     <p class="text-black leading-relaxed mb-6 text-center flex-shrink-0" >
-                       فريق متخصص لمساعدتك في كل خطوة، من الإعداد الأولي إلى التسويق
-                       والمبيعات.
-                     </p>
-                     
-                     <!-- Features -->
-                     <div class="space-y-3 mt-auto">
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >دعم 24/7</span>
-                       </div>
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >استراتيجيات تسويقية</span>
-                       </div>
-                       <div class="flex items-center gap-3 text-sm">
-                         <div class="w-6 h-6 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                           <i class="ri-check-line text-white text-xs"></i>
-                         </div>
-                         <span class="text-black" >تدريب متخصص</span>
-                       </div>
-                     </div>
-                   </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Enhanced Navigation -->
-            <div class="swiper-button-next !w-12 !h-12 !bg-primary !rounded-full !shadow-lg hover:!scale-110 !transition-transform"></div>
-            <div class="swiper-button-prev !w-12 !h-12 !bg-primary !rounded-full !shadow-lg hover:!scale-110 !transition-transform"></div>
-            
-            <!-- Enhanced Pagination -->
-            <div class="swiper-pagination !bottom-4"></div>
-          </div>
-        </div>
-        
         <!-- Desktop Grid -->
-        <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <!-- Desktop Card 1 -->
-          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100 ">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <!-- Benefit 1 -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100">
             <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <i class="ri-group-line text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4" >
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
               الوصول لعدد أكبر من العملاء
             </h3>
-            <p class="text-gray-700 leading-relaxed" >
+            <p class="text-gray-700 leading-relaxed">
               اعرض منتجاتك لآلاف المتاجر والمطاعم في منطقتك، وانمِ قاعدة عملائك
               بشكل مستمر.
             </p>
           </div>
           
-          <!-- Desktop Card 2 -->
-          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100 ">
+          <!-- Benefit 2 -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100">
             <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <i class="ri-dashboard-line text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4" >
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
               سهولة إدارة الطلبات
             </h3>
-            <p class="text-gray-700 leading-relaxed" >
+            <p class="text-gray-700 leading-relaxed">
               لوحة تحكم متطورة تمكنك من إدارة المخزون، الطلبات، وتنسيق التوصيل مع عملائك
               بكفاءة عالية.
             </p>
           </div>
           
-          <!-- Desktop Card 3 -->
-          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100 ">
+          <!-- Benefit 3 -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100">
             <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <i class="ri-line-chart-line text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4" >تحسين المبيعات</h3>
-            <p class="text-gray-700 leading-relaxed" >
+            <h3 class="text-xl font-bold text-gray-900 mb-4">تحسين المبيعات</h3>
+            <p class="text-gray-700 leading-relaxed">
               أدوات تحليلية متقدمة تساعدك في فهم السوق وتحسين أدائك وزيادة
               مبيعاتك.
             </p>
           </div>
           
-          <!-- Desktop Card 4 -->
-          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100 ">
+          <!-- Benefit 4 -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100">
             <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
               <i class="ri-customer-service-2-line text-white text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-4" >
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
               دعم تقني وتسويقي
             </h3>
-            <p class="text-gray-700 leading-relaxed" >
+            <p class="text-gray-700 leading-relaxed">
               فريق متخصص لمساعدتك في كل خطوة، من الإعداد الأولي إلى التسويق
               والمبيعات.
             </p>
@@ -1811,7 +1586,7 @@
             </div>
             <h2 class="text-4xl md:text-5xl font-extrabold text-black mb-2 tracking-tight" >
               <span >الأسئلة</span> 
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary" >الشائعة</span>
+              <span class="gradient-text-arabic" >الشائعة</span>
             </h2>
             <!-- Enhanced underline with gradient -->
             <div class="relative">
@@ -2114,39 +1889,39 @@
       </div>
     </section>
     <!-- CTA Section -->
-    <section class="py-20 bg-primary text-white">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-6" >
+    <section class="py-12 sm:py-16 md:py-20 bg-primary text-white">
+      <div class="container mx-auto px-3 sm:px-4 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
           جاهز للبدء في توفير الوقت والمال؟
         </h2>
-        <p class="text-xl mb-10 max-w-2xl mx-auto" >
+        <p class="text-lg sm:text-xl mb-6 sm:mb-10 max-w-2xl mx-auto px-4">
           سجل اهتمامك الآن واحصل على إشعار فور إطلاق التطبيق، بالإضافة إلى عروض
           حصرية للمستخدمين الأوائل.
         </p>
         
-        <!-- نموذج سجل اهتمامك -->
-        <div class="max-w-md mx-auto bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 border border-white border-opacity-20">
-          <form id="interest-form" class="space-y-6">
+        <!-- Enhanced responsive form -->
+        <div class="max-w-full sm:max-w-md mx-auto bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 border border-white border-opacity-20">
+          <form id="interest-form" class="space-y-4 sm:space-y-6">
+            <!-- Form fields with responsive inputs -->
             <div class="relative">
-              <label for="interest-name" class="block text-white mb-2 font-medium text-right" >
+              <label for="interest-name" class="block text-white mb-2 font-medium text-right text-sm sm:text-base">
                 <i class="ri-user-line ml-2"></i>الاسم الكامل
               </label>
               <input
                 type="text"
                 id="interest-name"
                 name="name"
-                class="w-full px-4 py-3 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-200 bg-white bg-opacity-10 text-white placeholder-white placeholder-opacity-70"
+                class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-white border-opacity-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-200 bg-white bg-opacity-10 text-white placeholder-white placeholder-opacity-70 text-sm sm:text-base"
                 placeholder="أدخل اسمك الكامل"
-                
-                
                 required
               />
-              <div class="hidden text-red-200 text-sm mt-1 text-right" id="interest-name-error" >
+              <div class="hidden text-red-200 text-xs sm:text-sm mt-1 text-right" id="interest-name-error">
                 يرجى إدخال اسمك الكامل
               </div>
             </div>
             
             <div class="relative">
+              <label for="interest-email" class="block text-white mb-2 font-medium text-right text-sm sm:text-base">
               <label for="interest-email" class="block text-white mb-2 font-medium text-right" >
                 <i class="ri-mail-line ml-2"></i>البريد الإلكتروني
               </label>
@@ -2246,7 +2021,7 @@
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 scroll-reveal" >
             <span >تواصل</span> 
-            <span class="text-gradient" >معنا</span>
+            <span class="gradient-text-arabic" >معنا</span>
           </h2>
           <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 scroll-reveal"></div>
           <p class="text-gray-700 mt-6 max-w-2xl mx-auto text-lg scroll-reveal" >
@@ -2302,7 +2077,7 @@
               </div>
           
           <!-- وسائل التواصل الاجتماعي -->
-          <div class="mt-12 text-center">
+          <div class="mt-12 text-center" hidden>
             <h3 class="text-2xl font-bold text-gray-900 mb-6">تابعنا على</h3>
             <div class="flex justify-center space-x-reverse space-x-6">
                   <a
@@ -2913,190 +2688,133 @@
 
       });
     </script>
-    <!-- SwiperJS Script -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- jQuery and Slick Slider Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-      // Enhanced Swiper Initialization
-      document.addEventListener('DOMContentLoaded', function() {
+      // Enhanced Slick Slider Initialization
+      $(document).ready(function() {
         
-        // Features Swiper
-        const featuresSwiper = new Swiper('.features-swiper', {
-          slidesPerView: 1.2,
-          spaceBetween: 20,
-          centeredSlides: true,
-          loop: true,
-          autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.features-swiper .swiper-pagination',
-            clickable: true,
-            dynamicBullets: true,
-          },
-          navigation: {
-            nextEl: '.features-swiper .swiper-button-next',
-            prevEl: '.features-swiper .swiper-button-prev',
-          },
-          breakpoints: {
-            640: {
-              slidesPerView: 1.5,
-              spaceBetween: 30,
+        // How It Works Slider
+        $('.how-it-works-slider').slick({
+          centerMode: true,
+          centerPadding: '20px',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 5000,
+          arrows: true,
+          dots: true,
+          infinite: true,
+          speed: 500,
+          fade: false,
+          cssEase: 'ease-in-out',
+          pauseOnHover: true,
+          pauseOnFocus: true,
+          draggable: true,
+          swipe: true,
+          touchMove: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                centerPadding: '10px',
+                slidesToShow: 1
+              }
             },
-            768: {
-              slidesPerView: 2.2,
-              spaceBetween: 40,
+            {
+              breakpoint: 480,
+              settings: {
+                centerPadding: '5px',
+                slidesToShow: 1,
+                arrows: false
+              }
             }
-          },
-          on: {
-            init: function() {
-              updateProgressBar(this, '.features-swiper .swiper-progress');
-            },
-            slideChange: function() {
-              updateProgressBar(this, '.features-swiper .swiper-progress');
-            }
-          }
+          ]
         });
 
-        // AI Features Swiper
-        const aiSwiper = new Swiper('.ai-swiper', {
-          slidesPerView: 1.2,
-          spaceBetween: 20,
-          centeredSlides: true,
-          loop: true,
-          autoplay: {
-            delay: 6000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.ai-swiper .swiper-pagination',
-            clickable: true,
-            dynamicBullets: true,
-          },
-          navigation: {
-            nextEl: '.ai-swiper .swiper-button-next',
-            prevEl: '.ai-swiper .swiper-button-prev',
-          },
-          breakpoints: {
-            640: {
-              slidesPerView: 1.5,
-              spaceBetween: 30,
+        // Features Slider (if exists)
+        $('.features-slider').slick({
+          centerMode: true,
+          centerPadding: '30px',
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 4000,
+          arrows: true,
+          dots: true,
+          infinite: true,
+          speed: 500,
+          pauseOnHover: true,
+          pauseOnFocus: true,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                centerPadding: '20px'
+              }
             },
-            768: {
-              slidesPerView: 2.2,
-              spaceBetween: 40,
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                centerPadding: '10px'
+              }
             }
-          },
-          on: {
-            init: function() {
-              updateProgressBar(this, '.ai-swiper .swiper-progress');
-            },
-            slideChange: function() {
-              updateProgressBar(this, '.ai-swiper .swiper-progress');
-            }
-          }
+          ]
         });
 
-        // How It Works Swiper
-        const howItWorksSwiper = new Swiper('.how-it-works-swiper', {
-          slidesPerView: 1.2,
-          spaceBetween: 20,
-          centeredSlides: true,
-          loop: true,
-          autoplay: {
-            delay: 7000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.how-it-works-swiper .swiper-pagination',
-            clickable: true,
-            dynamicBullets: true,
-          },
-          navigation: {
-            nextEl: '.how-it-works-swiper .swiper-button-next',
-            prevEl: '.how-it-works-swiper .swiper-button-prev',
-          },
-          breakpoints: {
-            640: {
-              slidesPerView: 1.5,
-              spaceBetween: 30,
-            },
-            768: {
-              slidesPerView: 2.2,
-              spaceBetween: 40,
+        // AI Features Slider (if exists)
+        $('.ai-features-slider').slick({
+          centerMode: true,
+          centerPadding: '30px',
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 6000,
+          arrows: true,
+          dots: true,
+          infinite: true,
+          speed: 500,
+          pauseOnHover: true,
+          pauseOnFocus: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                centerPadding: '10px'
+              }
             }
-          },
-          on: {
-            init: function() {
-              updateProgressBar(this, '.how-it-works-swiper .swiper-progress');
-            },
-            slideChange: function() {
-              updateProgressBar(this, '.how-it-works-swiper .swiper-progress');
-            }
-          }
+          ]
         });
 
-        // Supplier Benefits Swiper
-        const supplierBenefitsSwiper = new Swiper('.supplier-benefits-swiper', {
-          slidesPerView: 1.1,
-          spaceBetween: 20,
-          centeredSlides: true,
-          loop: true,
-          autoHeight: false,
-          autoplay: {
-            delay: 8000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.supplier-benefits-swiper .swiper-pagination',
-            clickable: true,
-            dynamicBullets: true,
-          },
-          navigation: {
-            nextEl: '.supplier-benefits-swiper .swiper-button-next',
-            prevEl: '.supplier-benefits-swiper .swiper-button-prev',
-          },
-          breakpoints: {
-            480: {
-              slidesPerView: 1.2,
-              spaceBetween: 24,
-            },
-            640: {
-              slidesPerView: 1.5,
-              spaceBetween: 30,
-            },
-            768: {
-              slidesPerView: 2.2,
-              spaceBetween: 40,
+        // Supplier Benefits Slider (if exists)
+        $('.supplier-benefits-slider').slick({
+          centerMode: true,
+          centerPadding: '20px',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 7000,
+          arrows: true,
+          dots: true,
+          infinite: true,
+          speed: 500,
+          pauseOnHover: true,
+          pauseOnFocus: true,
+          adaptiveHeight: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                centerPadding: '10px',
+                slidesToShow: 1
+              }
             }
-          },
-          on: {
-            init: function() {
-              updateProgressBar(this, '.supplier-benefits-swiper .swiper-progress');
-              // Ensure equal height cards
-              this.slides.forEach(slide => {
-                const card = slide.querySelector('.bg-white');
-                if (card) {
-                  card.style.minHeight = '450px';
-                  card.style.display = 'flex';
-                  card.style.flexDirection = 'column';
-                }
-              });
-            },
-            slideChange: function() {
-              updateProgressBar(this, '.supplier-benefits-swiper .swiper-progress');
-            }
-          }
+          ]
         });
-
-        // Progress Bar Update Function
-        function updateProgressBar(swiper, progressSelector) {
-          const progressBar = document.querySelector(progressSelector);
-          if (progressBar) {
-            const progress = ((swiper.activeIndex + 1) / swiper.slides.length) * 100;
-            progressBar.style.width = progress + '%';
-          }
-        }
 
         // FAQ Accordion Functionality
         document.querySelectorAll('.faq-toggle').forEach(toggle => {
@@ -3110,7 +2828,7 @@
               if (item !== faqItem) {
                 const otherContent = item.querySelector('.faq-content');
                 const otherArrow = item.querySelector('.faq-toggle .ri-arrow-down-s-line');
-                otherContent.style.maxHeight = '0';
+                if (otherContent) otherContent.style.maxHeight = '0';
                 if (otherArrow) {
                   otherArrow.style.transform = 'rotate(0deg)';
                 }
@@ -3135,7 +2853,7 @@
           });
         });
 
-        // Touch Gesture Enhancements
+        // Touch Gesture Enhancements for mobile
         let touchStartX = 0;
         let touchEndX = 0;
         let touchStartY = 0;
@@ -3149,28 +2867,28 @@
           if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
             if (deltaX < 0) {
               // Swiped left - next slide
-              featuresSwiper.slideNext();
-              aiSwiper.slideNext();
-              howItWorksSwiper.slideNext();
-              supplierBenefitsSwiper.slideNext();
+              $('.how-it-works-slider').slick('slickNext');
+              $('.features-slider').slick('slickNext');
+              $('.ai-features-slider').slick('slickNext');
+              $('.supplier-benefits-slider').slick('slickNext');
             } else {
               // Swiped right - previous slide
-              featuresSwiper.slidePrev();
-              aiSwiper.slidePrev();
-              howItWorksSwiper.slidePrev();
-              supplierBenefitsSwiper.slidePrev();
+              $('.how-it-works-slider').slick('slickPrev');
+              $('.features-slider').slick('slickPrev');
+              $('.ai-features-slider').slick('slickPrev');
+              $('.supplier-benefits-slider').slick('slickPrev');
             }
           }
         }
 
-        // Add touch event listeners to swiper containers
-        document.querySelectorAll('.swiper').forEach(swiper => {
-          swiper.addEventListener('touchstart', e => {
+        // Add touch event listeners to slider containers
+        $('.slick-slider').each(function() {
+          this.addEventListener('touchstart', e => {
             touchStartX = e.changedTouches[0].screenX;
             touchStartY = e.changedTouches[0].screenY;
           });
 
-          swiper.addEventListener('touchend', e => {
+          this.addEventListener('touchend', e => {
             touchEndX = e.changedTouches[0].screenX;
             touchEndY = e.changedTouches[0].screenY;
             handleGesture();
@@ -3178,46 +2896,67 @@
         });
 
         // Keyboard Navigation
-        document.addEventListener('keydown', function(e) {
+        $(document).keydown(function(e) {
           if (e.key === 'ArrowLeft') {
-            featuresSwiper.slidePrev();
-            aiSwiper.slidePrev();
-            howItWorksSwiper.slidePrev();
-            supplierBenefitsSwiper.slidePrev();
+            $('.how-it-works-slider').slick('slickPrev');
+            $('.features-slider').slick('slickPrev');
+            $('.ai-features-slider').slick('slickPrev');
+            $('.supplier-benefits-slider').slick('slickPrev');
           } else if (e.key === 'ArrowRight') {
-            featuresSwiper.slideNext();
-            aiSwiper.slideNext();
-            howItWorksSwiper.slideNext();
-            supplierBenefitsSwiper.slideNext();
+            $('.how-it-works-slider').slick('slickNext');
+            $('.features-slider').slick('slickNext');
+            $('.ai-features-slider').slick('slickNext');
+            $('.supplier-benefits-slider').slick('slickNext');
           }
         });
 
         // Add hover effects for desktop
         if (window.innerWidth > 768) {
-          document.querySelectorAll('.swiper-slide').forEach(slide => {
-            slide.addEventListener('mouseenter', function() {
-              this.style.transform = 'scale(1.05)';
-            });
-            
-            slide.addEventListener('mouseleave', function() {
-              this.style.transform = 'scale(1)';
-            });
-          });
+          $('.slick-slide').hover(
+            function() {
+              $(this).css('transform', 'scale(1.05)');
+            },
+            function() {
+              $(this).css('transform', 'scale(1)');
+            }
+          );
         }
 
-        // Add visual feedback for active slides
-        function addActiveSlideEffects() {
-          document.querySelectorAll('.swiper-slide-active').forEach(slide => {
-            slide.style.zIndex = '2';
-            slide.style.transform = 'scale(1.02)';
-          });
-        }
+        // Custom slider events
+        $('.how-it-works-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+          // Add any custom logic before slide change
+          console.log('Changing to slide: ' + nextSlide);
+        });
 
-        // Call on swiper initialization
-        featuresSwiper.on('init', addActiveSlideEffects);
-        aiSwiper.on('init', addActiveSlideEffects);
-        howItWorksSwiper.on('init', addActiveSlideEffects);
-        supplierBenefitsSwiper.on('init', addActiveSlideEffects);
+        $('.how-it-works-slider').on('afterChange', function(event, slick, currentSlide) {
+          // Add any custom logic after slide change
+          console.log('Current slide: ' + currentSlide);
+        });
+
+        // Initialize sliders on window resize
+        $(window).resize(function() {
+          $('.how-it-works-slider').slick('refresh');
+          $('.features-slider').slick('refresh');
+          $('.ai-features-slider').slick('refresh');
+          $('.supplier-benefits-slider').slick('refresh');
+        });
+
+        // Pause autoplay on user interaction
+        $('.slick-slider').on('mouseenter', function() {
+          $(this).slick('slickPause');
+        }).on('mouseleave', function() {
+          $(this).slick('slickPlay');
+        });
+
+        // Custom navigation enhancement
+        $('.slick-prev, .slick-next').hover(
+          function() {
+            $(this).css('transform', 'translateY(-50%) scale(1.1)');
+          },
+          function() {
+            $(this).css('transform', 'translateY(-50%) scale(1)');
+          }
+        );
       });
     </script>
     
