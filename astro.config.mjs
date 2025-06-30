@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
+    site: "https://www.yastech.com.sa/wfr-li-landing/",
     vite: {
       plugins: [tailwindcss()],
       resolve: {
