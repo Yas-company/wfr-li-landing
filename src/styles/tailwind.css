@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+@theme {
+  --color-primary: #009196;
+  --color-secondary: #F9A51A;
+  --font-tajawal: "Tajawal", sans-serif;
+}
+
+
+@layer base {
+  body {
+    font-family: 'Tajawal', sans-serif !important;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+  html {
+    overflow-x: hidden;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  h1, h2, h3, h4, h5, h6, p, span, div, a {
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    white-space: normal;
+    text-transform: none;
+  }
+}
+
+@layer components {
+  /* Gradient Text */
+  .gradient-text-arabic {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding: .75rem 0;
+    line-height: 1.6;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Hero Section Background */
+  .hero-section {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.95)), url("https://readdy.ai/api/search-image?query=Arabic%20food%20marketplace%20with%20fresh%20vegetables%2C%20fruits%2C%20and%20food%20supplies.%20Modern%2C%20clean%2C%20bright%20scene%20with%20store%20owners%20and%20suppliers%20interacting.%20Professional%20business%20environment%20with%20food%20items%20neatly%20arranged.%20Bright%20lighting%2C%20soft%20shadows%2C%20and%20a%20welcoming%20atmosphere.%20No%20text%20or%20people%20visible&width=1600&height=800&seq=1&orientation=landscape");
+    background-size: cover;
+    background-position: center;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+  }
+
+  /* Other sections custom background */
+  .ai-section {
+		background-image: linear-gradient(to right, rgba(0, 145, 150, 0.05), rgba(249, 165, 26, 0.05));
+	}
+
+  /* Card hover effects */
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  .step-card:hover {
+    transform: translateY(-5px);
+  }
+  .ai-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Scroll Reveal animation - this is handled by JS but we need the initial state */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-1000 { animation-delay: 1s; }
+} 

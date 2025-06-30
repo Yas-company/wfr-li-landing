@@ -1,0 +1,118 @@
+---
+// src/sections/SupplierBenefits.astro
+---
+<section class="py-20 bg-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+  <div class="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+  <div class="absolute bottom-20 right-10 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+  
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="text-center mb-16 scroll-reveal">
+      <div class="flex flex-col items-center mb-6">
+        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full p-4 mb-4">
+          <i class="ri-team-line text-4xl text-primary"></i>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-2 tracking-tight leading-relaxed">
+          مزايا الانضمام إلى وفر لي 
+          <span class="gradient-text-arabic">كمورد</span>
+        </h2>
+        <div class="relative">
+          <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+          <div class="w-16 h-1 bg-gradient-to-r from-secondary to-primary mx-auto rounded-full mt-1 opacity-60"></div>
+        </div>
+      </div>
+      
+      <div class="max-w-3xl mx-auto">
+        <p class="text-lg md:text-xl text-black leading-relaxed mb-6">
+          انضم إلى شبكة موردين وفر لي واستفد من مجموعة من المزايا الحصرية التي
+          ستساعدك في تنمية أعمالك
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-6 mb-8">
+          <div class="bg-white px-6 py-3 rounded-full shadow-md border border-primary">
+            <span class="text-sm font-medium text-black">
+              <i class="ri-store-line text-primary ml-1"></i>
+              +1000 متجر ومطعم
+            </span>
+          </div>
+          <div class="bg-white px-6 py-3 rounded-full shadow-md border border-primary">
+            <span class="text-sm font-medium text-black">
+              <i class="ri-truck-line text-primary ml-1"></i>
+              توصيل من المورد
+            </span>
+          </div>
+          <div class="bg-white px-6 py-3 rounded-full shadow-md border border-primary">
+            <span class="text-sm font-medium text-black">
+              <i class="ri-money-dollar-circle-line text-primary ml-1"></i>
+              عمولة منافسة
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8">
+        <button
+          onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
+          class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 transform flex items-center gap-3 mx-auto group relative overflow-hidden"
+        >
+          <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          <i class="ri-user-add-line text-xl relative z-10"></i>
+          <span class="relative z-10">سجل كمورد معنا</span>
+          <i class="ri-arrow-left-line group-hover:-translate-x-1 transition-transform relative z-10"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="ri-group-line text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          الوصول لعدد أكبر من العملاء
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          اعرض منتجاتك لآلاف المتاجر والمطاعم في منطقتك، وانمِ قاعدة عملائك
+          بشكل مستمر.
+        </p>
+      </div>
+      
+      <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="ri-dashboard-line text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          سهولة إدارة الطلبات
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          لوحة تحكم متطورة تمكنك من إدارة المخزون، الطلبات، وتنسيق التوصيل مع عملائك
+          بكفاءة عالية.
+        </p>
+      </div>
+      
+      <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="ri-line-chart-line text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">تحسين المبيعات</h3>
+        <p class="text-gray-700 leading-relaxed">
+          أدوات تحليلية متقدمة تساعدك في فهم السوق وتحسين أدائك وزيادة
+          مبيعاتك.
+        </p>
+      </div>
+      
+      <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2 border border-gray-100">
+        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <i class="ri-customer-service-2-line text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-4">
+          دعم تقني وتسويقي
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          فريق متخصص لمساعدتك في كل خطوة، من الإعداد الأولي إلى التسويق
+          والمبيعات.
+        </p>
+      </div>
+    </div>
+  </div>
+</section> 

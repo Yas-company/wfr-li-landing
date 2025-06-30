@@ -1,0 +1,43 @@
+---
+// src/components/Header.astro
+---
+<header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="text-2xl text-primary hover:scale-105 transition-transform duration-200 cursor-pointer">
+      وفر لي
+    </div>
+    <nav class="hidden md:flex space-x-reverse space-x-8">
+      <a href="#home" class="text-gray-800 hover:text-primary transition-all duration-200 relative group">
+        الرئيسية
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#about" class="text-gray-800 hover:text-primary transition-all duration-200 relative group">
+        من نحن
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#features" class="text-gray-800 hover:text-primary transition-all duration-200 relative group">
+        المميزات
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#ai-features" class="text-gray-800 hover:text-primary transition-all duration-200 relative group">
+        الذكاء الاصطناعي
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#how-it-works" class="text-gray-800 hover:text-primary transition-all duration-200 relative group">
+        كيف يعمل
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#contact" class="text-gray-800 hover:text-primary transition-all duration-200 relative group">
+        اتصل بنا
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+      </a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="md:hidden w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors duration-200" id="mobile-menu-btn">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Progress bar -->
+  <div class="h-1 bg-gradient-to-r from-primary to-secondary" id="progress-bar"></div>
+</header> 

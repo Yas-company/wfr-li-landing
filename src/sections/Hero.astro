@@ -1,0 +1,76 @@
+---
+// src/sections/Hero.astro
+---
+<section id="home" class="hero-section py-12 sm:py-16 md:py-20 lg:py-32 relative overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+  <div class="absolute top-10 left-5 sm:top-20 sm:left-10 w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
+  <div class="absolute bottom-10 right-5 sm:bottom-20 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+  
+  <div class="container mx-auto px-3 sm:px-4 relative z-10">
+    <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-8">
+      <div class="w-full lg:w-1/2 text-center lg:text-right mb-6 lg:mb-0">
+        <!-- Achievement badges - responsive -->
+        <div class="flex flex-wrap justify-center lg:justify-start items-center gap-2 sm:gap-4 mb-4 sm:mb-6 animate-fade-in-up">
+          <span class="bg-white text-black px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium flex items-center gap-1 border border-primary">
+            <i class="ri-check-line text-primary text-sm"></i>
+            <span>متاجر نشطة</span>
+          </span>
+          <span class="bg-primary text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium flex items-center gap-1">
+            <i class="ri-star-line text-sm"></i>
+            <span>تقييم عالي</span>
+          </span>
+        </div>
+        
+        <!-- Main heading - responsive text -->
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-fade-in-up delay-200">
+          <span class="block mb-2">وفر على مشترياتك الغذائية</span>
+          <span class="gradient-text-arabic block">
+            <span>سريع، سهل، موثوق!</span>
+          </span>
+        </h1>
+        
+        <!-- Description - responsive text -->
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed animate-fade-in-up delay-300">
+          منصة رائدة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين
+          بطريقة سهلة وفعالة
+        </p>
+        
+        <!-- Buttons - responsive layout -->
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-up delay-400 hero-buttons">
+          <button
+            onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
+            class="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group text-sm sm:text-base"
+          >
+            <span>سجل اهتمامك الآن</span>
+            <i class="ri-arrow-left-line group-hover:-translate-x-1 transition-transform"></i>
+          </button>
+          <button
+            onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+            class="border-2 border-primary text-primary bg-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group text-sm sm:text-base"
+          >
+            <span>تعرف علينا</span>
+            <i class="ri-play-line group-hover:scale-110 transition-transform"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Hero image - responsive -->
+      <div class="w-full lg:w-1/2 flex justify-center relative animate-fade-in-up delay-600">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-2xl transform rotate-6"></div>
+        <img
+          src="./arum-visuals-fulwtfwZUC0-unsplash.jpg"
+          alt="وفر لي - منصة ربط المتاجر بموردي الأغذية"
+          class="rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md lg:max-w-lg h-auto object-cover relative z-10 hover:scale-105 transition-transform duration-500"
+        />
+        
+        <!-- Floating badge - responsive positioning -->
+        <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-white rounded-full p-2 sm:p-3 shadow-lg z-20">
+          <div class="w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
+            <i class="ri-truck-line text-white text-sm sm:text-xl"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

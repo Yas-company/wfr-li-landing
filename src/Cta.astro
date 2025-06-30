@@ -1,0 +1,154 @@
+---
+// src/sections/Cta.astro
+---
+<section class="py-12 sm:py-16 md:py-20 bg-primary text-white">
+  <div class="container mx-auto px-3 sm:px-4 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
+      جاهز للبدء في توفير الوقت والمال؟
+    </h2>
+    <p class="text-lg sm:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto px-4 text-white/90">
+      سجل اهتمامك الآن واحصل على إشعار فور إطلاق التطبيق، بالإضافة إلى عروض
+      حصرية للمستخدمين الأوائل.
+    </p>
+    
+    <div class="max-w-lg mx-auto">
+      <div class="bg-white/5 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl">
+        <form id="interest-form" class="space-y-6">
+          <!-- Name Field -->
+          <div class="group">
+            <label for="interest-name" class="block text-white/90 mb-3 font-medium text-right text-sm sm:text-base">
+              <i class="ri-user-line text-white/70 ml-2"></i>الاسم الكامل
+            </label>
+            <div class="relative">
+              <input
+                type="text"
+                id="interest-name"
+                name="name"
+                class="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 text-sm sm:text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/30 focus:bg-white/15 hover:bg-white/12 hover:border-white/25"
+                placeholder="أدخل اسمك الكامل"
+                required
+              />
+              <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+            <div class="hidden text-red-300 text-xs sm:text-sm mt-2 text-right bg-red-500/10 rounded-lg p-2" id="interest-name-error">
+              <i class="ri-error-warning-line ml-1"></i>
+              يرجى إدخال اسمك الكامل
+            </div>
+          </div>
+          
+          <!-- Email Field -->
+          <div class="group">
+            <label for="interest-email" class="block text-white/90 mb-3 font-medium text-right text-sm sm:text-base">
+              <i class="ri-mail-line text-white/70 ml-2"></i>البريد الإلكتروني
+            </label>
+            <div class="relative">
+              <input
+                type="email"
+                id="interest-email"
+                name="email"
+                class="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 text-sm sm:text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/30 focus:bg-white/15 hover:bg-white/12 hover:border-white/25"
+                placeholder="أدخل بريدك الإلكتروني"
+                required
+              />
+              <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+            <div class="hidden text-red-300 text-xs sm:text-sm mt-2 text-right bg-red-500/10 rounded-lg p-2" id="interest-email-error">
+              <i class="ri-error-warning-line ml-1"></i>
+              يرجى إدخال بريد إلكتروني صحيح
+            </div>
+          </div>
+          
+          <!-- Business Type Field -->
+          <div class="group">
+            <label for="interest-type" class="block text-white/90 mb-3 font-medium text-right text-sm sm:text-base">
+              <i class="ri-store-line text-white/70 ml-2"></i>نوع العمل
+            </label>
+            <div class="relative">
+              <select
+                id="interest-type"
+                name="business_type"
+                class="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white text-sm sm:text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/30 focus:bg-white/15 hover:bg-white/12 hover:border-white/25 appearance-none cursor-pointer"
+                required
+              >
+                <option value="" class="text-gray-800 bg-white">اختر نوع عملك</option>
+                <option value="restaurant" class="text-gray-800 bg-white">مطعم</option>
+                <option value="cafe" class="text-gray-800 bg-white">كافيه</option>
+                <option value="grocery" class="text-gray-800 bg-white">بقالة</option>
+                <option value="supermarket" class="text-gray-800 bg-white">سوبر ماركت</option>
+                <option value="catering" class="text-gray-800 bg-white">خدمات الطعام</option>
+                <option value="other" class="text-gray-800 bg-white">أخرى</option>
+              </select>
+              <div class="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <i class="ri-arrow-down-s-line text-white/70"></i>
+              </div>
+              <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+          </div>
+          
+          <!-- City Field -->
+          <div class="group">
+            <label for="interest-city" class="block text-white/90 mb-3 font-medium text-right text-sm sm:text-base">
+              <i class="ri-map-pin-line text-white/70 ml-2"></i>المدينة
+            </label>
+            <div class="relative">
+              <select
+                id="interest-city"
+                name="city"
+                class="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white text-sm sm:text-base transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/40 focus:border-white/30 focus:bg-white/15 hover:bg-white/12 hover:border-white/25 appearance-none cursor-pointer"
+                required
+              >
+                <option value="" class="text-gray-800 bg-white">اختر مدينتك</option>
+                <option value="makkah" class="text-gray-800 bg-white">مكة المكرمة</option>
+                <option value="jeddah" class="text-gray-800 bg-white">جدة</option>
+                <option value="riyadh" class="text-gray-800 bg-white">الرياض</option>
+                <option value="dammam" class="text-gray-800 bg-white">الدمام</option>
+                <option value="medina" class="text-gray-800 bg-white">المدينة المنورة</option>
+                <option value="other" class="text-gray-800 bg-white">مدينة أخرى</option>
+              </select>
+              <div class="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <i class="ri-arrow-down-s-line text-white/70"></i>
+              </div>
+              <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+          </div>
+              
+          <!-- Submit Button -->
+          <div class="pt-2">
+            <button
+              type="submit"
+              id="interest-submit-btn"
+              class="w-full bg-white text-primary py-4 rounded-xl font-semibold hover:bg-gray-50 active:bg-gray-100 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 text-sm sm:text-base shadow-lg hover:shadow-xl disabled:opacity-50 disabled:transform-none group"
+            >
+              <i class="ri-notification-3-line text-lg group-hover:scale-110 transition-transform duration-200"></i>
+              <span id="interest-submit-text">سجل اهتمامك الآن</span>
+              <div id="interest-loading-spinner" class="hidden">
+                <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-primary"></div>
+              </div>
+            </button>
+          </div>
+        </form>
+        
+        <!-- Success Message -->
+        <div id="interest-success-message" class="hidden mt-6 p-4 bg-emerald-500/20 border border-emerald-400/30 rounded-xl backdrop-blur-sm">
+          <div class="flex items-center justify-center gap-3">
+            <i class="ri-check-line text-emerald-300 text-xl"></i>
+            <p class="text-emerald-100 text-sm sm:text-base font-medium">تم تسجيل اهتمامك بنجاح! سنتواصل معك قريباً.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact Button -->
+    <div class="mt-8 sm:mt-10">
+      <button
+        onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+        class="group border-2 border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-medium hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm text-sm sm:text-base hover:scale-105 active:scale-95"
+      >
+        <span class="flex items-center justify-center gap-2">
+          <span>تواصل معنا</span>
+          <i class="ri-message-3-line group-hover:scale-110 transition-transform duration-200"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+</section> 

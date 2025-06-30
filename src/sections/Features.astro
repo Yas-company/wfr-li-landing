@@ -1,0 +1,82 @@
+---
+// src/sections/Features.astro
+---
+<section id="features" class="py-12 sm:py-16 md:py-20 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-white to-white"></div>
+  
+  <div class="container mx-auto px-3 sm:px-4 relative z-10">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 scroll-reveal">
+        <span>المميزات</span>
+        <span class="gradient-text-arabic">الرئيسية</span>
+      </h2>
+      <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 scroll-reveal"></div>
+      <p class="text-black mt-4 sm:mt-6 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg scroll-reveal">
+        نقدم مجموعة من المميزات المصممة خصيصًا لتلبية احتياجات أصحاب المتاجر
+        والمطاعم وموردي الأغذية
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+      <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+          <i class="ri-shopping-cart-line text-white text-lg sm:text-xl lg:text-2xl"></i>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">عملية طلب سهلة</h3>
+        <p class="text-black leading-relaxed text-sm sm:text-base">
+          واجهة سهلة الاستخدام تمكنك من طلب المنتجات بضغطة زر واحدة، مع
+          إمكانية تتبع طلباتك في الوقت الفعلي.
+        </p>
+        <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+          <span class="text-sm sm:text-base">اعرف المزيد</span>
+          <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+        </div>
+      </div>
+      
+      <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-price-tag-3-line text-white text-lg sm:text-xl lg:text-2xl"></i>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">أسعار تنافسية</h3>
+            <p class="text-black leading-relaxed text-sm sm:text-base">
+                قارن بين أسعار مختلف الموردين واحصل على أفضل العروض والخصومات
+                المتاحة لتوفير المال.
+              </p>
+              <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span class="text-sm sm:text-base">اعرف المزيد</span>
+                <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+              </div>
+          </div>
+          
+          <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-store-2-line text-white text-lg sm:text-xl lg:text-2xl"></i>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">تنوع الموردين</h3>
+            <p class="text-black leading-relaxed text-sm sm:text-base">
+                اختر من بين مجموعة واسعة من الموردين المحليين الموثوقين، مع
+                تقييمات وتعليقات من العملاء السابقين.
+              </p>
+              <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span class="text-sm sm:text-base">اعرف المزيد</span>
+                <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+              </div>
+          </div>
+          
+          <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+              <i class="ri-customer-service-2-line text-white text-lg sm:text-xl lg:text-2xl"></i>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">دعم عملاء سريع</h3>
+            <p class="text-black leading-relaxed text-sm sm:text-base">
+                فريق دعم متخصص جاهز للمساعدة في أي وقت، مع خيارات تواصل متعددة
+                لضمان تجربة سلسة.
+              </p>
+              <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+              <span class="text-sm sm:text-base">اعرف المزيد</span>
+                <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+              </div>
+          </div>
+    </div>
+  </div>
+</section> 
