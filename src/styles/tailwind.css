@@ -7,6 +7,17 @@
   --font-tajawal: "Tajawal", sans-serif;
 }
 
+/* Fix for Remix Icons */
+[class^="ri-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[class^="ri-"]::before {
+  display: inline-block;
+  font-family: 'remixicon' !important;
+}
 
 @layer base {
   body {
