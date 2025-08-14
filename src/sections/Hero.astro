@@ -4,65 +4,70 @@
 ---
 
 <style>
-/* Device container responsive scaling */
-.device-container {
-  transform-origin: center center;
-  transition: transform 0.3s ease;
+/* iPhone X Container Styling */
+.iphone-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+  /* Mobile: Small scale */
+  transform: scale(0.6);
 }
 
-/* Responsive scaling for different screen sizes */
-@media (max-width: 640px) {
-  .device-container {
-    transform: scale(1);
-  }
-}
-
-@media (min-width: 641px) and (max-width: 768px) {
-  .device-container {
-    transform: scale(1);
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .device-container {
+/* Responsive scaling for iPhone X */
+@media (min-width: 480px) {
+  .iphone-container {
     transform: scale(0.7);
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .device-container {
-    transform: scale(0.75);
+@media (min-width: 640px) {
+  .iphone-container {
+    transform: scale(0.8);
   }
 }
 
-@media (min-width: 1281px) {
-  .device-container {
-    transform: scale(0.80);
+@media (min-width: 768px) {
+  .iphone-container {
+    transform: scale(0.85);
   }
 }
 
-/* Ensure proper image fitting */
+@media (min-width: 1024px) {
+  .iphone-container {
+    transform: scale(0.9);
+  }
+}
+
+@media (min-width: 1280px) {
+  .iphone-container {
+    transform: scale(1.0);
+  }
+}
+
+@media (min-width: 1536px) {
+  .iphone-container {
+    transform: scale(1.1);
+  }
+}
+
+/* Device screen styling */
 .device-screen {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  border-radius: inherit;
 }
 
-/* Add subtle hover effect */
+/* Hover effect for device */
 .device:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   transition: transform 0.3s ease;
-}
-
-/* Ensure device maintains aspect ratio */
-.device {
-  max-width: 100%;
-  height: auto;
 }
 </style>
 
-<section id="home" class="relative min-h-screen bg-gray-50 overflow-hidden" x-data="{
+<section id="home" class="pt-12 relative min-h-screen bg-gray-50 overflow-hidden" x-data="{
   isVisible: false,
   stats: {
     stores: { current: 0, target: 500, suffix: '+' },
@@ -93,7 +98,7 @@
   });
   observer.observe($el);
 ">
-  <!-- Static Elements -->
+  <!-- Background Elements -->
   <div class="absolute top-10 left-5 sm:top-20 sm:left-10 w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full blur-xl"></div>
   <div class="absolute bottom-10 right-5 sm:bottom-20 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 bg-secondary/10 rounded-full blur-xl"></div>
   
@@ -102,27 +107,25 @@
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, oklch(var(--color-primary)) 1px, transparent 0); background-size: 20px 20px;"></div>
   </div>
   
+  <!-- Main Content -->
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-4rem)]">
-      <!-- Content -->
-      <div class="text-center lg:text-right py-12 lg:py-16 order-1 lg:order-1">
-        <!-- Achievement Badges -->
-        <div class="w-full max-w-md mx-auto lg:mx-0 mb-8 pt-4">
-          <div class="pt-4">
-            <div class="flex flex-wrap justify-center lg:justify-start gap-3">
-            <div class="bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow">
-              <div class="flex items-center gap-2">
-                <i class="ri-shield-check-line text-sm" style="color: oklch(var(--color-primary));"></i>
-                <span class="text-sm font-medium text-gray-700">منصة موثوقة</span>
-              </div>
-            </div>
-            <div class="bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow">
-              <div class="flex items-center gap-2">
-                <i class="ri-customer-service-2-line text-sm" style="color: oklch(var(--color-secondary));"></i>
-                <span class="text-sm font-medium text-gray-700">دعم 24/7</span>
-              </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
+      
+      <!-- Text Content (First) -->
+      <div class="text-center lg:text-right py-8 lg:py-16">
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+          <div class="bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-2">
+              <i class="ri-shield-check-line text-sm" style="color: oklch(var(--color-primary));"></i>
+              <span class="text-sm font-medium text-gray-700">منصة موثوقة</span>
             </div>
           </div>
+          <div class="bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-2">
+              <i class="ri-customer-service-2-line text-sm" style="color: oklch(var(--color-secondary));"></i>
+              <span class="text-sm font-medium text-gray-700">دعم 24/7</span>
+            </div>
           </div>
         </div>
         
@@ -132,7 +135,7 @@
         </div>
         
         <!-- Main Heading -->
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
           <span class="block mb-2">كل احتياجاتك في مكان واحد</span>
           <span class="block" style="color: oklch(var(--color-primary));">بأسعار الجملة</span>
         </h1>
@@ -142,10 +145,10 @@
           منصة رائدة تربط المستهلكين وتجار التجزئة بالموردين المحليين، مما يوفر السهولة والفعالية وأفضل الأسعار للجميع.
         </p>
         
-        <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start">
+        <!-- CTA Button -->
+        <div class="mb-12">
           <a href="#contact" 
-            class="bg-primary text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 group hover:shadow-lg transition-all duration-300 text-base"
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 text-lg group"
           >
             ابدأ الآن
             <i class="ri-arrow-left-line group-hover:translate-x-1 transition-transform"></i>
@@ -155,28 +158,28 @@
         <!-- Stats -->
         <div class="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
           <div class="text-center">
-            <div x-ref="storesCount" data-num="500" class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.stores.current) + stats.stores.suffix">500+</div>
+            <div class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.stores.current) + stats.stores.suffix">500+</div>
             <div class="text-sm text-gray-600 mt-1">عميل راضٍ</div>
           </div>
           <div class="text-center">
-            <div x-ref="suppliersCount" data-num="100" class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.suppliers.current) + stats.suppliers.suffix">100+</div>
+            <div class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.suppliers.current) + stats.suppliers.suffix">100+</div>
             <div class="text-sm text-gray-600 mt-1">مورد معتمد</div>
           </div>
           <div class="text-center">
-            <div x-ref="ordersCount" data-num="1000" class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.orders.current) + stats.orders.suffix">1000+</div>
+            <div class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.orders.current) + stats.orders.suffix">1000+</div>
             <div class="text-sm text-gray-600 mt-1">طلب مكتمل</div>
           </div>
         </div>
       </div>
       
-      <!-- Hero Image -->
-      <div class="relative flex items-center justify-center order-2 lg:order-2 py-8 lg:py-0">
-        <div class="device-container">
+      <!-- iPhone X Device (Second) -->
+      <div class="flex items-center justify-center py-8 lg:py-16">
+        <div class="iphone-container">
           <div class="device device-iphone-x device-spacegray">
             <div class="device-stripe"></div>
             <div class="device-btns"></div>
             <div class="device-frame">
-              <img class="device-screen" src="image.png" alt="WFR-LI App Screenshot" loading="lazy">
+              <img class="device-screen" src="/image.png" alt="WFR-LI App Screenshot" loading="lazy">
             </div>
             <div class="device-header"></div>
             <div class="device-sensors"></div>
@@ -185,6 +188,7 @@
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
