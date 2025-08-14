@@ -1,297 +1,335 @@
 ---
 // src/sections/Faq.astro
 ---
-<section class="py-20 bg-white">
+
+<style>
+  /* Enhanced FAQ Animations */
+  .faq-item {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-2px) rotateX(2deg);
+  }
+  
+  .faq-content {
+    backface-visibility: hidden;
+  }
+  
+  /* Pulse animation for active state */
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+  
+  .faq-active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, oklch(var(--color-primary)), oklch(var(--color-secondary)));
+    z-index: -1;
+    animation: pulse-ring 2s infinite;
+  }
+  
+  /* Smooth height transition */
+  .faq-answer {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Icon rotation with spring effect */
+  .faq-icon {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  /* Staggered content animation */
+  .faq-content > * {
+    transition: all 0.3s ease-out;
+  }
+  
+  .faq-content.entering > * {
+    animation: slideInContent 0.6s ease-out forwards;
+  }
+  
+  @keyframes slideInContent {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Enhanced hover effects */
+  .faq-button:hover {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.02));
+  }
+  
+  /* Removed ring animation for cleaner active state */
+</style>
+<section class="py-20 bg-gray-50" x-data="{
+  openFaq: null,
+  isVisible: false,
+  faqs: [
+    {
+      id: 1,
+      icon: 'ri-play-circle-line',
+      question: 'كيف أبدأ استخدام وفر لي؟',
+      answer: 'التسجيل في وفر لي سهل وسريع. ما عليك سوى إنشاء حساب، وبعدها يمكنك مباشرة البدء في طلب المنتجات من بائعينا المعتمدين.',
+      time: 'أقل من 5 دقائق'
+    },
+    {
+      id: 2,
+      icon: 'ri-map-pin-line',
+      question: 'هل الخدمة متاحة في كل المدن؟',
+      answer: 'حالياً، نقدم خدماتنا في المدن الرئيسية في المملكة العربية السعودية، ونعمل على التوسع لتغطية المزيد من المناطق قريباً.',
+      note: 'التوسع مستمر لمدن جديدة'
+    },
+    {
+      id: 3,
+      icon: 'ri-money-dollar-circle-line',
+      question: 'هل يوجد رسوم على التسجيل؟',
+      answer: 'التسجيل في وفر لي مجاني تماماً. نحن نحصل على عمولة بسيطة فقط على الطلبات المكتملة.',
+      note: 'مجاني 100% - لا رسوم خفية'
+    },
+    {
+      id: 4,
+      icon: 'ri-customer-service-2-line',
+      question: 'كيف أتواصل مع الدعم الفني؟',
+      answer: 'يمكنك التواصل مع فريق الدعم الفني على مدار الساعة عبر الواتساب، البريد الإلكتروني، أو من خلال نموذج الاتصال في موقعنا.',
+      channels: ['واتساب', 'إيميل']
+    },
+    {
+      id: 5,
+      icon: 'ri-shopping-basket-line',
+      question: 'ما هي أنواع المنتجات المتوفرة؟',
+      answer: 'نوفر مجموعة واسعة من المنتجات تشمل الخضروات والفواكه، اللحوم والأسماك، الألبان ومنتجاتها، البقوليات والحبوب، والمنتجات المعلبة والمجمدة.',
+      categories: ['خضروات وفواكه', 'لحوم وأسماك', 'ألبان ومنتجاتها', 'منتجات معلبة']
+    },
+    {
+      id: 6,
+      icon: 'ri-shield-check-line',
+      question: 'كيف يتم ضمان جودة المنتجات؟',
+      answer: 'نتعامل فقط مع بائعين معتمدين ومحليين موثوقين.',
+      guarantees: ['بائعين معتمدين']
+    },
+    {
+      id: 7,
+      icon: 'ri-truck-line',
+      question: 'من المسؤول عن توصيل الطلبات؟',
+      answer: 'يتولى البائعون مسؤولية توصيل الطلبات مباشرة إلى عملائهم. منصة وفر لي تعمل كوسيط لربط المشترين بالبائعين، وليست مسؤولة عن عملية التوصيل أو الشحن.',
+      note: 'كل بائع يحدد طريقة التوصيل الخاصة به، بما في ذلك الأسعار والمواعيد ومناطق التغطية.',
+      features: ['التوصيل من البائع', 'تواصل مباشر']
+    }
+  ],
+  toggleFaq(id) {
+    this.openFaq = this.openFaq === id ? null : id;
+  }
+}" x-init="
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        isVisible = true;
+      }
+    });
+  }, { threshold: 0.1 });
+  observer.observe($el);
+">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16 scroll-reveal">
-      <div class="flex flex-col items-center mb-6">
-        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full p-4 mb-4">
-          <i class="ri-question-answer-line text-4xl text-primary"></i>
-        </div>
-        <h2 class="text-4xl md:text-5xl font-extrabold text-black mb-2 tracking-tight">
-          <span>الأسئلة</span> 
-          <span class="gradient-text-arabic">الشائعة</span>
-        </h2>
-        <div class="relative">
-          <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-          <div class="w-16 h-1 bg-gradient-to-r from-secondary to-primary mx-auto rounded-full mt-1 opacity-60"></div>
-        </div>
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style="background-color: oklch(var(--color-primary) / 0.1);">
+        <i class="ri-question-answer-line text-2xl" style="color: oklch(var(--color-primary));"></i>
       </div>
       
-      <div class="max-w-3xl mx-auto">
-        <p class="text-lg md:text-xl text-black leading-relaxed mb-4">
-          إجابات شاملة على أكثر الأسئلة شيوعاً حول منصة وفر لي
-        </p>
-        <p class="text-base text-black">
-          <span>لم تجد إجابة لسؤالك؟</span> 
-          <a href="#contact" class="text-primary hover:text-secondary transition-colors font-medium underline decoration-2 underline-offset-2">
-            تواصل معنا مباشرة
-          </a>
-        </p>
-      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        الأسئلة <span style="color: oklch(var(--color-primary));">الشائعة</span>
+      </h2>
       
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+        إجابات شاملة على أكثر الأسئلة شيوعاً حول منصة وفر لي
+      </p>
+      
+      <p class="text-gray-600">
+        لم تجد إجابة لسؤالك؟ 
+        <a href="#contact" class="font-medium underline" style="color: oklch(var(--color-primary));">تواصل معنا مباشرة</a>
+      </p>
+      
+      <!-- Info badges -->
       <div class="flex flex-wrap justify-center gap-4 mt-8">
-        <div class="bg-white px-4 py-2 rounded-full shadow-md border border-primary">
-          <span class="text-sm font-medium text-black">
-            <i class="ri-time-line text-primary ml-1"></i>
-            إجابة فورية
-          </span>
+        <div class="bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm">
+          <div class="flex items-center gap-2">
+            <i class="ri-time-line" style="color: oklch(var(--color-primary));"></i>
+            <span class="text-sm font-medium text-gray-700">إجابة فورية</span>
+          </div>
         </div>
-        <div class="bg-white px-4 py-2 rounded-full shadow-md border border-primary">
-          <span class="text-sm font-medium text-black">
-            <i class="ri-customer-service-line text-primary ml-1"></i>
-            دعم على مدار الساعة
-          </span>
+        <div class="bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm">
+          <div class="flex items-center gap-2">
+            <i class="ri-customer-service-line" style="color: oklch(var(--color-primary));"></i>
+            <span class="text-sm font-medium text-gray-700">دعم على مدار الساعة</span>
+          </div>
         </div>
       </div>
     </div>
     
-    <div class="max-w-5xl mx-auto">
-      <div class="space-y-6">
-        <details class="faq-item group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border border-primary transition-all duration-300 hover:-translate-y-1 scroll-reveal">
-          <summary class="w-full px-8 py-6 text-right flex items-center justify-between cursor-pointer hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 transition-all duration-300 relative list-none [&::-webkit-details-marker]:hidden">
+    <!-- FAQ Items -->
+    <div class="max-w-4xl mx-auto space-y-4">
+      <template x-for="(faq, index) in faqs" :key="faq.id">
+         <div 
+           class="faq-item bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-500 transform relative"
+           x-show="isVisible"
+           x-transition:enter="transition ease-out duration-700"
+           x-transition:enter-start="opacity-0 translate-y-8 scale-95"
+           x-transition:enter-end="opacity-1 translate-y-0 scale-100"
+           :style="'transition-delay: ' + (index * 100 + 200) + 'ms'"
+           :class="{
+             'shadow-xl': openFaq === faq.id
+           }"
+           style="--ring-color: oklch(var(--color-primary));"
+         >
+          <!-- Question -->
+           <button
+             @click="toggleFaq(faq.id)"
+             class="faq-button w-full px-6 py-6 text-right flex items-center justify-between hover:bg-gray-50 transition-all duration-300 group relative overflow-hidden"
+             :class="openFaq === faq.id ? 'bg-gray-50' : ''"
+           >
+             <!-- Ripple effect on click -->
+             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-active:translate-x-full transition-transform duration-500 ease-out"></div>
             <div class="flex items-center gap-4">
-              <div class="w-10 h-10 aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <i class="ri-play-circle-line text-primary text-lg" aria-hidden="true"></i>
+              <div 
+                class="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105"
+                style="background-color: oklch(var(--color-primary) / 0.1);"
+                :class="openFaq === faq.id ? 'scale-110 shadow-lg' : ''"
+                :style="openFaq === faq.id ? 'background-color: oklch(var(--color-primary) / 0.2);' : ''"
+              >
+                <i 
+                   :class="faq.icon" 
+                   class="faq-icon text-lg transition-all duration-300"
+                   style="color: oklch(var(--color-primary));"
+                   :class="openFaq === faq.id ? 'scale-110 rotate-12' : ''"
+                 ></i>
               </div>
-              <span class="text-lg font-semibold text-black group-hover:text-primary transition-colors duration-300">
-                كيف أبدأ استخدام وفر لي؟
-              </span>
+              <span 
+                class="text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover:text-gray-700" 
+                x-text="faq.question"
+                :class="openFaq === faq.id ? 'text-gray-800' : ''"
+              ></span>
             </div>
-            <div class="flex items-center gap-2">
-              <i class="ri-arrow-down-s-line text-2xl text-primary details-arrow" aria-hidden="true"></i>
-            </div>
-          </summary>
-          <div class="px-8 pb-6">
-            <div class="pt-4 border-t border-primary">
-              <p class="text-black leading-relaxed text-base mb-4">
-                التسجيل في وفر لي سهل وسريع. ما عليك سوى إنشاء حساب، وإكمال ملف
-                متجرك، وبعدها يمكنك مباشرة البدء في طلب المنتجات من موردينا
-                المعتمدين.
-              </p>
-              <div class="flex items-center gap-2 text-sm text-primary">
-                <i class="ri-time-line" aria-hidden="true"></i>
-                <span>وقت التسجيل: أقل من 5 دقائق</span>
-              </div>
-            </div>
-          </div>
-        </details>
-        
-        <details class="faq-item group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border border-primary transition-all duration-300 hover:-translate-y-1 scroll-reveal">
-          <summary class="w-full px-8 py-6 text-right flex items-center justify-between cursor-pointer hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 transition-all duration-300 relative list-none [&::-webkit-details-marker]:hidden">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <i class="ri-map-pin-line text-primary text-lg" aria-hidden="true"></i>
-              </div>
-              <span class="text-lg font-semibold text-black group-hover:text-primary transition-colors duration-300">
-                هل الخدمة متاحة في كل المدن؟
-              </span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="ri-arrow-down-s-line text-2xl text-primary details-arrow" aria-hidden="true"></i>
-            </div>
-          </summary>
-          <div class="px-8 pb-6">
-            <div class="pt-4 border-t border-primary">
-              <p class="text-black leading-relaxed text-base mb-4">
-                حالياً، نقدم خدماتنا في المدن الرئيسية في المملكة العربية
-                السعودية، ونعمل على التوسع لتغطية المزيد من المناطق قريباً.
-              </p>
-              <div class="flex items-center gap-2 text-sm text-secondary">
-                <i class="ri-roadmap-line" aria-hidden="true"></i>
-                <span>التوسع مستمر لمدن جديدة</span>
+            <div class="flex items-center">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-gray-100" :class="openFaq === faq.id ? 'bg-gray-100 rotate-180' : ''">
+                <i 
+                  class="ri-arrow-down-s-line text-xl transition-all duration-300 ease-out" 
+                  style="color: oklch(var(--color-primary));" 
+                  :class="openFaq === faq.id ? 'rotate-180 scale-110' : 'group-hover:scale-105'"
+                ></i>
               </div>
             </div>
-          </div>
-        </details>
-        
-        <details class="faq-item group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border border-primary transition-all duration-300 hover:-translate-y-1 scroll-reveal">
-          <summary class="w-full px-8 py-6 text-right flex items-center justify-between cursor-pointer hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 transition-all duration-300 relative list-none [&::-webkit-details-marker]:hidden">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <i class="ri-money-dollar-circle-line text-primary text-lg" aria-hidden="true"></i>
-              </div>
-              <span class="text-lg font-semibold text-black group-hover:text-primary transition-colors duration-300">
-                هل يوجد رسوم على التسجيل؟
-              </span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="ri-arrow-down-s-line text-2xl text-primary details-arrow" aria-hidden="true"></i>
-            </div>
-          </summary>
-          <div class="px-8 pb-6">
-            <div class="pt-4 border-t border-primary">
-              <p class="text-black leading-relaxed text-base mb-4">
-                التسجيل في وفر لي مجاني تماماً. نحن نحصل على عمولة بسيطة فقط
-                على الطلبات المكتملة.
-              </p>
-              <div class="flex items-center gap-2 text-sm text-primary">
-                <i class="ri-check-line" aria-hidden="true"></i>
-                <span>مجاني 100% - لا رسوم خفية</span>
-              </div>
-            </div>
-          </div>
-        </details>
-        
-        <details class="faq-item group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border border-primary transition-all duration-300 hover:-translate-y-1 scroll-reveal">
-          <summary class="w-full px-8 py-6 text-right flex items-center justify-between cursor-pointer hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 transition-all duration-300 relative list-none [&::-webkit-details-marker]:hidden">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <i class="ri-customer-service-2-line text-primary text-lg" aria-hidden="true"></i>
-              </div>
-              <span class="text-lg font-semibold text-black group-hover:text-primary transition-colors duration-300">
-                كيف أتواصل مع الدعم الفني؟
-              </span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="ri-arrow-down-s-line text-2xl text-primary details-arrow" aria-hidden="true"></i>
-            </div>
-          </summary>
-          <div class="px-8 pb-6">
-            <div class="pt-4 border-t border-primary">
-              <p class="text-black leading-relaxed text-base mb-4">
-                يمكنك التواصل مع فريق الدعم الفني على مدار الساعة عبر
-                الواتساب، البريد الإلكتروني، أو من خلال نموذج الاتصال في
-                موقعنا.
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <div class="flex items-center gap-2 text-sm text-primary bg-white border border-primary px-3 py-1 rounded-full">
-                  <i class="ri-whatsapp-line" aria-hidden="true"></i>
-                  <span>واتساب</span>
+          </button>
+          
+          <!-- Answer -->
+          <div 
+             x-show="openFaq === faq.id" 
+             x-transition:enter="transition ease-out duration-500" 
+             x-transition:enter-start="opacity-0 max-h-0 transform scale-y-0" 
+             x-transition:enter-end="opacity-1 max-h-screen transform scale-y-100" 
+             x-transition:leave="transition ease-in duration-300" 
+             x-transition:leave-start="opacity-1 max-h-screen transform scale-y-100" 
+             x-transition:leave-end="opacity-0 max-h-0 transform scale-y-0" 
+             class="faq-answer overflow-hidden origin-top"
+             style="transform-origin: top;"
+           >
+            <div 
+               class="faq-content px-6 pb-6 transform transition-all duration-500 ease-out"
+               x-transition:enter="transition ease-out duration-600 delay-100"
+               x-transition:enter-start="opacity-0 translate-y-4"
+               x-transition:enter-end="opacity-1 translate-y-0"
+               :class="openFaq === faq.id ? 'entering' : ''"
+             >
+               <div class="pt-4 border-t border-gray-100 relative">
+                <!-- Animated border -->
+                <div 
+                  class="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-transparent via-current to-transparent transition-all duration-700 ease-out"
+                  style="color: oklch(var(--color-primary));"
+                  :class="openFaq === faq.id ? 'w-full opacity-100' : 'w-0 opacity-0'"
+                ></div>
+                <p class="text-gray-700 leading-relaxed mb-4" x-text="faq.answer"></p>
+                
+                <!-- Time info -->
+                <div x-show="faq.time" class="flex items-center gap-2 text-sm mb-3" style="color: oklch(var(--color-primary));">
+                  <i class="ri-time-line"></i>
+                  <span x-text="'وقت التسجيل: ' + faq.time"></span>
                 </div>
-                <div class="flex items-center gap-2 text-sm text-secondary bg-white border border-secondary px-3 py-1 rounded-full">
-                  <i class="ri-mail-line" aria-hidden="true"></i>
-                  <span>إيميل</span>
+                
+                <!-- Note -->
+                <div x-show="faq.note" class="flex items-center gap-2 text-sm mb-3" style="color: oklch(var(--color-secondary));">
+                  <i class="ri-information-line"></i>
+                  <span x-text="faq.note"></span>
                 </div>
-              </div>
-            </div>
-          </div>
-        </details>
-        
-        <details class="faq-item group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border border-primary transition-all duration-300 hover:-translate-y-1 scroll-reveal">
-          <summary class="w-full px-8 py-6 text-right flex items-center justify-between cursor-pointer hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 transition-all duration-300 relative list-none [&::-webkit-details-marker]:hidden">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <i class="ri-shopping-basket-line text-primary text-lg" aria-hidden="true"></i>
-              </div>
-              <span class="text-lg font-semibold text-black group-hover:text-primary transition-colors duration-300">
-                ما هي أنواع المنتجات المتوفرة؟
-              </span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="ri-arrow-down-s-line text-2xl text-primary details-arrow" aria-hidden="true"></i>
-            </div>
-          </summary>
-          <div class="px-8 pb-6">
-            <div class="pt-4 border-t border-primary">
-              <p class="text-black leading-relaxed text-base mb-4">
-                نوفر مجموعة واسعة من المنتجات الغذائية تشمل الخضروات والفواكه،
-                اللحوم والأسماك، الألبان ومنتجاتها، البقوليات والحبوب،
-                والمنتجات المعلبة والمجمدة.
-              </p>
-              <div class="grid grid-cols-2 gap-2 text-sm">
-                <div class="flex items-center gap-2 text-primary">
-                  <i class="ri-leaf-line" aria-hidden="true"></i>
-                  <span>خضروات وفواكه</span>
+                
+                <!-- Channels -->
+                <div x-show="faq.channels" class="flex flex-wrap gap-2 mb-3">
+                  <template x-for="channel in faq.channels || []">
+                    <div class="bg-white border rounded-full px-3 py-1 text-sm" style="border-color: oklch(var(--color-primary)); color: oklch(var(--color-primary));">
+                      <span x-text="channel"></span>
+                    </div>
+                  </template>
                 </div>
-                <div class="flex items-center gap-2 text-secondary">
-                  <i class="ri-restaurant-line" aria-hidden="true"></i>
-                  <span>لحوم وأسماك</span>
+                
+                <!-- Categories -->
+                <div x-show="faq.categories" class="grid grid-cols-2 gap-2 mb-3">
+                  <template x-for="category in faq.categories || []">
+                    <div class="flex items-center gap-2 text-sm" style="color: oklch(var(--color-primary));">
+                      <i class="ri-check-line"></i>
+                      <span x-text="category"></span>
+                    </div>
+                  </template>
                 </div>
-                <div class="flex items-center gap-2 text-primary">
-                  <i class="ri-drop-line" aria-hidden="true"></i>
-                  <span>ألبان ومنتجاتها</span>
+                
+                <!-- Guarantees -->
+                <div x-show="faq.guarantees" class="flex flex-wrap gap-2 mb-3">
+                  <template x-for="guarantee in faq.guarantees || []">
+                    <div class="bg-white border rounded-full px-3 py-1 text-sm" style="border-color: oklch(var(--color-secondary)); color: oklch(var(--color-secondary));">
+                      <span x-text="guarantee"></span>
+                    </div>
+                  </template>
                 </div>
-                <div class="flex items-center gap-2 text-secondary">
-                  <i class="ri-archive-line" aria-hidden="true"></i>
-                  <span>منتجات معلبة</span>
+                
+                <!-- Features -->
+                <div x-show="faq.features" class="flex flex-wrap gap-2">
+                  <template x-for="feature in faq.features || []">
+                    <div class="bg-white border rounded-full px-3 py-1 text-sm" style="border-color: oklch(var(--color-primary)); color: oklch(var(--color-primary));">
+                      <span x-text="feature"></span>
+                    </div>
+                  </template>
                 </div>
-              </div>
-            </div>
-          </div>
-        </details>
-        
-        <details class="faq-item group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border border-primary transition-all duration-300 hover:-translate-y-1 scroll-reveal">
-          <summary class="w-full px-8 py-6 text-right flex items-center justify-between cursor-pointer hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 transition-all duration-300 relative list-none [&::-webkit-details-marker]:hidden">
-            <div class="flex items-center gap-4">
-              <div class="w-10 h-10 aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <i class="ri-shield-check-line text-primary text-lg" aria-hidden="true"></i>
-              </div>
-              <span class="text-lg font-semibold text-black group-hover:text-primary transition-colors duration-300">
-                كيف يتم ضمان جودة المنتجات؟
-              </span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="ri-arrow-down-s-line text-2xl text-primary transition-transform duration-300 group-hover:scale-110 details-arrow" aria-hidden="true"></i>
-            </div>
-          </summary>
-          <div class="px-8 pb-6">
-            <div class="pt-4 border-t border-primary">
-              <p class="text-black leading-relaxed text-base mb-4">
-                نتعامل فقط مع موردين معتمدين ومحليين موثوقين، ونقوم بفحص
-                جودة المنتجات بشكل دوري. كما نضمن استرداد المال في حالة عدم
-                الرضا عن الجودة.
-              </p>
-              <div class="flex flex-wrap gap-3">
-                <div class="flex items-center gap-2 text-sm text-primary bg-white border border-primary px-3 py-1 rounded-full">
-                  <i class="ri-verified-badge-line" aria-hidden="true"></i>
-                  <span>موردين معتمدين</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-secondary bg-white border border-secondary px-3 py-1 rounded-full">
-                  <i class="ri-money-dollar-box-line" aria-hidden="true"></i>
-                  <span>ضمان استرداد المال</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </details>
-        
-        <details class="faq-item group bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden border border-primary transition-all duration-300 hover:-translate-y-1 scroll-reveal">
-          <summary class="w-full px-8 py-6 text-right flex justify-between items-center hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 transition-all duration-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <i class="ri-truck-line text-primary group-hover:text-white text-lg" aria-hidden="true"></i>
-              </div>
-              <span class="text-lg font-semibold text-black group-hover:text-primary transition-colors duration-300">
-                من المسؤول عن توصيل الطلبات؟
-              </span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="ri-arrow-down-s-line text-2xl text-primary details-arrow" aria-hidden="true"></i>
-            </div>
-          </summary>
-          <div class="px-8 pb-6">
-            <div class="pt-4 border-t border-primary">
-              <p class="text-black leading-relaxed text-base mb-4">
-                يتولى الموردون مسؤولية توصيل الطلبات مباشرة إلى عملائهم. منصة وفر لي تعمل كوسيط
-                لربط المتاجر والمطاعم بالموردين، وليست مسؤولة عن عملية التوصيل أو الشحن.
-              </p>
-              <div class="bg-white border border-primary p-4 rounded-lg mb-4">
-                <div class="flex items-start gap-3">
-                  <i class="ri-information-line text-primary text-lg mt-1" aria-hidden="true"></i>
-                  <div>
-                    <h4 class="font-semibold text-black mb-2">ملاحظة مهمة</h4>
-                    <p class="text-black text-sm">
-                      كل مورد يحدد طريقة التوصيل الخاصة به، بما في ذلك الأسعار والمواعيد ومناطق التغطية.
-                      يمكنك التواصل مباشرة مع المورد لتنسيق تفاصيل التوصيل.
-                    </p>
+                
+                <!-- Special note for delivery -->
+                <div x-show="faq.id === 7" class="bg-gray-50 border border-gray-200 p-4 rounded-lg mt-4">
+                  <div class="flex items-start gap-3">
+                    <i class="ri-information-line text-lg mt-1" style="color: oklch(var(--color-primary));"></i>
+                    <div>
+                      <h4 class="font-semibold text-gray-900 mb-2">ملاحظة مهمة</h4>
+                      <p class="text-gray-700 text-sm" x-text="faq.note"></p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="flex flex-wrap gap-3">
-                <div class="flex items-center gap-2 text-sm text-secondary bg-white border border-secondary px-3 py-1 rounded-full">
-                  <i class="ri-truck-line" aria-hidden="true"></i>
-                  <span>التوصيل من المورد</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm text-primary bg-white border border-primary px-3 py-1 rounded-full">
-                  <i class="ri-customer-service-line" aria-hidden="true"></i>
-                  <span>تواصل مباشر</span>
-                </div>
-              </div>
             </div>
           </div>
-        </details>
-      </div>
+        </div>
+      </template>
     </div>
   </div>
-</section> 
+</section>
