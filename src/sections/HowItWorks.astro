@@ -1,9 +1,9 @@
 ---
 // Modern How It Works Section with Pines-UI design and Alpine.js
 ---
-<section id="how-it-works" class="py-20 bg-gray-50 relative" x-data="{ isVisible: false, activeStep: 1 }" x-intersect="isVisible = true">
+<section id="how-it-works" class="py-20 bg-gray-50 relative">
   <div class="container mx-auto px-4 relative z-10">
-    <div class="text-center mb-16" x-show="isVisible" x-transition.duration.800ms>
+    <div class="text-center mb-16">
       <div class="flex flex-col items-center mb-8">
         <div class="bg-primary/10 rounded-full p-6 mb-6 relative">
           <i class="ri-route-line text-5xl text-primary"></i>
@@ -27,14 +27,14 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-      <div class="flex flex-col items-center text-center group" x-show="isVisible" x-transition.delay.200ms>
+      <div class="flex flex-col items-center text-center group">
         <div class="relative mb-8">
-          <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+          <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl relative z-10">
             ١
           </div>
         </div>
-        <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
-          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+        <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 w-full">
+          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <i class="ri-file-list-3-line text-primary text-3xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-4">تصفح وتسوق</h3>
@@ -54,14 +54,14 @@
         </div>
       </div>
 
-      <div class="flex flex-col items-center text-center group" x-show="isVisible" x-transition.delay.400ms>
+      <div class="flex flex-col items-center text-center group">
         <div class="relative mb-8">
-          <div class="w-24 h-24 bg-secondary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+          <div class="w-24 h-24 bg-secondary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl relative z-10">
             ٢
           </div>
         </div>
-        <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
-          <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+        <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 w-full">
+          <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <i class="ri-scales-3-line text-secondary text-3xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-4">أكمل طلبك</h3>
@@ -81,14 +81,14 @@
         </div>
       </div>
 
-      <div class="flex flex-col items-center text-center group" x-show="isVisible" x-transition.delay.600ms>
+      <div class="flex flex-col items-center text-center group">
         <div class="relative mb-8">
-          <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+          <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl relative z-10">
             ٣
           </div>
         </div>
-        <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
-          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+        <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 w-full">
+          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <i class="ri-truck-line text-primary text-3xl"></i>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-4">استلم مشترياتك</h3>
@@ -109,7 +109,7 @@
       </div>
     </div>
 
-    <div class="mt-16 text-center" x-show="isVisible" x-transition.delay.800ms>
+    <div class="mt-16 text-center">
       <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg">
         <h3 class="text-2xl font-bold text-gray-900 mb-4">انضم إلينا الآن</h3>
         <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
@@ -128,11 +128,11 @@
         </div>
         <button
           onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
-          class="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary/90 hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3 group mt-8"
+          class="bg-primary text-white px-8 py-4 rounded-xl font-semibold inline-flex items-center gap-3 mt-8"
         >
           <i class="ri-user-add-line text-xl"></i>
           <span>سجل اهتمامك الآن</span>
-          <i class="ri-arrow-left-line group-hover:-translate-x-1 transition-transform"></i>
+          <i class="ri-arrow-left-line"></i>
         </button>
       </div>
     </div>

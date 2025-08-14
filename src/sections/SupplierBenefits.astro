@@ -2,7 +2,6 @@
 // src/sections/SupplierBenefits.astro
 ---
 <section class="py-20 bg-white" x-data="{
-  isVisible: false,
   benefits: [
     {
       icon: 'ri-team-line',
@@ -29,19 +28,10 @@
       color: 'orange'
     }
   ]
-}" x-init="
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        isVisible = true;
-      }
-    });
-  });
-  observer.observe($el);
-">
+}">
   <div class="container mx-auto px-4">
     <!-- Header -->
-    <div class="text-center mb-16" x-show="isVisible" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-1 translate-y-0">
+    <div class="text-center mb-16">
       <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style="background-color: oklch(var(--color-primary) / 0.1);">
         <i class="ri-team-line text-2xl" style="color: oklch(var(--color-primary));"></i>
       </div>
@@ -80,31 +70,31 @@
       <div class="relative inline-block">
         <button
           onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
-          class="relative px-10 py-5 rounded-2xl font-bold text-white text-lg transition-all duration-500 hover:scale-110 flex items-center gap-4 mx-auto group overflow-hidden shadow-2xl hover:shadow-3xl"
+          class="relative px-10 py-5 rounded-2xl font-bold text-white text-lg flex items-center gap-4 mx-auto group overflow-hidden shadow-2xl"
           style="background: linear-gradient(135deg, oklch(var(--color-primary)) 0%, oklch(var(--color-primary) / 0.8) 100%);"
         >
           <!-- Background animation -->
-          <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
+
           
           <!-- Button content -->
           <div class="relative flex items-center gap-4">
-            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
               <i class="ri-user-add-line text-xl"></i>
             </div>
             <span class="font-bold tracking-wide !text-black">ابدأ البيع معنا</span>
-            <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:-translate-x-2 transition-all duration-300">
+            <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
               <i class="ri-arrow-left-line text-lg"></i>
             </div>
           </div>
           
           <!-- Pulse effect -->
-          <div class="absolute inset-0 rounded-2xl border-2 border-white/30 group-hover:scale-110 group-hover:opacity-0 transition-all duration-500"></div>
+          <div class="absolute inset-0 rounded-2xl border-2 border-white/30"></div>
         </button>
         
         <!-- Floating particles effect -->
-        <div class="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full animate-bounce" style="animation-delay: 0s;"></div>
-        <div class="absolute -bottom-2 -left-2 w-3 h-3 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.5s;"></div>
-        <div class="absolute top-1/2 -right-4 w-2 h-2 bg-green-400 rounded-full animate-ping" style="animation-delay: 1s;"></div>
+        <div class="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full"></div>
+        <div class="absolute -bottom-2 -left-2 w-3 h-3 bg-blue-400 rounded-full"></div>
+        <div class="absolute top-1/2 -right-4 w-2 h-2 bg-green-400 rounded-full"></div>
       </div>
     </div>
     
@@ -112,12 +102,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <template x-for="(benefit, index) in benefits" :key="index">
         <div 
-          class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 text-center group hover:shadow-lg hover:-translate-y-2 transition-all duration-300"
-          x-show="isVisible"
-          x-transition:enter="transition ease-out duration-1000"
-          x-transition:enter-start="opacity-0 translate-y-8"
-          x-transition:enter-end="opacity-1 translate-y-0"
-          :style="'transition-delay: ' + (index * 100 + 200) + 'ms'"
+          class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 text-center group"
         >
           <!-- Icon -->
           <div 
@@ -125,7 +110,7 @@
                        benefit.color === 'blue' ? 'background-color: #3b82f6;' :
                        benefit.color === 'green' ? 'background-color: #10b981;' :
                        'background-color: #f59e0b;'"
-          class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
 
             <i :class="[benefit.icon]" class="text-white text-2xl"></i>
           </div>

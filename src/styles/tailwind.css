@@ -70,29 +70,23 @@
 		background-image: linear-gradient(to right, rgba(0, 145, 150, 0.05), rgba(249, 165, 26, 0.05));
 	}
 
-  /* Card hover effects */
-  .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  /* Card styles without animations */
+  .feature-card {
+    /* Static card styles */
   }
-  .step-card:hover {
-    transform: translateY(-5px);
+  .step-card {
+    /* Static card styles */
   }
-  .ai-feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  .ai-feature-card {
+    /* Static card styles */
   }
 
-  /* FAQ Styles */
+  /* FAQ Styles without animations */
   .faq-item {
-    transition: all 0.3s ease;
-  }
-  .faq-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    /* Static FAQ styles */
   }
   
-  /* Details/Summary Animation */
+  /* Details/Summary without animations */
   details > summary {
     list-style: none;
   }
@@ -101,30 +95,15 @@
   }
   
   .details-arrow {
-    transition: transform 0.3s ease;
-  }
-  
-  details[open] > summary .details-arrow {
-    transform: rotate(180deg);
+    /* Static arrow styles */
   }
 
-  /* Scroll Reveal animation - this is handled by JS but we need the initial state */
+  /* Scroll Reveal removed */
   .scroll-reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-  }
-  .scroll-reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
+    /* Static reveal styles */
   }
 }
 
 @layer utilities {
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-400 { animation-delay: 0.4s; }
-    .delay-500 { animation-delay: 0.5s; }
-    .delay-600 { animation-delay: 0.6s; }
-    .delay-1000 { animation-delay: 1s; }
-} 
+    /* Animation utilities removed */
+}

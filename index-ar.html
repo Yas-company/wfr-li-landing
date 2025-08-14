@@ -95,7 +95,6 @@
       body {
         font-family: 'Tajawal', sans-serif;
         scroll-behavior: smooth;
-        transition: background-color 0.3s ease, color 0.3s ease;
         overflow-x: hidden;
       }
       
@@ -128,19 +127,13 @@
 
       
       .feature-card:hover {
-      transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       }
       
 
       
-      .step-card:hover {
-      transform: translateY(-5px);
-      }
-      .ai-feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      }
+
+      /* ai feature card effects removed */
       
 
       
@@ -171,90 +164,7 @@
       }
       }
       
-      /* تحريكات مخصصة */
-      @keyframes fade-in-up {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      @keyframes slide-in-left {
-        from {
-          opacity: 0;
-          transform: translateX(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-      
-      @keyframes slide-in-right {
-        from {
-          opacity: 0;
-          transform: translateX(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-      
-      @keyframes scale-in {
-        from {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      
-      .animate-fade-in-up {
-        animation: fade-in-up 0.8s ease-out forwards;
-      }
-      
-      .animate-slide-in-left {
-        animation: slide-in-left 0.8s ease-out forwards;
-      }
-      
-      .animate-slide-in-right {
-        animation: slide-in-right 0.8s ease-out forwards;
-      }
-      
-      .animate-scale-in {
-        animation: scale-in 0.6s ease-out forwards;
-      }
-      
-      .delay-200 {
-        animation-delay: 0.2s;
-      }
-      
-      .delay-300 {
-        animation-delay: 0.3s;
-      }
-      
-      .delay-400 {
-        animation-delay: 0.4s;
-      }
-      
-      .delay-500 {
-        animation-delay: 0.5s;
-      }
-      
-      .delay-600 {
-        animation-delay: 0.6s;
-      }
-      
-      .delay-1000 {
-        animation-delay: 1s;
-      }
+      /* تحريكات مخصصة - تم إزالتها */
       
       /* تحسينات إضافية */
       .feature-card {
@@ -262,40 +172,13 @@
         overflow: hidden;
       }
       
-      .feature-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(0, 145, 150, 0.1), transparent);
-        transition: left 0.5s;
-      }
-      
-      .feature-card:hover::before {
-        left: 100%;
-      }
+      /* feature card effects removed */
       
       .step-card {
         position: relative;
       }
       
-      .step-card::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 3px;
-        background: linear-gradient(to right, #009196, #F9A51A);
-        transition: width 0.3s ease;
-      }
-      
-      .step-card:hover::after {
-        width: 50%;
-      }
+      /* step card effects removed */
       
       /* تأثيرات النص */
       .text-gradient {
@@ -352,62 +235,13 @@
         text-transform: none;
       }
       
-      /* تحسين الأزرار */
-      .btn-primary {
-        background: linear-gradient(135deg, #009196, #F9A51A);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
+      /* button effects removed */
       
-      .btn-primary::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s;
-      }
-      
-      .btn-primary:hover::before {
-        left: 100%;
-      }
-      
-      /* تأثيرات التمرير */
-      .scroll-reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-      }
-      
-      .scroll-reveal.revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      /* scroll reveal effects removed */
       
       /* تحسينات الموبايل */
       @media (max-width: 768px) {
-        .mobile-menu {
-          transform: translateX(100%);
-          transition: transform 0.3s ease-in-out;
-        }
-        
-        .mobile-menu.open {
-          transform: translateX(0);
-        }
-        
-        .mobile-menu-overlay {
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-overlay.open {
-          opacity: 1;
-          visibility: visible;
-        }
+        /* mobile menu effects removed */
         
         .hero-buttons {
           flex-direction: column;
@@ -418,6 +252,8 @@
           width: 100%;
           justify-content: center;
         }
+        
+        /* hero button effects removed */
         
         .feature-grid {
           grid-template-columns: 1fr;
@@ -490,41 +326,7 @@
         }
       }
       
-      /* FAQ Styles */
-      .faq-item {
-        transition: all 0.3s ease;
-      }
-      
-      .faq-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      }
-      
-      .faq-item.active {
-        border-color: #3b82f6;
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
-      }
-      
-      .faq-toggle {
-        transition: all 0.3s ease;
-      }
-      
-      .faq-toggle:hover {
-        background-color: rgba(59, 130, 246, 0.05);
-      }
-      
-      .faq-content {
-        transition: max-height 0.3s ease;
-      }
-      
-      /* FAQ Arrow Animation */
-      .faq-arrow {
-        transition: transform 0.3s ease;
-      }
-      
-      .faq-item.active .faq-arrow {
-        transform: rotate(180deg);
-      }
+      /* faq effects removed */
       
       /* Step Card Enhancements */
       .step-card {
@@ -860,22 +662,7 @@
           transform: translateY(-5px);
         }
 
-        /* Details/Summary Animation */
-        details > summary {
-          list-style: none;
-        }
-        
-        details > summary::-webkit-details-marker {
-          display: none;
-        }
-        
-        .details-arrow {
-          transition: transform 0.3s ease;
-        }
-        
-        details[open] > summary .details-arrow {
-          transform: rotate(180deg);
-        }
+        /* details/summary effects removed */
         
         /* Responsive Slider Heights */
         @media (max-width: 768px) {
@@ -901,7 +688,7 @@
       <div class="container mx-auto flex items-center justify-center gap-2">
         <i class="ri-notification-3-line"></i>
         <span >🎉 سجل اهتمامك الآن واحصل على عروض حصرية للمستخدمين الأوائل!</span>
-        <button onclick="closeNotification()" class="absolute left-4 hover:bg-white hover:bg-opacity-20 rounded-full p-1 transition-colors">
+        <button onclick="closeNotification()" class="absolute left-4 rounded-full p-1">
           <i class="ri-close-line"></i>
         </button>
       </div>
@@ -910,64 +697,64 @@
     <!-- Header -->
     <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100 ">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="text-2xl text-primary hover:scale-105 transition-transform duration-200 cursor-pointer" >
+        <div class="text-2xl text-primary cursor-pointer" >
           وفر لي
         </div>
         <nav class="hidden md:flex space-x-reverse space-x-8">
           <a
             href="#home"
-            class="text-gray-800 hover:text-primary transition-all duration-200 relative group"
+            class="text-gray-800 relative"
             
           >
             الرئيسية
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+  
           </a>
           <a
             href="#about"
-            class="text-gray-800 hover:text-primary transition-all duration-200 relative group"
+            class="text-gray-800 relative"
             
           >
             من نحن
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+  
           </a>
           <a
             href="#features"
-            class="text-gray-800 hover:text-primary transition-all duration-200 relative group"
+            class="text-gray-800 relative"
             
           >
             المميزات
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+  
           </a>
           <a
             href="#ai-features"
-            class="text-gray-800 hover:text-primary transition-all duration-200 relative group"
+            class="text-gray-800 relative"
             
           >
             الذكاء الاصطناعي
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+  
           </a>
           <a
             href="#how-it-works"
-            class="text-gray-800 hover:text-primary transition-all duration-200 relative group"
+            class="text-gray-800 relative"
             
           >
             كيف يعمل
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+  
           </a>
           <a
             href="#contact"
-            class="text-gray-800 hover:text-primary transition-all duration-200 relative group"
+            class="text-gray-800 relative"
             
           >
             اتصل بنا
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+  
           </a>
         </nav>
         <div class="flex items-center gap-4">
 
           
 
-          <button class="md:hidden w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors duration-200" id="mobile-menu-btn">
+          <button class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg" id="mobile-menu-btn">
           <i class="ri-menu-line text-xl"></i>
         </button>
       </div>
@@ -983,18 +770,18 @@
     <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 md:hidden">
       <div class="flex justify-between items-center p-4 border-b border-gray-200 ">
                   <div class="text-2xl text-primary" >وفر لي</div>
-        <button id="close-mobile-menu" class="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors">
+        <button id="close-mobile-menu" class="w-10 h-10 flex items-center justify-center rounded-lg">
           <i class="ri-close-line text-xl"></i>
         </button>
       </div>
       <nav class="p-4">
         <ul class="space-y-4">
-          <li><a href="#home" class="block py-3 px-4 text-gray-800 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" >الرئيسية</a></li>
-          <li><a href="#about" class="block py-3 px-4 text-gray-800 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" >من نحن</a></li>
-          <li><a href="#features" class="block py-3 px-4 text-gray-800 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" >المميزات</a></li>
-          <li><a href="#ai-features" class="block py-3 px-4 text-gray-800 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" >الذكاء الاصطناعي</a></li>
-          <li><a href="#how-it-works" class="block py-3 px-4 text-gray-800 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" >كيف يعمل</a></li>
-          <li><a href="#contact" class="block py-3 px-4 text-gray-800 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors" >اتصل بنا</a></li>
+          <li><a href="#home" class="block py-3 px-4 text-gray-800 rounded-lg" >الرئيسية</a></li>
+        <li><a href="#about" class="block py-3 px-4 text-gray-800 rounded-lg" >من نحن</a></li>
+        <li><a href="#features" class="block py-3 px-4 text-gray-800 rounded-lg" >المميزات</a></li>
+        <li><a href="#ai-features" class="block py-3 px-4 text-gray-800 rounded-lg" >الذكاء الاصطناعي</a></li>
+        <li><a href="#how-it-works" class="block py-3 px-4 text-gray-800 rounded-lg" >كيف يعمل</a></li>
+        <li><a href="#contact" class="block py-3 px-4 text-gray-800 rounded-lg" >اتصل بنا</a></li>
         </ul>
         
 

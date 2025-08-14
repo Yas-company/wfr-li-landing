@@ -14,25 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Scroll reveal animations
-  const scrollReveal = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("revealed");
-        observer.unobserve(entry.target);
-      }
-    });
-  };
-
-  const revealObserver = new IntersectionObserver(scrollReveal, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  });
-
-  document.querySelectorAll(".scroll-reveal").forEach((el) => {
-    revealObserver.observe(el);
-  });
+  // Scroll reveal animations removed
   
   // Mobile menu toggle
   const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -132,4 +114,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-}); 
+});
