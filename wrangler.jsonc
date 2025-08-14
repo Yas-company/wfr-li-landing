@@ -1,0 +1,39 @@
+{
+  // Worker configuration
+  "name": "v2-wfrli-landing-page",
+  "compatibility_date": "2024-12-19",
+  
+  // Build configuration for Astro static site
+  "build": {
+    "command": "npm run build"
+  },
+  
+  // Upload configuration
+  "upload": {
+    "format": "modules",
+    "dir": "dist",
+    "main": "./index.js",
+    "rules": [
+      {
+        "type": "ESModule",
+        "globs": ["**/*.js"]
+      },
+      {
+        "type": "Text",
+        "globs": ["**/*.html", "**/*.css"]
+      },
+      {
+        "type": "Data",
+        "globs": ["**/*.woff", "**/*.woff2", "**/*.ttf", "**/*.eot", "**/*.ico", "**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif", "**/*.svg"]
+      }
+    ]
+  },
+  
+  // Environment variables (add as needed)
+  "vars": {
+    // Add any environment variables here
+  },
+  
+  // Disable telemetry
+  "send_metrics": false
+}
