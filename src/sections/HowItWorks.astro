@@ -1,56 +1,45 @@
 ---
-// src/sections/HowItWorks.astro
+// Modern How It Works Section with Pines-UI design and Alpine.js
 ---
-<section id="how-it-works" class="py-20 bg-gradient-to-br from-gray-50 to-white relative">
-  <div class="absolute top-10 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-10 right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
-  
+<section id="how-it-works" class="py-20 bg-gray-50 relative" x-data="{ isVisible: false, activeStep: 1 }" x-intersect="isVisible = true">
   <div class="container mx-auto px-4 relative z-10">
-    <div class="text-center mb-16 scroll-reveal">
+    <div class="text-center mb-16" x-show="isVisible" x-transition.duration.800ms>
       <div class="flex flex-col items-center mb-8">
-        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full p-6 mb-6 relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-20"></div>
-          <i class="ri-route-line text-5xl text-primary relative z-10"></i>
+        <div class="bg-primary/10 rounded-full p-6 mb-6 relative">
+          <i class="ri-route-line text-5xl text-primary"></i>
         </div>
         
         <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
           <span class="block">كيف يعمل</span>
-          <span class="gradient-text-arabic">وفر لي؟</span>
+          <span class="text-primary">وفر لي؟</span>
         </h2>
         
         <div class="flex items-center gap-2 mb-6">
-          <div class="w-16 h-1 bg-gradient-to-r from-transparent via-primary to-secondary rounded-full"></div>
-          <div class="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-          <div class="w-16 h-1 bg-gradient-to-r from-secondary via-primary to-transparent rounded-full"></div>
+          <div class="w-16 h-1 bg-primary rounded-full"></div>
+          <div class="w-3 h-3 bg-primary rounded-full"></div>
+          <div class="w-16 h-1 bg-secondary rounded-full"></div>
         </div>
         
         <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-          انضم إلى شبكتنا المتنامية
+          تجربة تسوق سهلة ومريحة في 3 خطوات فقط.
         </p>
-        
-        <div class="flex flex-wrap justify-center gap-6 mt-8">
-          <div class="bg-white rounded-full px-6 py-3 shadow-lg border border-primary/20">
-            <span class="text-sm font-bold text-primary">عبر 3 خطوات سهلة</span>
-          </div>
-        </div>
       </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-      <div class="flex flex-col items-center text-center group">
+      <div class="flex flex-col items-center text-center group" x-show="isVisible" x-transition.delay.200ms>
         <div class="relative mb-8">
-          <div class="w-24 h-24 aspect-square bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+          <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
             ١
           </div>
-          <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
-          <div class="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
             <i class="ri-file-list-3-line text-primary text-3xl"></i>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">قدم طلبك</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">تصفح وتسوق</h3>
           <p class="text-gray-600 leading-relaxed mb-6">
-            أدخل تفاصيل المنتجات التي تحتاجها والكميات المطلوبة بطريقة سهلة ومرنة
+            تصفح آلاف المنتجات من موردين متعددين وأضفها إلى سلتك بسهولة.
           </p>
           <div class="space-y-2">
             <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
@@ -59,89 +48,87 @@
             </div>
             <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
               <i class="ri-check-line text-primary"></i>
-              <span>تفاصيل دقيقة للمنتجات</span>
+              <span>مقارنة سهلة للأسعار</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="flex flex-col items-center text-center group">
+      <div class="flex flex-col items-center text-center group" x-show="isVisible" x-transition.delay.400ms>
         <div class="relative mb-8">
-          <div class="w-24 h-24 aspect-square bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+          <div class="w-24 h-24 bg-secondary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
             ٢
           </div>
-          <div class="absolute inset-0 bg-gradient-to-br from-secondary to-primary rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
-          <div class="w-16 h-16 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
             <i class="ri-scales-3-line text-secondary text-3xl"></i>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">قارن العروض</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">أكمل طلبك</h3>
           <p class="text-gray-600 leading-relaxed mb-6">
-            احصل على عروض من موردين متعددين وقارن الأسعار والجودة والشروط
+            أكمل طلبك بخطوات بسيطة وآمنة، واختر طريقة الدفع المناسبة لك.
           </p>
           <div class="space-y-2">
             <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
               <i class="ri-check-line text-secondary"></i>
-              <span>مقارنة ذكية للأسعار</span>
+              <span>دفع آمن ومتعدد الخيارات</span>
             </div>
             <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
               <i class="ri-check-line text-secondary"></i>
-              <span>تقييمات الموردين</span>
+              <span>تأكيد فوري للطلب</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="flex flex-col items-center text-center group">
+      <div class="flex flex-col items-center text-center group" x-show="isVisible" x-transition.delay.600ms>
         <div class="relative mb-8">
-          <div class="w-24 h-24 aspect-square bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
+          <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-all duration-300 relative z-10">
             ٣
           </div>
-          <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:-translate-y-2 w-full">
-          <div class="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
             <i class="ri-truck-line text-primary text-3xl"></i>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">استلم طلبك</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">استلم مشترياتك</h3>
           <p class="text-gray-600 leading-relaxed mb-6">
-            اختر أفضل عرض وأكد الطلب، سيقوم المورد بالتوصيل في الموعد المحدد
+            استلم مشترياتك في الوقت والمكان المناسبين لك، مع ضمان الجودة والسرعة.
           </p>
           <div class="space-y-2">
             <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
               <i class="ri-check-line text-primary"></i>
-              <span>تتبع الطلب مباشرة</span>
+              <span>منتجات عديدة</span>
             </div>
             <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
               <i class="ri-check-line text-primary"></i>
-              <span>ضمان الجودة والسرعة</span>
+              <span>ضمان جودة المنتجات</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="mt-16 text-center">
-      <div class="bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-3xl p-8 border border-primary/10">
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">انضم إلى شبكتنا</h3>
+    <div class="mt-16 text-center" x-show="isVisible" x-transition.delay.800ms>
+      <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">انضم إلينا الآن</h3>
         <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
-          خلّك شريكنا في عالم الجملة في منصّة رقمية تسهّل عليك كل شي وتخليك دايم قدّام
+          كن جزءاً من منصتنا الرقمية التي تسهل عليك كل شيء وتجعلك دائماً في المقدمة.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <div class="bg-white rounded-full px-6 py-3 shadow-lg border border-primary/20">
+          <div class="bg-primary/5 rounded-full px-6 py-3 border border-primary/20">
             <span class="text-sm font-bold text-primary">✓ أسعار تنافسية</span>
           </div>
-          <div class="bg-white rounded-full px-6 py-3 shadow-lg border border-secondary/20">
-            <span class="text-sm font-bold text-secondary">✓ توصيل سريع</span>
+          <div class="bg-secondary/5 rounded-full px-6 py-3 border border-secondary/20">
+            <span class="text-sm font-bold text-secondary">✓ منتجات متنوعة</span>
           </div>
-          <div class="bg-white rounded-full px-6 py-3 shadow-lg border border-primary/20">
+          <div class="bg-primary/5 rounded-full px-6 py-3 border border-primary/20">
             <span class="text-sm font-bold text-primary">✓ دعم 24/7</span>
           </div>
         </div>
         <button
           onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
-          class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3 group mt-8"
+          class="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary/90 hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3 group mt-8"
         >
           <i class="ri-user-add-line text-xl"></i>
           <span>سجل اهتمامك الآن</span>
@@ -150,4 +137,4 @@
       </div>
     </div>
   </div>
-</section> 
+</section>

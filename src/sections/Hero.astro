@@ -1,68 +1,144 @@
 ---
 // src/sections/Hero.astro
+// Devices.css loaded via Layout.astro
 ---
-<section id="home" class="hero-section py-12 sm:py-16 md:py-20 lg:py-32 relative overflow-hidden">
-  <!-- Background effects -->
-  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
-  <div class="absolute top-10 left-5 sm:top-20 sm:left-10 w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
-  <div class="absolute bottom-10 right-5 sm:bottom-20 sm:right-10 w-24 h-24 sm:w-32 sm:h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+
+<style>
+  /* Responsive iPhone frame optimizations */
+  .device-responsive {
+    transition: transform 0.3s ease-in-out;
+  }
   
-  <div class="container mx-auto px-3 sm:px-4 relative z-10">
-    <div class="flex flex-col-reverse lg:flex-row items-center gap-6 lg:gap-8">
-      <div class="w-full lg:w-1/2 text-center lg:text-right mb-6 lg:mb-0">
-        <!-- Achievement badges - responsive -->
-        <div class="flex flex-wrap justify-center lg:justify-start items-center gap-2 sm:gap-4 mb-4 sm:mb-6 animate-fade-in-up">
-          <span class="bg-white text-black px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium flex items-center gap-1 border border-primary">
-            <i class="ri-check-line text-primary text-sm"></i>
-            <span>متاجر نشطة</span>
-          </span>
-          <span class="bg-primary text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium flex items-center gap-1">
-            <i class="ri-star-line text-sm"></i>
-            <span>تقييم عالي</span>
-          </span>
+  /* Landscape orientation adjustments */
+  @media screen and (orientation: landscape) and (max-height: 600px) {
+    .device-responsive {
+      transform: scale(0.3) !important;
+      max-height: 50vh;
+    }
+  }
+  
+  /* Portrait orientation on small screens */
+  @media screen and (orientation: portrait) and (max-width: 640px) {
+    .device-responsive {
+      max-height: 60vh;
+    }
+  }
+  
+  /* Ultra-wide screens */
+  @media screen and (min-width: 1920px) {
+    .device-responsive {
+      transform: scale(0.8);
+    }
+  }
+  
+  /* Very small screens */
+  @media screen and (max-width: 375px) {
+    .device-responsive {
+      transform: scale(0.35) !important;
+    }
+  }
+</style>
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden overflow-x-hidden bg-white pt-16 sm:pt-20" x-data="{
+  isVisible: false,
+  stats: {
+    stores: { current: 0, target: parseInt($refs.storesCount?.dataset?.num || 0), suffix: '+' },
+    suppliers: { current: 0, target: parseInt($refs.suppliersCount?.dataset?.num || 0), suffix: '+' },
+    orders: { current: 0, target: parseInt($refs.ordersCount?.dataset?.num || 0), suffix: '+' }
+  },
+  animateStats() {
+    Object.keys(this.stats).forEach(key => {
+      const stat = this.stats[key];
+      const increment = stat.target / 50;
+      const timer = setInterval(() => {
+        if (stat.current < stat.target) {
+          stat.current = Math.min(stat.current + increment, stat.target);
+        } else {
+          clearInterval(timer);
+        }
+      }, 30);
+    });
+  }
+}" x-init="
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        isVisible = true;
+        setTimeout(() => animateStats(), 500);
+      }
+    });
+  });
+  observer.observe($el);
+">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, oklch(var(--color-primary)) 1px, transparent 0); background-size: 20px 20px;"></div>
+  </div>
+  
+  <div class="container mx-auto px-4 sm:px-6 relative z-10 max-w-full">
+    <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center max-w-full">
+      <!-- Content -->
+      <div class="text-center md:text-right py-8 sm:py-0" x-show="isVisible" x-transition:enter="transition ease-out duration-1000" x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-1 translate-y-0">
+        <!-- Logo -->
+        <img src="/logo.svg" alt="WFR-LI Logo" class="mx-auto md:mx-0 mb-8 h-24">
+        <!-- Achievement Badges -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 mb-6 sm:mb-8 w-full">
+          <div class="bg-white border border-gray-200 rounded-full px-3 sm:px-4 py-2 shadow-sm">
+            <div class="flex items-center gap-2">
+              <i class="ri-shield-check-line text-sm" style="color: oklch(var(--color-primary));"></i>
+              <span class="text-xs sm:text-sm font-medium text-gray-700">منصة موثوقة</span>
+            </div>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-full px-3 sm:px-4 py-2 shadow-sm">
+            <div class="flex items-center gap-2">
+              <i class="ri-customer-service-2-line text-sm" style="color: oklch(var(--color-secondary));"></i>
+              <span class="text-xs sm:text-sm font-medium text-gray-700">دعم 24/7</span>
+            </div>
+          </div>
         </div>
         
-        <!-- Main heading - responsive text -->
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight animate-fade-in-up delay-200">
-          <span class="block mb-2">وفر على مشترياتك الغذائية</span>
-          <span class="gradient-text-arabic block">
-            <span>سريع، سهل، موثوق!</span>
-          </span>
+        <!-- Main Heading -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+          <span class="block mb-1 sm:mb-2">كل احتياجاتك في مكان واحد</span>
+          <span class="block" style="color: oklch(var(--color-primary));">بأسعار الجملة</span>
         </h1>
         
         <!-- Description - responsive text -->
         <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed animate-fade-in-up delay-300">
           منصة تربط أصحاب المتاجر والمطاعم بموردي الأغذية المحليين، كما تتيح للمشترين الأفراد الوصول إلى منتجاتهم بسهولة وفعالية.        </p>
         
-        <!-- Buttons - responsive layout -->
-        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-up delay-400 hero-buttons">
-          <button
-            onclick="document.getElementById('interest-form').scrollIntoView({behavior: 'smooth'})"
-            class="bg-gradient-to-r from-primary to-secondary text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group text-sm sm:text-base"
-          >
-            <span>سجل اهتمامك الآن</span>
-            <i class="ri-arrow-left-line group-hover:-translate-x-1 transition-transform"></i>
-          </button>
-          <button
-            onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
-            class="border-2 border-primary text-primary bg-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group text-sm sm:text-base"
-          >
-            <span>تعرف علينا</span>
-            <i class="ri-play-line group-hover:scale-110 transition-transform"></i>
-          </button>
+        <!-- Stats -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-8">
+          <div class="text-center">
+            <div x-ref="storesCount" data-num="0" class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.stores.current) + stats.stores.suffix">0+</div>
+            <div class="text-xs sm:text-sm text-gray-600">عميل راضٍ</div>
+          </div>
+          <div class="text-center">
+            <div x-ref="suppliersCount" data-num="0" class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.suppliers.current) + stats.suppliers.suffix">0+</div>
+            <div class="text-xs sm:text-sm text-gray-600">مورد معتمد</div>
+          </div>
+          <div class="text-center col-span-2 sm:col-span-1">
+            <div x-ref="ordersCount" data-num="0" class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.orders.current) + stats.orders.suffix">0+</div>
+            <div class="text-xs sm:text-sm text-gray-600">طلب مكتمل</div>
+          </div>
         </div>
       </div>
       
      <!-- Hero image - Landing Page Wireframe Template -->
 <div class="w-full lg:w-1/2 flex justify-center relative">
   <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-2xl transform rotate-6"></div>
-  <div class="relative w-64 sm:w-72 md:w-80 lg:w-96">
-    <img
-      src="/wfr-li-landing/home.png"
-      alt="Landing Page Wireframe Template"
-      class="rounded-2xl shadow-2xl w-full h-auto object-cover relative z-10 animate-slide-up-from-bottom"
-    />
-  </div>
+
+
+ <div class="relative w-64 sm:w-72 md:w-80 lg:w-96 -translate-x-20">
+  <img
+    src="/home.png"
+    alt="Landing Page Wireframe Template"
+    class="rounded-2xl shadow-2xl w-full h-auto object-cover relative z-10 animate-slide-up-from-bottom transform scale-90"
+  />
+</div>
+
+
+
+
 
   <!-- Floating badge -->
   <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-white rounded-full p-2 sm:p-3 shadow-lg z-20">

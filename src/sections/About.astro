@@ -1,33 +1,27 @@
 ---
-// src/sections/About.astro
+// Modern About Section with Pines-UI design and Alpine.js
 ---
-<section id="about" class="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
-  <!-- Background decorative elements -->
-  <div class="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-10 right-20 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
-  <div class="absolute top-1/2 left-1/4 w-2 h-16 bg-gradient-to-b from-primary to-secondary rounded-full opacity-20"></div>
-  
+<section id="about" class="py-20 bg-white relative overflow-hidden" x-data="{ isVisible: false }" x-intersect="isVisible = true">
   <div class="container mx-auto px-4 relative z-10">
     <!-- Section header -->
-    <div class="text-center mb-20 scroll-reveal">
+    <div class="text-center mb-20" x-show="isVisible" x-transition.duration.800ms>
       <div class="flex flex-col items-center mb-8">
-        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full p-6 mb-6 relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-20"></div>
-          <i class="ri-team-line text-5xl text-primary relative z-10"></i>
+        <div class="bg-primary/10 rounded-full p-6 mb-6 relative">
+          <i class="ri-team-line text-5xl text-primary"></i>
         </div>
         
         <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
-          <span class="gradient-text-arabic">قصتنا</span>
+          قصتنا
         </h2>
         
         <div class="flex items-center gap-2 mb-6">
-          <div class="w-16 h-1 bg-gradient-to-r from-transparent via-primary to-secondary rounded-full"></div>
-          <div class="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-          <div class="w-16 h-1 bg-gradient-to-r from-secondary via-primary to-transparent rounded-full"></div>
+          <div class="w-16 h-1 bg-primary rounded-full"></div>
+          <div class="w-3 h-3 bg-primary rounded-full"></div>
+          <div class="w-16 h-1 bg-secondary rounded-full"></div>
         </div>
         
         <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-          نحن نعيد تعريف مستقبل تجارة الجملة الغذائية في المملكة العربية السعودية
+          نحن نعيد تعريف مستقبل التسوق الغذائي في المملكة العربية السعودية، سواء للأفراد أو الشركات.
         </p>
       </div>
     </div>
@@ -35,12 +29,12 @@
     <!-- Main content -->
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
       <!-- Text content -->
-      <div class="lg:w-1/2 order-2 lg:order-1 scroll-reveal">
+      <div class="lg:w-1/2 order-2 lg:order-1" x-show="isVisible" x-transition.delay.200ms>
         <div class="space-y-8">
           <!-- Mission statement -->
-          <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1" x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false">
             <div class="flex items-start gap-4 mb-6">
-              <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0" :class="{ 'scale-110': hovered }" class="transition-transform duration-300">
                 <i class="ri-focus-3-line text-white text-xl"></i>
               </div>
               <div>
@@ -53,9 +47,9 @@
           </div>
 
           <!-- Our story -->
-          <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+          <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1" x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false">
             <div class="flex items-start gap-4 mb-6">
-              <div class="w-12 h-12 bg-gradient-to-br from-secondary to-primary rounded-xl flex items-center justify-center flex-shrink-0">
+              <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0" :class="{ 'scale-110': hovered }" class="transition-transform duration-300">
                 <i class="ri-flag-2-line text-white text-xl"></i>
               </div>
               <div>
@@ -72,37 +66,33 @@
 
           <!-- Key features highlights -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 border border-primary/20">
+            <div class="bg-primary/5 rounded-2xl p-6 border border-primary/20 hover:bg-primary/10 transition-colors duration-300">
               <div class="flex items-center gap-3 mb-3">
                 <i class="ri-verified-badge-line text-primary text-2xl"></i>
-                <span class="font-bold text-gray-900">موثوقية عالية</span>
+                <span class="font-bold text-gray-900">الموثوقية</span>
               </div>
-              <p class="text-gray-700 text-sm">تجار جملة معتمدون ومراجعون</p>
+              <p class="text-gray-700 text-sm">تجار جملة موثوقون</p>
             </div>
             
-            <div class="bg-gradient-to-br from-secondary/5 to-secondary/10 rounded-2xl p-6 border border-secondary/20">
+            <div class="bg-secondary/5 rounded-2xl p-6 border border-secondary/20 hover:bg-secondary/10 transition-colors duration-300">
               <div class="flex items-center gap-3 mb-3">
                 <i class="ri-timer-flash-line text-secondary text-2xl"></i>
                 <span class="font-bold text-gray-900">توفير الوقت</span>
               </div>
-              <p class="text-gray-700 text-sm">طلبات سريعة وفعالة</p>
+              <p class="text-gray-700 text-sm">منتجات عديدة تحت سقف واحد</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Image content -->
-      <div class="lg:w-1/2 order-1 lg:order-2 scroll-reveal">
+      <div class="lg:w-1/2 order-1 lg:order-2" x-show="isVisible" x-transition.delay.400ms>
         <div class="relative group">
-          <!-- Decorative background -->
-          <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500 opacity-20"></div>
-          <div class="absolute inset-0 bg-gradient-to-br from-secondary to-primary rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500 opacity-10"></div>
-          
           <!-- Main image container -->
           <div class="relative bg-white rounded-3xl p-4 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
             <div class="rounded-2xl overflow-hidden">
               <img
-                src="./image-2.png"
+                src="image-2.png"
                 alt="عن وفر لي - منصة ربط المتاجر بتجار الجملة"
                 class="w-full h-auto max-h-[85vh] object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
@@ -112,7 +102,7 @@
             <!-- Floating stats cards -->
             <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 transform group-hover:-translate-y-2 transition-all duration-500">
               <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
                   <i class="ri-store-2-line text-white text-xl"></i>
                 </div>
                 <div>
@@ -124,7 +114,7 @@
             
             <div class="absolute -top-6 -right-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 transform group-hover:-translate-y-2 transition-all duration-500">
               <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-gradient-to-br from-secondary to-primary rounded-xl flex items-center justify-center">
+                <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center">
                   <i class="ri-truck-line text-white text-xl"></i>
                 </div>
                 <div>
@@ -138,4 +128,4 @@
       </div>
     </div>
   </div>
-</section> 
+</section>

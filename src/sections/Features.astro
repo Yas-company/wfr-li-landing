@@ -1,14 +1,12 @@
 ---
-// src/sections/Features.astro
+// Modern Features Section with Pines-UI design and Alpine.js
 ---
-<section id="features" class="py-12 sm:py-16 md:py-20 relative">
-  <div class="absolute inset-0 bg-gradient-to-b from-white to-white"></div>
-  
+<section id="features" class="py-12 sm:py-16 md:py-20 bg-gray-50" x-data="{ isVisible: false }" x-intersect="isVisible = true">
   <div class="container mx-auto px-3 sm:px-4 relative z-10">
-    <div class="text-center mb-12 sm:mb-16">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4 scroll-reveal">
+    <div class="text-center mb-12 sm:mb-16" x-show="isVisible" x-transition.duration.800ms>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         <span>المميزات</span>
-        <span class="gradient-text-arabic">الرئيسية</span>
+        <span class="text-primary">الرئيسية</span>
       </h2>
       <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 scroll-reveal"></div>
       <p class="text-black mt-4 sm:mt-6 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg scroll-reveal">
@@ -16,65 +14,61 @@
     </div>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-      <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
+      <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100" x-show="isVisible" x-transition.delay.200ms x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-transform duration-300" :class="{ 'rotate-12 scale-110': hovered }">
           <i class="ri-shopping-cart-line text-white text-lg sm:text-xl lg:text-2xl"></i>
         </div>
-        <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">عملية طلب سهلة</h3>
-        <p class="text-black leading-relaxed text-sm sm:text-base">
-          واجهة سهلة الاستخدام تمكنك من طلب المنتجات بضغطة زر واحدة، مع
-          إمكانية تتبع طلباتك في الوقت الفعلي.
+        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">تجربة تسوق سهلة</h3>
+        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+          واجهة سهلة الاستخدام تمكنك من طلب المنتجات بضغطة زر، مع تتبع فوري لطلباتك.
         </p>
-        <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
+        <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary/80 transition-colors group">
           <span class="text-sm sm:text-base">اعرف المزيد</span>
           <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
         </div>
       </div>
       
-      <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
-              <i class="ri-price-tag-3-line text-white text-lg sm:text-xl lg:text-2xl"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">أسعار تنافسية</h3>
-            <p class="text-black leading-relaxed text-sm sm:text-base">
-                قارن بين أسعار مختلف الموردين واحصل على أفضل العروض والخصومات
-                المتاحة لتوفير المال.
-              </p>
-              <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-              <span class="text-sm sm:text-base">اعرف المزيد</span>
-                <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
-              </div>
-          </div>
-          
-          <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
-              <i class="ri-store-2-line text-white text-lg sm:text-xl lg:text-2xl"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">تنوع الموردين</h3>
-            <p class="text-black leading-relaxed text-sm sm:text-base">
-                اختر من بين مجموعة واسعة من الموردين المحليين الموثوقين، مع
-                تقييمات وتعليقات من العملاء السابقين.
-              </p>
-              <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-              <span class="text-sm sm:text-base">اعرف المزيد</span>
-                <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
-              </div>
-          </div>
-          
-          <div class="feature-card bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 scroll-reveal">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transform hover:rotate-12 transition-transform duration-300">
-              <i class="ri-customer-service-2-line text-white text-lg sm:text-xl lg:text-2xl"></i>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">دعم عملاء سريع</h3>
-            <p class="text-black leading-relaxed text-sm sm:text-base">
-                فريق دعم متخصص جاهز للمساعدة في أي وقت، مع خيارات تواصل متعددة
-                لضمان تجربة سلسة.
-              </p>
-              <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary-dark transition-colors group">
-              <span class="text-sm sm:text-base">اعرف المزيد</span>
-                <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
-              </div>
-          </div>
+      <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100" x-show="isVisible" x-transition.delay.400ms x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-transform duration-300" :class="{ 'rotate-12 scale-110': hovered }">
+          <i class="ri-price-tag-3-line text-white text-lg sm:text-xl lg:text-2xl"></i>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">أسعار جملة للجميع</h3>
+        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+          استفد من أسعار الجملة على جميع المنتجات، سواء كنت تشتري لنفسك أو لعملك.
+        </p>
+        <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary/80 transition-colors group">
+          <span class="text-sm sm:text-base">اعرف المزيد</span>
+          <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+        </div>
+      </div>
+      
+      <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100" x-show="isVisible" x-transition.delay.600ms x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-transform duration-300" :class="{ 'rotate-12 scale-110': hovered }">
+          <i class="ri-store-2-line text-white text-lg sm:text-xl lg:text-2xl"></i>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">تنوع المنتجات</h3>
+        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+          اختر من بين آلاف المنتجات من مختلف الموردين الموثوقين، مع تقييمات من عملاء سابقين.
+        </p>
+        <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary/80 transition-colors group">
+          <span class="text-sm sm:text-base">اعرف المزيد</span>
+          <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+        </div>
+      </div>
+      
+      <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100" x-show="isVisible" x-transition.delay.800ms x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-transform duration-300" :class="{ 'rotate-12 scale-110': hovered }">
+          <i class="ri-customer-service-2-line text-white text-lg sm:text-xl lg:text-2xl"></i>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">دعم فني متكامل</h3>
+        <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+          فريق دعم متخصص جاهز لمساعدتك في أي وقت، لضمان تجربة تسوق سلسة ومريحة.
+        </p>
+        <div class="mt-3 sm:mt-4 flex items-center text-primary font-medium cursor-pointer hover:text-primary/80 transition-colors group">
+          <span class="text-sm sm:text-base">اعرف المزيد</span>
+          <i class="ri-arrow-left-line mr-2 transition-transform group-hover:-translate-x-1"></i>
+        </div>
+      </div>
     </div>
   </div>
-</section> 
+</section>
