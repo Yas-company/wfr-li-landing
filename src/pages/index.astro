@@ -12,65 +12,6 @@ import Faq from '~/sections/Faq.astro';
   title="وفر لي - منصتك لتوفير كل احتياجاتك"
   description="منصة رائدة تربط المستهلكين وتجار التجزئة بالموردين المحليين. وفر الوقت والمال على مشترياتك مع أسعار تنافسية والتوصيل مباشرة من المورد."
 >
-  <!-- Navigation Header -->
-  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <img src="logo.svg" alt="وفر لي" class="h-10 w-auto" />
-          </div>
-          <div class="mr-3">
-            <h1 class="text-xl font-bold text-gray-900">وفر لي</h1>
-          </div>
-        </div>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:block">
-          <div class="mr-10 flex items-baseline space-x-reverse space-x-4">
-            <a href="#home" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">الرئيسية</a>
-        <a href="#about" class="text-gray-600 px-3 py-2 rounded-md text-sm font-medium">من نحن</a>
-        <a href="#features" class="text-gray-600 px-3 py-2 rounded-md text-sm font-medium">المميزات</a>
-        <a href="#how-it-works" class="text-gray-600 px-3 py-2 rounded-md text-sm font-medium">كيف يعمل</a>
-        <a href="#contact" class="text-gray-600 px-3 py-2 rounded-md text-sm font-medium">تواصل معنا</a>
-          </div>
-        </div>
-
-        <!-- CTA Button -->
-        <div class="hidden md:block">
-          <button class="bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg font-medium">
-            ابدأ الآن
-          </button>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <!-- Mobile menu button -->
-        <details class="md:hidden">
-          <summary class="text-gray-600 focus:outline-none cursor-pointer list-none" aria-label="فتح قائمة التنقل">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </summary>
-          
-          <!-- Mobile Navigation Menu -->
-          <div class="absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg z-50">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a href="#home" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">الرئيسية</a>
-              <a href="#about" class="text-gray-600 block px-3 py-2 rounded-md text-base font-medium">من نحن</a>
-              <a href="#features" class="text-gray-600 block px-3 py-2 rounded-md text-base font-medium">المميزات</a>
-              <a href="#how-it-works" class="text-gray-600 block px-3 py-2 rounded-md text-base font-medium">كيف يعمل</a>
-              <a href="#contact" class="text-gray-600 block px-3 py-2 rounded-md text-base font-medium">تواصل معنا</a>
-              <button class="w-full mt-4 bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg font-medium">ابدأ الآن</button>
-            </div>
-          </div>
-        </details>
-      </div>
-    </div>
-      </div>
-    </div>
-  </nav>
-
   <main>
     <!-- Hero Section -->
     <Hero />
@@ -82,52 +23,89 @@ import Faq from '~/sections/Faq.astro';
            visible: false,
            stats: {
              suppliers: { current: 0, target: 0, suffix: '+' },
-             satisfaction: { current: 0, target: 0, suffix: '%' }
+             satisfaction: { current: 0, target: 0, suffix: '%' },
+             support: { current: 0, target: 24, suffix: '/7' }
            },
+           
            initStats() {
-             // Read values from data-num attributes
-             this.stats.suppliers.target = parseInt(this.$refs.suppliersCount?.dataset?.num || 100);
-             this.stats.satisfaction.target = parseInt(this.$refs.satisfactionCount?.dataset?.num || 98);
+             // Read values from data-num attributes and update targets
+             const elements = this.$el.querySelectorAll('[data-num]');
+             elements.forEach(el => {
+               const key = el.dataset.key;
+               const num = parseInt(el.dataset.num);
+               const suffix = el.dataset.suffix || '';
+               if (key && this.stats[key]) {
+                 this.stats[key].target = num;
+                 this.stats[key].suffix = suffix;
+               }
+             });
            },
+           
+           animateCounter(statKey) {
+             const stat = this.stats[statKey];
+             const duration = 2000;
+             const startTime = performance.now();
+             
+             const animate = (currentTime) => {
+               const elapsed = currentTime - startTime;
+               const progress = Math.min(elapsed / duration, 1);
+               
+               // Easing function for smooth animation
+               const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+               stat.current = Math.floor(stat.target * easeOutCubic);
+               
+               if (progress < 1) {
+                 requestAnimationFrame(animate);
+               } else {
+                 stat.current = stat.target;
+               }
+             };
+             
+             requestAnimationFrame(animate);
+           },
+           
            animateStats() {
              this.initStats();
-             Object.keys(this.stats).forEach(key => {
-               const stat = this.stats[key];
-               const duration = 1500;
-               const startTime = performance.now();
-               const animate = (currentTime) => {
-                 const elapsed = currentTime - startTime;
-                 const progress = Math.min(elapsed / duration, 1);
-                 const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                 stat.current = Math.floor(stat.target * easeOutQuart);
-                 if (progress < 1) {
-                   requestAnimationFrame(animate);
-                 } else {
-                   stat.current = stat.target;
-                 }
-               };
-               requestAnimationFrame(animate);
+             // Stagger animations for better visual effect
+             Object.keys(this.stats).forEach((key, index) => {
+               setTimeout(() => this.animateCounter(key), index * 200);
              });
            }
-         }" x-intersect="visible = true; setTimeout(() => animateStats(), 400)">
-          <div class="text-center" x-show="visible">
-            <div class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-2" x-text="stats.suppliers.current + stats.suppliers.suffix">
-            100+
+         }" x-intersect="visible = true; setTimeout(() => animateStats(), 300)">
+          
+          <div class="text-center" x-show="visible" x-transition.opacity.duration.800ms>
+            <div class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-2" 
+                 data-num="0" 
+                 data-suffix="+" 
+                 data-key="suppliers"
+                 x-text="stats.suppliers.current + stats.suppliers.suffix">
+              0+
             </div>
             <p class="text-gray-700">مورد معتمد</p>
           </div>
-          <div class="text-center" x-show="visible">
-            <div class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-2" x-text="stats.satisfaction.current + stats.satisfaction.suffix">
-            98%
+          
+          <div class="text-center" x-show="visible" x-transition.opacity.duration.800ms>
+            <div class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-2" 
+                 data-num="0" 
+                 data-suffix="%" 
+                 data-key="satisfaction"
+                 x-text="stats.satisfaction.current + stats.satisfaction.suffix">
+              0%
             </div>
             <p class="text-gray-700">رضا العملاء</p>
           </div>
-          <div class="text-center col-span-2 md:col-span-1" x-show="visible">
-            <div class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-2">
-            24/7
+          
+          <div class="text-center col-span-2 md:col-span-1" x-show="visible" x-transition.opacity.duration.800ms>
+            <div class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-2" 
+                 data-num="24" 
+                 data-suffix="/7" 
+                 data-key="support"
+                 x-text="stats.support.current + stats.support.suffix">
+              24/7
             </div>
             <p class="text-gray-700">دعم فني</p>
           </div>
+          
         </div>
       </div>
     </section>
@@ -189,28 +167,28 @@ import Faq from '~/sections/Faq.astro';
             
             <div class="space-y-6">
               <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
-                  <i class="ri-phone-line text-white text-xl"></i>
+                <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                  <i class="ri-phone-line text-[var(--color-primary)] text-xl"></i>
                 </div>
                 <div>
                   <h3 class="font-medium text-gray-900">الهاتف</h3>
-                  <p class="text-gray-700" dir="ltr">+966 50 123 4567</p>
+                  <a href="tel:+966506564275" class="text-gray-700 hover:text-[var(--color-primary)] transition-colors" dir="ltr">+966 50 656 4275</a>
                 </div>
               </div>
               
               <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
-                  <i class="ri-mail-line text-white text-xl"></i>
+                <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                  <i class="ri-mail-line text-[var(--color-primary)] text-xl"></i>
                 </div>
                 <div>
                   <h3 class="font-medium text-gray-900">البريد الإلكتروني</h3>
-                  <p class="text-gray-700">info@wfr.li</p>
+                  <a href="mailto:info@wfr.li" class="text-gray-700 hover:text-[var(--color-primary)] transition-colors">info@wfr.li</a>
                 </div>
               </div>
               
               <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-[var(--color-primary)] rounded-lg flex items-center justify-center">
-                  <i class="ri-map-pin-line text-white text-xl"></i>
+                <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center border border-gray-200">
+                  <i class="ri-map-pin-line text-[var(--color-primary)] text-xl"></i>
                 </div>
                 <div>
                   <h3 class="font-medium text-gray-900">العنوان</h3>
@@ -251,64 +229,6 @@ import Faq from '~/sections/Faq.astro';
       </div>
     </section>
   </main>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8">
-        <!-- Company Info -->
-        <div class="md:col-span-2">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-[var(--color-primary)] rounded-lg flex items-center justify-center ml-3">
-              <span class="text-white font-bold text-lg">وفر</span>
-            </div>
-            <h3 class="text-xl font-bold text-white">وفر لي</h3>
-          </div>
-          <p class="!text-white mb-4 max-w-md">
-            منصة رائدة تربط الموردين والمشترين المحليين بطريقة سهلة وفعالة.
-          </p>
-          <div class="flex gap-4">
-            <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
-              <i class="ri-twitter-line text-white"></i>
-            </a>
-            <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
-              <i class="ri-linkedin-line text-white"></i>
-            </a>
-            <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
-              <i class="ri-instagram-line text-white"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Quick Links -->
-        <div>
-          <h4 class="font-bold mb-4 text-white">روابط سريعة</h4>
-          <ul class="space-y-2">
-            <li><a href="#home" class="text-gray-400">الرئيسية</a></li>
-            <li><a href="#about" class="text-gray-400">من نحن</a></li>
-            <li><a href="#features" class="text-gray-400">المميزات</a></li>
-            <li><a href="#contact" class="text-gray-400">تواصل معنا</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact Info -->
-        <div>
-          <h4 class="font-bold mb-4 text-white">معلومات التواصل</h4>
-          <ul class="space-y-2">
-            <li class="text-gray-400" dir="ltr">+966 50 123 4567</li>
-            <li class="text-gray-400">info@wfr.li</li>
-            <li class="text-gray-400">مكة المكرمة، السعودية</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-        <p class="text-gray-400">
-          © 2025 وفر لي. جميع الحقوق محفوظة.
-        </p>
-      </div>
-    </div>
-  </footer>
 
   <!-- Custom Styles -->
   <style>

@@ -100,26 +100,148 @@
             </div>
             
             <!-- Floating stats cards -->
-            <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100">
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100"
+                 x-data="{
+                   isVisible: false,
+                   stats: {
+                     stores: { current: 0, target: 0, suffix: '+' }
+                   },
+                   
+                   initStats() {
+                     const elements = this.$el.querySelectorAll('[data-num]');
+                     elements.forEach(el => {
+                       const key = el.dataset.key;
+                       const num = parseInt(el.dataset.num);
+                       const suffix = el.dataset.suffix || '';
+                       if (key && this.stats[key]) {
+                         this.stats[key].target = num;
+                         this.stats[key].suffix = suffix;
+                       }
+                     });
+                   },
+                   
+                   animateCounter(statKey) {
+                     const stat = this.stats[statKey];
+                     const duration = 2000;
+                     const startTime = performance.now();
+                     
+                     const animate = (currentTime) => {
+                       const elapsed = currentTime - startTime;
+                       const progress = Math.min(elapsed / duration, 1);
+                       
+                       const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                       stat.current = Math.floor(stat.target * easeOutCubic);
+                       
+                       if (progress < 1) {
+                         requestAnimationFrame(animate);
+                       } else {
+                         stat.current = stat.target;
+                       }
+                     };
+                     
+                     requestAnimationFrame(animate);
+                   },
+                   
+                   animateStats() {
+                     this.initStats();
+                     this.animateCounter('stores');
+                   }
+                 }"
+                 x-init="
+                   const observer = new IntersectionObserver((entries) => {
+                     entries.forEach(entry => {
+                       if (entry.isIntersecting && !isVisible) {
+                         isVisible = true;
+                         setTimeout(() => animateStats(), 300);
+                       }
+                     });
+                   });
+                   observer.observe($el);
+                 ">
               <div class="flex items-center gap-3">
                 <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
                   <i class="ri-store-2-line text-white text-xl"></i>
                 </div>
                 <div>
-                  <p class="text-2xl font-bold text-gray-900">0+</p>
-                  <p class="text-sm text-gray-600">متجر ومطعم</p>
+                  <p class="text-2xl font-bold text-gray-900"
+                     data-num="0"
+                     data-suffix="+"
+                     data-key="stores"
+                     x-text="Math.floor(stats.stores.current) + stats.stores.suffix">0+</p>
+                  <p class="text-sm text-gray-600">مستفيد</p>
                 </div>
               </div>
             </div>
             
-            <div class="absolute -top-6 -right-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100">
+            <div class="absolute -top-6 -right-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100"
+                 x-data="{
+                   isVisible: false,
+                   stats: {
+                     wholesalers: { current: 0, target: 0, suffix: '+' }
+                   },
+                   
+                   initStats() {
+                     const elements = this.$el.querySelectorAll('[data-num]');
+                     elements.forEach(el => {
+                       const key = el.dataset.key;
+                       const num = parseInt(el.dataset.num);
+                       const suffix = el.dataset.suffix || '';
+                       if (key && this.stats[key]) {
+                         this.stats[key].target = num;
+                         this.stats[key].suffix = suffix;
+                       }
+                     });
+                   },
+                   
+                   animateCounter(statKey) {
+                     const stat = this.stats[statKey];
+                     const duration = 2000;
+                     const startTime = performance.now();
+                     
+                     const animate = (currentTime) => {
+                       const elapsed = currentTime - startTime;
+                       const progress = Math.min(elapsed / duration, 1);
+                       
+                       const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                       stat.current = Math.floor(stat.target * easeOutCubic);
+                       
+                       if (progress < 1) {
+                         requestAnimationFrame(animate);
+                       } else {
+                         stat.current = stat.target;
+                       }
+                     };
+                     
+                     requestAnimationFrame(animate);
+                   },
+                   
+                   animateStats() {
+                     this.initStats();
+                     this.animateCounter('wholesalers');
+                   }
+                 }"
+                 x-init="
+                   const observer = new IntersectionObserver((entries) => {
+                     entries.forEach(entry => {
+                       if (entry.isIntersecting && !isVisible) {
+                         isVisible = true;
+                         setTimeout(() => animateStats(), 500);
+                       }
+                     });
+                   });
+                   observer.observe($el);
+                 ">
               <div class="flex items-center gap-3">
                 <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center">
                   <i class="ri-truck-line text-white text-xl"></i>
                 </div>
                 <div>
-                  <p class="text-2xl font-bold text-gray-900">0+</p>
-                  <p class="text-sm text-gray-600">تاجر جملة معتمد</p>
+                  <p class="text-2xl font-bold text-gray-900"
+                     data-num="0"
+                     data-suffix="+"
+                     data-key="wholesalers"
+                     x-text="Math.floor(stats.wholesalers.current) + stats.wholesalers.suffix">0+</p>
+                  <p class="text-sm text-gray-600">مورد</p>
                 </div>
               </div>
             </div>

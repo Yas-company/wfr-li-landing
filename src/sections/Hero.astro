@@ -67,24 +67,56 @@
 }
 </style>
 
-<section id="home" class="pt-12 relative min-h-screen bg-gray-50 overflow-hidden" x-data="{
+<section id="home" class="relative min-h-screen bg-gray-50 overflow-hidden" x-data="{
   isVisible: false,
   stats: {
-    stores: { current: 0, target: 500, suffix: '+' },
-    suppliers: { current: 0, target: 100, suffix: '+' },
-    orders: { current: 0, target: 1000, suffix: '+' }
+    stores: { current: 0, target: 0, suffix: '+' },
+    suppliers: { current: 0, target: 0, suffix: '+' },
+    orders: { current: 0, target: 0, suffix: '+' }
   },
+  
+  initStats() {
+    // Read values from data-num attributes and update targets
+    const elements = this.$el.querySelectorAll('[data-num]');
+    elements.forEach(el => {
+      const key = el.dataset.key;
+      const num = parseInt(el.dataset.num);
+      const suffix = el.dataset.suffix || '';
+      if (key && this.stats[key]) {
+        this.stats[key].target = num;
+        this.stats[key].suffix = suffix;
+      }
+    });
+  },
+  
+  animateCounter(statKey) {
+    const stat = this.stats[statKey];
+    const duration = 2000;
+    const startTime = performance.now();
+    
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      stat.current = Math.floor(stat.target * easeOutCubic);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        stat.current = stat.target;
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  },
+  
   animateStats() {
-    const increment = 5;
-    Object.keys(this.stats).forEach(key => {
-      const stat = this.stats[key];
-      const timer = setInterval(() => {
-        if (stat.current < stat.target) {
-          stat.current = Math.min(stat.current + increment, stat.target);
-        } else {
-          clearInterval(timer);
-        }
-      }, 30);
+    this.initStats();
+    // Stagger animations for better visual effect
+    Object.keys(this.stats).forEach((key, index) => {
+      setTimeout(() => this.animateCounter(key), index * 150);
     });
   }
 }" x-init="
@@ -147,8 +179,8 @@
         
         <!-- CTA Button -->
         <div class="mb-12">
-          <a href="#contact" 
-            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 text-lg group"
+          <a href="/#contact" 
+            class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg hover:underline underline-offset-4 transition-all duration-300 text-lg group"
           >
             ابدأ الآن
             <i class="ri-arrow-left-line group-hover:translate-x-1 transition-transform"></i>
@@ -158,15 +190,27 @@
         <!-- Stats -->
         <div class="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
           <div class="text-center">
-            <div class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.stores.current) + stats.stores.suffix">500+</div>
+            <div class="text-2xl lg:text-3xl font-bold text-gray-900" 
+                 data-num="0" 
+                 data-suffix="+" 
+                 data-key="stores"
+                 x-text="Math.floor(stats.stores.current) + stats.stores.suffix">0+</div>
             <div class="text-sm text-gray-600 mt-1">عميل راضٍ</div>
           </div>
           <div class="text-center">
-            <div class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.suppliers.current) + stats.suppliers.suffix">100+</div>
+            <div class="text-2xl lg:text-3xl font-bold text-gray-900" 
+                 data-num="0" 
+                 data-suffix="+" 
+                 data-key="suppliers"
+                 x-text="Math.floor(stats.suppliers.current) + stats.suppliers.suffix">0+</div>
             <div class="text-sm text-gray-600 mt-1">مورد معتمد</div>
           </div>
           <div class="text-center">
-            <div class="text-2xl lg:text-3xl font-bold text-gray-900" x-text="Math.floor(stats.orders.current) + stats.orders.suffix">1000+</div>
+            <div class="text-2xl lg:text-3xl font-bold text-gray-900" 
+                 data-num="0" 
+                 data-suffix="+" 
+                 data-key="orders"
+                 x-text="Math.floor(stats.orders.current) + stats.orders.suffix">0+</div>
             <div class="text-sm text-gray-600 mt-1">طلب مكتمل</div>
           </div>
         </div>
