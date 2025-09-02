@@ -8,25 +8,9 @@
     "command": "npm run build"
   },
   
-  // Upload configuration
-  "upload": {
-    "format": "modules",
-    "dir": "dist",
-    "main": "./index.js",
-    "rules": [
-      {
-        "type": "ESModule",
-        "globs": ["**/*.js"]
-      },
-      {
-        "type": "Text",
-        "globs": ["**/*.html", "**/*.css"]
-      },
-      {
-        "type": "Data",
-        "globs": ["**/*.woff", "**/*.woff2", "**/*.ttf", "**/*.eot", "**/*.ico", "**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif", "**/*.svg"]
-      }
-    ]
+  // Assets configuration for static site deployment
+  "assets": {
+    "directory": "./dist"
   },
   
   // Environment variables (add as needed)
